@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="listaPagamentoAssociadoPF" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="381945d1-911d-442c-a750-a1441961bd37">
+	<property name="ireport.zoom" value="1.0980750000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="diretorioProjeto" class="java.lang.String"/>
+	<parameter name="idAssociado" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT 	p.data_pagamento as datapagamento,
+	p.is_pago as pago,
+	p.valor_pago as valor,
+	pf.nome as nome
+FROM 	tbopr_associado_pessoa_fisica_movimentacao p,
+	tbcad_associado_pessoa_fisica apf,
+	tbcad_pessoa_fisica pf
+WHERE	p.id_associado = apf.id and
+	apf.id_pessoa = pf.id and
+	p.id_associado = $P{idAssociado}]]>
+	</queryString>
+	<field name="datapagamento" class="java.sql.Timestamp"/>
+	<field name="pago" class="java.lang.Boolean"/>
+	<field name="valor" class="java.lang.Float"/>
+	<field name="nome" class="java.lang.String"/>
+	<variable name="razao_1" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{nome}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="170">
+			<image>
+				<reportElement x="11" y="10" width="113" height="147" uuid="c3b926b9-7dd8-4a5a-ad88-02769f57e4c1"/>
+				<imageExpression><![CDATA[$P{diretorioProjeto} + "\\projetoFull\\src\\main\\webapp\\resources\\imagens\\amacap.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="162" width="555" height="1" uuid="7e94018c-4dc8-4320-9065-220e7e12f26d"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="135" y="60" width="158" height="20" uuid="bec346f9-fe2b-4d9b-b65b-666616351021"/>
+				<text><![CDATA[Endereço: Av. Carneiro Leão, 93]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="80" width="158" height="20" uuid="36382d9d-28d4-4b01-b16b-64cd804796f2"/>
+				<text><![CDATA[Cep: 87014-010]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="100" width="158" height="20" uuid="0be5a61e-7446-47a8-a20a-048fe48ce3c3"/>
+				<text><![CDATA[Telefone: (44) 3218-7110]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="120" width="158" height="20" uuid="4550dbd1-ddf6-42fa-8dfd-2748c638292a"/>
+				<text><![CDATA[Maringá - PR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="10" width="246" height="31" uuid="cfa0ac21-9eb0-4b90-9902-eeb96ca104fe"/>
+				<textElement markup="none">
+					<font fontName="SansSerif" size="20" isBold="true" isItalic="true" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Pagamentos Associado -]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="278" y="10" width="277" height="31" uuid="9dce3d7e-60f8-42d0-ad41-8d511c47c7b5"/>
+				<textElement>
+					<font size="20" isBold="true" isItalic="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="24" width="555" height="1" uuid="22543d42-30e8-4862-941f-91889a78e752"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="252" height="20" uuid="2b309e55-5ae4-4c23-b213-eab65eb422c8"/>
+				<text><![CDATA[Data Pagamento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="0" width="142" height="20" uuid="6cbb97c8-b454-46eb-92ed-8d66d7b408b7"/>
+				<text><![CDATA[valor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="502" y="0" width="52" height="20" uuid="a615666f-6adb-417f-b5e6-2de4cea17e99"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Pago]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="26" width="555" height="1" uuid="dd5ec230-7196-44b7-b2fc-0da258423589"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<textField pattern="EEE, dd MMM yyyy HH:mm">
+				<reportElement x="0" y="0" width="252" height="20" uuid="6d54eb34-2f02-4b77-ad14-c246c0a96203"/>
+				<textFieldExpression><![CDATA[$F{datapagamento}]]></textFieldExpression>
+			</textField>
+			<textField pattern="###0.00;(###0.00)">
+				<reportElement x="252" y="0" width="142" height="20" uuid="8867295c-7ec9-4939-93f3-3858383502f7"/>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="523" y="2" width="10" height="10" uuid="5dbd64a9-107b-4474-b4d3-90c5fbabe91a"/>
+			</rectangle>
+			<textField>
+				<reportElement x="525" y="0" width="11" height="20" uuid="c29ccdc7-e13b-4d2c-99b4-d57edc13fca5"/>
+				<textFieldExpression><![CDATA[($F{pago}.equals(Boolean.TRUE) ? "X" : "")]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="475" y="0" width="80" height="20" uuid="d624899e-8b82-49c9-be4c-0d926ff28b8b"/>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

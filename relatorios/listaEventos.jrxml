@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="listaEventos" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="381945d1-911d-442c-a750-a1441961bd37">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="69"/>
+	<parameter name="diretorioProjeto" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT	e.nome as evento,
+	e.quantidade_vagas as vagas,
+	e.data_inicio as inicio,
+	e.data_fim as fim,
+	pf.nome as instrutor
+FROM	tbcad_evento e,
+	tbcad_instrutor i,
+	tbcad_pessoa_fisica pf
+WHERE	e.id_instrutor = i.id and
+	i.id = pf.id]]>
+	</queryString>
+	<field name="evento" class="java.lang.String"/>
+	<field name="vagas" class="java.lang.Integer"/>
+	<field name="inicio" class="java.sql.Date"/>
+	<field name="fim" class="java.sql.Date"/>
+	<field name="instrutor" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="170">
+			<image>
+				<reportElement x="11" y="10" width="113" height="147" uuid="c3b926b9-7dd8-4a5a-ad88-02769f57e4c1"/>
+				<imageExpression><![CDATA[$P{diretorioProjeto} + "\\projetoFull\\src\\main\\webapp\\resources\\imagens\\amacap.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="162" width="555" height="1" uuid="7e94018c-4dc8-4320-9065-220e7e12f26d"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="135" y="60" width="158" height="20" uuid="bec346f9-fe2b-4d9b-b65b-666616351021"/>
+				<text><![CDATA[Endereço: Av. Carneiro Leão, 93]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="80" width="158" height="20" uuid="36382d9d-28d4-4b01-b16b-64cd804796f2"/>
+				<text><![CDATA[Cep: 87014-010]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="100" width="158" height="20" uuid="0be5a61e-7446-47a8-a20a-048fe48ce3c3"/>
+				<text><![CDATA[Telefone: (44) 3218-7110]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="120" width="158" height="20" uuid="4550dbd1-ddf6-42fa-8dfd-2748c638292a"/>
+				<text><![CDATA[Maringá - PR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="10" width="359" height="31" uuid="cfa0ac21-9eb0-4b90-9902-eeb96ca104fe"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SansSerif" size="20" isBold="true" isItalic="true" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Relatório de Eventos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="20" width="555" height="1" uuid="22543d42-30e8-4862-941f-91889a78e752"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="0" y="0" width="227" height="20" uuid="71728bae-1ea7-413c-8e46-2ea77beaee6e"/>
+				<text><![CDATA[Evento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="227" y="0" width="165" height="20" uuid="0e496c6e-90b3-425e-bd2a-e42af20319c1"/>
+				<text><![CDATA[Instrutor]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="392" y="0" width="43" height="20" uuid="0e032d5a-6b5e-488a-b7fd-8bbb008f7ade"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Vagas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="0" width="59" height="20" uuid="addf0300-8fe6-4656-b715-33a719d98603"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Data Inicio]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="494" y="0" width="61" height="20" uuid="34f59227-ece3-4688-a7d5-cbdefd49c8c9"/>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[Data Fim]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="21" width="555" height="1" uuid="dd5ec230-7196-44b7-b2fc-0da258423589"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="0" y="0" width="227" height="20" uuid="62129d43-2961-4dda-84f2-0e700d13f336"/>
+				<textFieldExpression><![CDATA[$F{evento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="227" y="0" width="165" height="20" uuid="d60e8358-0caf-412f-bee8-0ec97ebddf7d"/>
+				<textFieldExpression><![CDATA[$F{instrutor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="392" y="0" width="43" height="20" uuid="18af3eab-f241-45df-8b04-54c93d4c2a69"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{vagas}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="435" y="0" width="59" height="20" uuid="59322a85-152b-49a5-8bec-c17d09ab9d3c"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{inicio}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement x="494" y="0" width="61" height="20" uuid="54f4e203-100e-46aa-98e5-43a52401912e"/>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{fim}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="475" y="0" width="80" height="20" uuid="d624899e-8b82-49c9-be4c-0d926ff28b8b"/>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

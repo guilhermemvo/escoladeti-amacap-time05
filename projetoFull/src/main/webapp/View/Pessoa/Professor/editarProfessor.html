@@ -1,0 +1,14 @@
+<div ng-include src="'./View/Pessoa/PessoaFisica.html'"></div>
+<div class="row">
+    <div class="form-group col-sm-12" >
+        <label>Escola: <span style="color:red">*</span></label>
+        <select class="form-control" name="escola"
+                ng-disabled="visualizacaoAtiva"
+                ng-model="pessoa.escola"
+                ng-options="value.razao for value in listaescola track by value.id"
+                required
+                >
+        </select>
+        <p ng-show="{{form}}.escola.$error.required">Campo Obrigatório!</p>   
+    </div>
+</div>

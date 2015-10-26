@@ -1,0 +1,28 @@
+<div class="table-responsive">
+    <table class="table no-border hover">
+        <thead class="no-border">
+            <tr>
+                <th class="col-sm-1 form-group">Id</th>
+                <th class="col-sm-9 form-group">Descrição</th>
+                <th class="col-sm-2 form-group">Ações</th>
+            </tr>
+        </thead>
+        <tbody class="no-border-y" ng-repeat="funcao in page.list">
+            <tr>
+                <td>{{funcao.id}}</td>
+                <td>{{funcao.descricao}}</td>
+                <td>
+                    <a href="#/Configuracao/Funcao/{{funcao.id}}/Visualizar" class="btn btn-primary btn-sm" title="Visualizar">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                    <a href="#/Configuracao/Funcao/{{funcao.id}}/Editar" class="btn btn-warning btn-sm" title="Editar">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a ng-click="remover($index)" class="btn btn-danger btn-sm" title="Remover">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

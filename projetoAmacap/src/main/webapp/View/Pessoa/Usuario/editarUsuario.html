@@ -1,0 +1,41 @@
+<form name ="cadUsuario">
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label>Nome de Usuário<span style="color:red"> *</span></label>
+            <input type="text" class="form-control" name="login" ng-required="" ng-model="usuarioAtual.login" val-nome ng-minlength="4" ng-maxlength="50">
+            <p ng-show="cadUsuario.login.$error.maxlength">Quantidade maxima de caracteres no login é de 20 </p>
+            <p ng-show="cadUsuario.login.$error.minlength">O Login precisa de no minimo 4 caracteres</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label>Senha<span style="color:red"> *</span></label>
+            <input type="password" class="form-control"  name="senha" ng-required="" ng-model="usuarioAtual.senha" ng-minlength="8" ng-maxlength="50">
+            <p ng-show="cadUsuario.senha.$error.maxlength">Tamanho maximo 50 caracteres</p>
+            <p ng-show="cadUsuario.senha.$error.minlength">Tamanho minimo 8 caracteres</p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label>Confirmar Senha<span style="color:red"> *</span></label>
+            <input type="password" class="form-control" name="confirmarSenha" ng-required=""  ng-model="confirmarSenha"   ng-minlength="8" ng-maxlength="50"  data-match="usuarioAtual.senha">
+            <p data-ng-show="cadUsuario.confirmarSenha.$error.match">Senha não confere!</p>
+        </div>
+    </div>
+    <!--
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label>Repita sua Senha</label>
+            <input type="password" class="form-control"  required="">                                                 </div>
+    </div>-->
+    <div class="row">
+        <div class="form-group col-sm-6">
+            <label>Ativo<span style="color:red"> *</span></label>
+            <select class="form-control" required ng-model="usuarioAtual.ativo">
+                <option value="true">Sim</option>
+                <option value="false">Não</option>
+            </select>
+        </div>
+    </div>
+
+</form>

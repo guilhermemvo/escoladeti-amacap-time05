@@ -1,0 +1,38 @@
+<table class="table table-responsive table-hover">
+    <thead>
+        <tr>
+            <th class="col-sm-1 form-group">Pedido</th>
+            <th class="col-sm-4 form-group">Solicitante</th>
+            <th class="col-sm-2 form-group">Data</th>
+            <th class="col-sm-2 form-group">Situação</th>
+            <th class="col-sm-2 form-group">Pendência</th>
+            <th class="col-sm-1 form-group">Ações</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="pedido in page.list | filter:search">
+        <tr>
+            <td>{{pedido.id}}</td>
+            <td>{{pedido.solicitante.nome}}</td>
+            <td>{{pedido.data_pedido | date: 'dd/MM/yyyy'}}</td>
+            <td>{{pedido.observacao}}</td>
+            <td>
+                <i class="fa fa-file-text-o"></i>
+                <i class="fa fa-book"></i>
+                <i class="fa fa-truck"></i>
+            </td>
+            <td>
+                <div class="pull-right">  
+                    <a href="#/Pedido/Pedido/{{pedido.id}}/Visualizar" class="btn btn-primary btn-sm" title="Visualizar">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                    <a href="#/Pedido/Pedido/{{pedido.id}}/Editar" class="btn btn-warning btn-sm" title="Editar">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a ng-click="remover($index)" class="btn btn-danger btn-sm" title="Remover">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

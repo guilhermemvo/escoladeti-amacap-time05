@@ -1,0 +1,77 @@
+<!--Fim breadcrumb -->
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Cadastro de Logradouro</h3>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#Localizacao/Logradouro"> Logradouro</a></li>
+            <li class="active">Cadastro de Logradouro</li>
+        </ol>
+    </div>
+</div>
+<!--Fim breadcrumb -->
+
+<div class="row" ng-controller="LogradouroController" ng-init="initEditarLogradouro()">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Novo Logradouro</h3>
+            </div>
+            <div class="panel-body">
+
+                <!-- Inicio Cadastro -->
+                <div class="row">
+                    <div class="form-group col-sm-6">
+<<<<<<< HEAD
+                        <label>Tipo logradouro</label>
+                        <select class="form-control" required=""
+                                ng-model="logradouroAtual.tipologradouro"
+                                ng-options="value.descricao for value in listaTipoEndereco track by value.id"
+                                >
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label>Nome</label>
+=======
+                        <label>Nome<span style="color:red"> *</span></label>
+>>>>>>> 48c156f607ed24e23b0539b411e50ea920d72b88
+                        <input type="text" class="form-control" maxlength="255" required=""  ng-model="logradouroAtual.nome">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label>Bairro<span style="color:red"> *</span></label>
+                        <select class="form-control" required=""
+                                ng-model="logradouroAtual.bairros"
+                                ng-options="value.nome for value in listaBairro track by value.id"
+                                >
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label>Cidade<span style="color:red"> *</span></label>
+                        <select class="form-control" required=""
+                                ng-model="logradouroAtual.cidade"
+                                ng-options="value.nome for value in listaCidade track by value.id"
+                                >
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group col-sm-2">
+                    <a class="form-control btn btn-warning">Editar</a>
+                </div>
+
+                <div class="form-group col-sm-2">
+                    <a class="form-control btn btn-success" ng-click="salvar()" >Salvar</a>
+                </div>
+            </div>	
+
+        </div> <!-- Fim panel-body -->
+    </div><!--Fim panel-primary-->
+</div> <!-- Fim col-->
+
+

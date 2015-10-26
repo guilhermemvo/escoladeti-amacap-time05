@@ -1,0 +1,144 @@
+<!doctype html>
+<html ng-app>
+  <head>
+    <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
+    <script type="text/javascript" src="./js/jquery.min.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="./js/angular.min.js"></script>
+  </head>
+  <body ng-controller="LogradouroController">
+
+    <div class="container">
+
+    <form role="form">
+      <div class="form-group">
+          <label>Busca</label>
+          <input type="text" class="form-control" ng-model="busca">
+      </div>      
+    </form>
+
+    <table class="table table-hover table-striped">
+      <thead><!-- Cabeçalho-->
+        <tr> <!--Linha-->         
+          <th class="col-sm-2"> Código </th><!--conteudo do cabeçalho-->
+          <th class="col-sm-4"> Logradouro </th>
+          <th class="col-sm-2"> CEP </th>
+          <th class="col-sm-2"> Ativo </th>
+          <th class="col-sm-2"> Ações </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="logradouro in logradouros | filter : busca">
+
+          <td> {{ logradouro.codigo           }} </td><!--conteúdo celula-->
+          <td> {{ logradouro.nome             }} </td>
+          <td> {{ logradouro.cep             }} </td>
+          <td> {{ logradouro.ativo             }} </td>
+          <td>
+            <button class="btn btn-warning btn-sm" ng-click="alterar($index)">Alterar</button>
+            <button class="btn btn-danger btn-sm" ng-click="excluir($index)">Excluir</button>
+          </td>
+        </tr>        
+      </tbody>      
+    </table>
+
+    <label> Total de Logradouros: {{(logradouros | filter : busca).length}} / {{logradouros.length}}</label>
+
+    <hr>
+
+    <form role="form">      
+      <div class="form-group">
+        <label> Código </label>
+        <input type="text" class="form-control" ng-model="logradouro.codigo" disabled="disabled">
+      </div>
+
+      <div class="form-group">
+        <label> Logradouro </label>
+        <input type="text" class="form-control" ng-model="logradouro.nome" >
+      </div>
+
+      <div class="form-group">
+        <label> CEP </label>
+        <input type="text" class="form-control" ng-model="logradouro.cep">
+      </div>
+
+      <div class="form-group">
+        <label> Ativo </label>
+        <div class="form-control">
+          <label class="radio-inline">
+            <input type="radio" value="S" ng-model="logradouro.ativo"> Sim
+          </label>
+          <label class="radio-inline">
+            <input type="radio" value="N" ng-model="logradouro.ativo"> Não
+          </label>
+        </div>
+      </div>
+
+      <button class="btn btn-success" ng-click="salvar()"> Salvar </button>
+    </form>
+
+    </div>    
+  </body>
+</html>
+
+<script type="text/javascript">
+
+    function LogradouroController( $scope )
+    {
+        $scope.codigo = 0;
+
+        $scope.logradouros = [
+            { codigo : "1", nome : "Rua"  , cep: "87013-001", ativo : "S" },
+            { codigo : "2", nome : "Avenida" , cep: "87013-002", ativo : "N" },
+            { codigo : "3", nome : "Praça"  , cep: "87013-003", ativo : "S" },
+            { codigo : "4", nome : "Rodovia", cep: "87013-004", ativo : "S" }
+        ];
+
+        $scope.logradouro = {
+          codigo : "",
+          nome   : "",
+          cep: "",
+          ativo  : "S"
+        };
+
+        $scope.salvar = function(){
+
+          if(!$scope.logradouro.codigo){
+              $scope.codigo++;
+              $scope.logradouro.codigo = $scope.codigo;
+              $scope.logradouros.push( $scope.logradouro );
+          }
+
+          $scope.logradouro = {
+            codigo : "",
+            nome   : "",
+            cep    : "",
+            ativo  : "S"
+          };
+        };
+
+        $scope.excluir =  function( indice ){
+          $scope.logradouros.splice( indice, 1 );
+        };
+
+        $scope.alterar = function( indice ){
+          $scope.logradouro = $scope.logradouros[indice];
+        };
+
+        $scope.getStatus = function ( status ){
+          switch(status){
+            case "S":
+              return "SIM";
+            break;
+
+            case "N":
+              return "NÃO";
+            break;
+          }
+        };
+
+
+
+    }
+  
+</script>

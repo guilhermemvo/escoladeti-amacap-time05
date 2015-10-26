@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="form-group col-sm-12">
+        <label>Nome da Unidade de Produção: <span style="color:red">*</span></label>
+        <input type="text" class="form-control" name="nome" required="" ng-disabled="visualizacaoAtiva" ng-model="unidadeProducaoAtual.nome" val-nome ng-minlength="3" ng-maxlength="50" ng-required="">
+        <p ng-show="{{form}}.nome.$error.maxlength">A Unidade de Produção deve conter no máximo 50 caracteres! </p>
+        <p ng-show="{{form}}.nome.$error.minlength">A Unidade de Produção necessita de no mínimo 3 caracteres!</p>
+        <p ng-show="{{form}}.nome.$error.required">Campo Obrigatório!</p>   
+    </div>
+</div>
+
+

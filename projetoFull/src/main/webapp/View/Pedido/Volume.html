@@ -1,0 +1,66 @@
+<div class="modal fade" id="modalVolume" ng-controller="VolumeController">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span></button>
+                <h1 class="modal-title">Gerenciar volumes</h1>
+                <h4>Material: {{nomeMaterial}}</h4>
+
+                <div class="btn-toolbar list-toolbar">
+                    <label style="color: red">{{notificacao}}</label>
+                    <a class="btn btn-primary pull-right" ng-click="addVolume()"><i class="fa fa-plus"></i> Adicionar</a>
+                </div>                
+            </div>
+            <div class="modal-body">
+                <table class="table table-responsive table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-sm-2 form-group">Identificação</th>
+                            <th class="col-sm-1 form-group">Pg.Inicial</th>
+                            <th class="col-sm-1 form-group">Pg.Final</th>
+                            <th class="col-sm-3 form-group">Transporte</th>
+                            <th class="col-sm-3 form-group">Un.Produção</th>
+                            <th class="col-sm-1 form-group">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="volume in listaDeVolumes">
+                        <tr>
+                            <td>
+                                <input type="text" class="form-control" ng-model="volume.identificacao">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" ng-model="volume.paginaInicial" ng-disabled="visualizacaoAtiva">
+                            </td>
+                            <td>
+                                <input type="number" class="form-control" ng-model="volume.paginaFinal" ng-disabled="visualizacaoAtiva">
+                            </td>
+                            <td>
+                                <select name="transportadora" class="form-control" ng-disabled="visualizacaoAtiva" 
+                                        ng-model="volume.transportadora"
+                                        ng-options="value.razao for value in listaTransportadoras track by value.id">
+                                </select>
+                            </td>
+                            <td>
+                                <select name="unidade" class="form-control" ng-disabled="visualizacaoAtiva"
+                                        ng-model="volume.unidadeProducao"
+                                        ng-options="value.nome for value in listaUnidadesProducao track by value.id">
+                                </select>
+                            </td>
+                            <td>
+                                <div class="pull-right">  
+                                    <a ng-click="deletaVolume($index)" class="btn btn-danger btn-sm" ng-disabled="visualizacaoAtiva">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-disabled="!validaVolumes()" ng-click="confirmarVolumes(listaDeVolumes)">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

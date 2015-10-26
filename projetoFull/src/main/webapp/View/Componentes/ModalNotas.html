@@ -1,0 +1,30 @@
+<div class="modal fade" id="modalNotas">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" ng-click="notasModal = false" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+                    </button>
+                <h4 class="modal-title">Notas</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-sm-4">
+                        <label>Data: <span style="color:red"> *</span></label>
+                        <input type="date" name="data_nota" required="" class="form-control" ng-model="nota.data_nota">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-12">
+                        <label>Descrição: </label>
+                        <textarea class="form-control" required="" name="descricao" rows="7" ng-model="nota.observacao"></textarea>
+                    </div>
+                </div>
+            </div>  
+            <div class="modal-footer">
+                <button type="button" ng-click="notasModal = false" class="btn btn-danger" class="close" ng-click="" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="adicionarNota()">Adicionar Nota</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+
+
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner" role="listbox">
+    <div class="item active">
+        <a href="#/evento/">
+            <img src="../resources/imagens/banner1.jpg" alt="Banner: Conheça nossos Cursos">
+        </a>
+    </div>
+    <div class="item">
+        <a href="#/pedido/">
+            <img src="../resources/imagens/banner2.jpg" alt="Banner: Solicite seu Material">
+        </a>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+    <span class="sr-only">Anterior</span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+    <span class="sr-only">Próximo</span>
+  </a>
+</div>
+
+<div class="main">
+    <div class="container">
+        <section class="call_to_action">
+            <h3>A AMACAP</h3>
+            <h4>A Associação Maringaense dos Amigos do Centro de Apoio Pedagógico para Atendimento às Pessoas com Deficiência Visual, 
+                AMACAP, atua para promover a qualidade de ensino para pessoas portadoras de Deficiência Visual matriculados na Rede Nacional de ensino, desenvolvendo atividades relativas à leitura e aperfeiçoamento curricular.
+            </h4>
+            <a class="btn btn-primary btn-lg" href="#/sobre">Saiba mais</a>
+        </section>
+        <section class="features_teasers_wrapper">
+            <div class="row">
+                <a href="#/material">
+                    <div class="feature_teaser col-sm-4 col-md-4"> <img alt="responsive" src="../resources/imagens/acervo.png">
+                        <h3>Veja nossos materiais disponíveis</h3>
+                        <p>Consulte<strong> a lista de materiais</strong> que a AMACAP possui em seu acervo.</p>
+                    </div>
+                </a>
+                <a href="#/evento">
+                    <div class="feature_teaser col-sm-4 col-md-4"> <img alt="responsive" src="../resources/imagens/eventos.png">
+                        <h3>Participe de nossos Eventos</h3>
+                        <p>Promovemos <strong>cursos e treinamentos</strong> de capacitação, para Deficiêntes Visuais, guias e professores.</p>
+                    </div>
+                </a>
+                <a href="#/pedido">
+                    <div class="feature_teaser col-sm-4 col-md-4"> <img alt="responsive" src="../resources/imagens/materiais.png">
+                        <h3>Solicite seu Material</h3>
+                        <p>Confecionamos <strong>materiais</strong> acessíveis para Deficiêntes Visuais, como livros em braile, audiobooks e outros.</p>
+                    </div>
+               </a>
+            </div>
+        </section>
+
+        <section class="portfolio_teasers_wrapper">
+            <h2 class="section_header fancy centered">Eventos e Cursos</h2>
+            <div class="portfolio_strict row" ng-init="loadTodosEventos()">
+                <div class="col-sm-4 col-md-4" ng-repeat="evento in listaeventos| limitTo:3">
+                    <div class="portfolio_item wow animated flipInX"> <a href="portfolio_item.html" data-path-hover="M 180,190 0,158 0,0 180,0 z">
+                            <figure style="background-image:url('{{root}}{{evento.fotos[0].origem}}')">
+                                <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+                                <path d="M 180,0 0,0 0,0 180,0 z"/>
+                                </svg>
+                                <figcaption>
+                                    <div class="view_button">Saiba mais</div>
+                                </figcaption>
+                            </figure>
+                        </a>
+                        <div class="portfolio_description">
+                            <h3><a href="portfolio_item.html">{{evento.nome}}</a></h3>
+                            <p>Curso</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="clients_section wow animated fadeInUp">
+            <h2 class="section_header elegant centered">"Sonho que se sonha sozinho é só um sonho, sonho que se sonha junto é realidade!"</h2>
+        </section>
+    </div>
+</div>
+

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>Painel de Controle</title>
+    <!-- Bootstrap-->
+    <link rel="stylesheet" type="text/css" href="./resources/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./resources/css/bootstrap.theme.min.css">
+
+    <!--JavaScript-->
+    <style type="text/css">
+      body{
+        background-color: #DCDCDC;
+      }
+      .painel{
+          margin-top: 150px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row painel">
+        <div class="col-md-4 col-md-offset-4">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Acesso ao Painel de Controle</h3>
+            </div>
+            
+            <div class="panel-body">
+              <form>
+                <fieldset>
+                  <div class="form-group">
+                    <label> Email</label>
+                    <input type="text" class="form-control" placeholder="seuemail@exemplo.com" name="email" type="text" >
+                  </div>
+                  
+                  <div class="form-group">
+                    <label> Senha</label>
+                    <input type="text" class="form-control" placeholder="Senha" name="password" type="senha" value="">  
+                  </div>
+
+                  <br/>
+                  <div class="form-group checkbox">
+                    <label><input name="lembrar" type="checkbox"> Lembrar meu Login e Senha </label>
+                  </div>
+                  <br/>   
+                  <input class="btn btn-primary btn-block" type="submit" value="Entrar">
+                  <br/>
+                  <div>
+                    <label class="pull-right">
+                      <a>Esqueci minha senha</a>
+                    </label>
+                  </div>
+                </fieldset>
+              </form>
+            </div> <!-- panel-body -->
+          </div> <!-- panel-default -->
+        </div> <!-- col-md -->
+      </div><!-- row-->
+    </div> <!-- container -->
+  </body>
+  <script type="text/javascript" src="./resources/js/bootstrap.min.js"></script>
+</html>

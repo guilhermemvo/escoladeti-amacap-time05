@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd">
+    <changeSet author="johnLima (generated)" id="1">
+        <createTable tableName="tbcad_bairro">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="tbcad_bairro_pkey"/>
+            </column>
+            <column name="idcidade" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nome" type="VARCHAR(30)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="2">
+        <createTable tableName="tbcad_cidade">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="tbcad_cidade_pkey"/>
+            </column>
+            <column name="idunidadefederativa" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nome" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="datafundacao" type="date"/>
+            <column name="codigoibge" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="3">
+        <createTable tableName="tbcad_distrito">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="tbcad_distrito_pkey"/>
+            </column>
+            <column name="idcidade" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="iniciovigencia" type="date"/>
+            <column name="nome" type="VARCHAR(30)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="4">
+        <createTable tableName="tbcad_email">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="tbcad_email_pkey"/>
+            </column>
+            <column name="idpessoa" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(40)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="5">
+        <createTable tableName="tbcad_endereco">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="tbcad_endereco_pkey"/>
+            </column>
+            <column name="idlogradouro" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="idtipoendereco" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="idbairro" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="numero" type="VARCHAR(10)"/>
+            <column name="complemento" type="VARCHAR(50)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="6">
+        <createTable tableName="tbcad_faixacep">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="tbcad_faixacep_pkey"/>
+            </column>
+            <column name="cep" type="VARCHAR(8)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="7">
+        <createTable tableName="tbcad_itemacesso">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="tbcad_itemacesso_pkey"/>
+            </column>
+            <column name="idperfilacesso" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="titulotela" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="8">
+        <createTable tableName="tbcad_itemacessousuario">
+            <column name="iditemacesso" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="idusuario" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="iniciovigencia" type="date"/>
+            <column name="fimvigencia" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="9">
+        <createTable tableName="tbcad_logradouro">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="tbcad_logradouro_pkey"/>
+            </column>
+            <column name="idbairro" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="idcidade" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nome" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cep" type="VARCHAR(8)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="10">
+        <createTable tableName="tbcad_logradourofaixacep">
+            <column name="idcep" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="idlogradouro" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="11">
+        <createTable tableName="tbcad_pais">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="tbcad_pais_pkey"/>
+            </column>
+            <column name="nome" type="VARCHAR(30)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sigla" type="VARCHAR(2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="codigo" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="12">
+        <createTable tableName="tbcad_perfilacesso">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="tbcad_perfilacesso_pkey"/>
+            </column>
+            <column name="descricao" type="VARCHAR(30)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="13">
+        <createTable tableName="tbcad_pessoa">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="tbcad_pessoa_pkey"/>
+            </column>
+            <column name="tipopessoa" type="BPCHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="datacadastro" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="cpf_cnpj" type="VARCHAR(14)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="rg" type="VARCHAR(8)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="datanascimento" type="date">
+                <constraints nullable="false"/>
+            </column>
+            <column name="sexo" type="VARCHAR(1)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="apelidofantasia" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nomerazao" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="14">
+        <createTable tableName="tbcad_pessoaendereco">
+            <column name="idendereco" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="idpessoa" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="iniciovigencia" type="date"/>
+            <column name="fimvigencia" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="15">
+        <createTable tableName="tbcad_pessoatelefone">
+            <column name="idtelefone" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="idpessoa" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="16">
+        <createTable tableName="tbcad_telefone">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="tbcad_telefone_pkey"/>
+            </column>
+            <column name="idtipotelefone" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="numero" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="17">
+        <createTable tableName="tbcad_tipoendereco">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="tbcad_tipoendereco_pkey"/>
+            </column>
+            <column name="descricao" type="VARCHAR(20)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="18">
+        <createTable tableName="tbcad_tipotelefone">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="tbcad_tipotelefone_pkey"/>
+            </column>
+            <column name="descricao" type="VARCHAR(12)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="19">
+        <createTable tableName="tbcad_unidadefederativa">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="tbcad_unidadefederativa_pkey"/>
+            </column>
+            <column name="sigla" type="VARCHAR(2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="idpais" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="nome" type="VARCHAR(30)"/>
+            <column name="codigoibge" type="INT4"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="20">
+        <createTable tableName="tbcad_usuario">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true" primaryKeyName="tbcad_usuario_pkey"/>
+            </column>
+            <column name="login" type="VARCHAR(25)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="senha" type="VARCHAR(15)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="ativo" type="BOOL"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="21">
+        <createTable tableName="tbcad_usuarioperfilacesso">
+            <column name="idusuario" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="idperfilacesso" type="INT4">
+                <constraints nullable="false"/>
+            </column>
+            <column name="iniciovigencia" type="date"/>
+            <column name="fimvigencia" type="date"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="22">
+        <addPrimaryKey columnNames="iditemacesso, idusuario" constraintName="tbcad_itemacessousuario_pkey" tableName="tbcad_itemacessousuario"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="23">
+        <addPrimaryKey columnNames="idcep, idlogradouro" constraintName="tbcad_logradourofaixacep_pkey" tableName="tbcad_logradourofaixacep"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="24">
+        <addPrimaryKey columnNames="idendereco, idpessoa" constraintName="tbcad_pessoaendereco_pkey" tableName="tbcad_pessoaendereco"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="25">
+        <addPrimaryKey columnNames="idtelefone, idpessoa" constraintName="tbcad_pessoatelefone_pkey" tableName="tbcad_pessoatelefone"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="26">
+        <addPrimaryKey columnNames="idusuario, idperfilacesso" constraintName="tbcad_usuarioperfilacesso_pkey" tableName="tbcad_usuarioperfilacesso"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="27">
+        <addForeignKeyConstraint baseColumnNames="idcidade" baseTableName="tbcad_bairro" constraintName="bairro_cidade_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_cidade"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="28">
+        <addForeignKeyConstraint baseColumnNames="idunidadefederativa" baseTableName="tbcad_cidade" constraintName="cidade_unidadefederativa_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_unidadefederativa"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="29">
+        <addForeignKeyConstraint baseColumnNames="idcidade" baseTableName="tbcad_distrito" constraintName="distrito_cidade_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_cidade"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="30">
+        <addForeignKeyConstraint baseColumnNames="idpessoa" baseTableName="tbcad_email" constraintName="email_pessoa_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_pessoa"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="31">
+        <addForeignKeyConstraint baseColumnNames="idbairro" baseTableName="tbcad_endereco" constraintName="endereco_bairro_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_bairro"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="32">
+        <addForeignKeyConstraint baseColumnNames="idlogradouro" baseTableName="tbcad_endereco" constraintName="endereco_logradouro_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_logradouro"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="33">
+        <addForeignKeyConstraint baseColumnNames="idtipoendereco" baseTableName="tbcad_endereco" constraintName="endereco_tipoendereco_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_tipoendereco"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="34">
+        <addForeignKeyConstraint baseColumnNames="idperfilacesso" baseTableName="tbcad_itemacesso" constraintName="itemacesso_perfilacesso_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_perfilacesso"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="35">
+        <addForeignKeyConstraint baseColumnNames="iditemacesso" baseTableName="tbcad_itemacessousuario" constraintName="itemacessusu_itemacess_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_itemacesso"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="36">
+        <addForeignKeyConstraint baseColumnNames="idusuario" baseTableName="tbcad_itemacessousuario" constraintName="itemacessusu_usu_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_usuario"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="37">
+        <addForeignKeyConstraint baseColumnNames="idbairro" baseTableName="tbcad_logradouro" constraintName="logradouro_bairro_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_bairro"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="38">
+        <addForeignKeyConstraint baseColumnNames="idcidade" baseTableName="tbcad_logradouro" constraintName="logradouro_cidade_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_cidade"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="39">
+        <addForeignKeyConstraint baseColumnNames="idcep" baseTableName="tbcad_logradourofaixacep" constraintName="lografaicep_cep_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_faixacep"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="40">
+        <addForeignKeyConstraint baseColumnNames="idlogradouro" baseTableName="tbcad_logradourofaixacep" constraintName="lografaicep_logr_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_logradouro"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="41">
+        <addForeignKeyConstraint baseColumnNames="idendereco" baseTableName="tbcad_pessoaendereco" constraintName="pessend_end_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_endereco"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="42">
+        <addForeignKeyConstraint baseColumnNames="idpessoa" baseTableName="tbcad_pessoaendereco" constraintName="pessend_pess_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_pessoa"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="43">
+        <addForeignKeyConstraint baseColumnNames="idpessoa" baseTableName="tbcad_pessoatelefone" constraintName="pesstel_pes_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_pessoa"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="44">
+        <addForeignKeyConstraint baseColumnNames="idtelefone" baseTableName="tbcad_pessoatelefone" constraintName="pesstel_tel_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_telefone"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="45">
+        <addForeignKeyConstraint baseColumnNames="idtipotelefone" baseTableName="tbcad_telefone" constraintName="tel_tipo_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_tipotelefone"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="46">
+        <addForeignKeyConstraint baseColumnNames="idpais" baseTableName="tbcad_unidadefederativa" constraintName="uf_pais_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_pais"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="47">
+        <addForeignKeyConstraint baseColumnNames="idperfilacesso" baseTableName="tbcad_usuarioperfilacesso" constraintName="usuperfacess_perf_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_perfilacesso"/>
+    </changeSet>
+    <changeSet author="johnLima (generated)" id="48">
+        <addForeignKeyConstraint baseColumnNames="idusuario" baseTableName="tbcad_usuarioperfilacesso" constraintName="usuperfacess_usu_fk" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="tbcad_usuario"/>
+    </changeSet>
+</databaseChangeLog>

@@ -1,0 +1,31 @@
+<div class="row">
+    <div class="col-sm-12">
+        <h2>{{nome}}</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li class="active">{{nome}}</li>
+        </ol>
+    </div>
+</div>
+<!--Fim Breadcrumb-->
+<!-- Página: Lista de Distritos -->
+<div class="row" ng-init="init()">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <a class="btn btn-default btn-sm" ng-click="incluir()"><span class="glyphicon glyphicon-plus"></span> Novo</a>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-sm-12">
+                        <input maxlength="254" type="text" class="form-control " placeholder="Digite o que você procura" ng-model="search">
+                    </div>
+                </div>
+                <div ng-include src="caminholistar"></div>
+                <center>
+                    <div ng-paginacao></div>
+                </center>
+            </div>  <!-- Fim panel-body -->
+        </div> <!-- Fim panel -->
+    </div> <!-- Fim col -->
+</div> <!-- Fim row-->

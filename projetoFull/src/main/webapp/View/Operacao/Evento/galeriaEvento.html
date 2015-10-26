@@ -1,0 +1,58 @@
+<div class="row" >
+    <div class="col-sm-6">
+        <table class="table table-responsive table-hover">
+            <thead>
+                <tr>
+                    <th class="col-sm-2 form-group">Imagem</th>
+                    <th class="col-sm-2 form-group">Descrição</th>
+                    <th class="col-sm-2 form-group">Ações</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="t in eventoAtual.fotos">
+                <tr>
+                    <td><img src="{{root}}/{{t.origem}}" width="70" height="70"/></td>
+                    <td>{{t.descricao}}</td>
+                    <td>
+                        <a ng-click="delArquivo($index)" class="btn btn-danger btn-sm" title="Remover">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row" >
+    <div class="form-group col-sm-6">
+        <input type="submit" class="form-control btn btn-primary" value="Adicionar Fotos" data-toggle="modal" data-target="#modalArquivo" ng-click="novoArquivo()">
+    </div>
+</div>
+<div class="modal fade" id="modalArquivo">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+                </button>
+                <h4 class="modal-title">Adicionar Foto</h4>
+            </div>
+            <div class="modal-body"> 
+                <div class="form-group col-md-12">
+                    <div class="row">
+                        <label>Foto: <span style="color:red">*</span></label>
+                        <input type="file" class="form-control btn" name="origem" file-model="arq.origem" ng-file-select="onFileSelect($files)" multiple ng-required=""/>
+                        <p ng-show="{{form}}.origem.$error.required">Campo Obrigatório!</p>
+                    </div>
+                    <div class="row">
+                        <label>Descrição:</label>
+                        <input type="text" class="form-control" name="descricao" val-nome ng-model="arq.descricao" ng-maxlength="100" ng-minlength="0" ng-required="" />
+                        <p ng-show="{{form}}.descricao.$error.maxlength">Observação deve conter no máximo 100 caracteres! </p>
+                    </div>
+                </div>    
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" ng-disabled="!validaArquivo() ng-click="addArquivo()">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,44 @@
+<table class="table table-responsive table-hover">
+    <thead>
+        <tr>
+            <th ng-click="predicate = 'id';
+                reverse = !reverse" class="col-sm-1 form-group">ID Material</th>
+            <th ng-click="predicate = 'nome';
+                reverse = !reverse" class="col-sm-3 form-group">Nome</th>
+            <th ng-click="predicate = 'idPedido';
+                reverse = !reverse" class="col-sm-2 form-group">ID do Pedido</th>
+            <th ng-click="predicate = 'codigo';
+                reverse = !reverse" class="col-sm-2 form-group">Código</th>
+            <th ng-click="predicate = 'autor';
+                reverse = !reverse" class="col-sm-2 form-group">Autor</th>
+            <th class="col-sm-2 form-group">Ações</th>
+        </tr>
+    </thead>
+
+    <tbody ng-repeat="pedidoMaterialAtual in page.list| orderBy:predicate:reverse | filter:search">
+        <tr>
+            <td>{{pedidoMaterialAtual.material.id}}</td>
+            <td>{{pedidoMaterialAtual.material.nome}}</td>
+            <td><a href="#/Pedido/Pedido/{{pedidoMaterialAtual.idPedido}}/Visualizar" title="Clique para visualizar o pedido">{{pedidoMaterialAtual.idPedido}}</a></td>
+            <td>{{pedidoMaterialAtual.material.codigoPrateleira}}</td>
+            <td>{{pedidoMaterialAtual.material.autor}}</td>
+            <td>
+                <div class="pull-right">
+                    <a class="btn btn-primary btn-sm" ng-click="gerenciarVolumes($index)" type="button" data-toggle="modal" data-target="#modalVolume" title="Gerenciar volumes">
+                        <span class="glyphicon glyphicon-th-large"></span>
+                    </a>
+                    <a class="btn btn-success btn-sm" title="Alterar Status">
+                        <span class="glyphicon glyphicon-refresh" ng-click="atualizaStatus(info)" data-toggle="modal" data-target="#modalStatus"></span>
+                    </a>
+                    <a ng-click="visualizarMaterial(info)" class="btn btn-primary btn-sm" title="Visualizar">
+                        <span class="glyphicon glyphicon-eye-open" data-toggle="modal" data-target="#modalVisualizarMaterial"></span>
+                    </a>
+                    <a href="" class="btn btn-danger btn-sm" title="Cancelar">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<div ng-include src="'./View/Componentes/ModalVisualizarVolumes.html'"></div>

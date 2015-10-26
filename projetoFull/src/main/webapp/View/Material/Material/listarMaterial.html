@@ -1,0 +1,26 @@
+<table class="table table-responsive table-hover">
+    <thead>
+        <tr>
+            <th class="col-sm-1 form-group">Id</th>
+            <th class="col-sm-5 form-group">Nome</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="material in page.list|filter:search">
+        <tr>
+            <td>{{material.id}}</td>
+            <td>
+                <div class="pull-right">  
+                    <a href="#/Material/MateriaPrima/{{material.id}}/Visualizar" class="btn btn-primary btn-sm" title="Visualizar">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                    <a href="#/Material/MateriaPrima/{{material.id}}/Editar" class="btn btn-warning btn-sm" title="Editar">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a ng-click="remover($index)" class="btn btn-danger btn-sm" title="Remover">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,69 @@
+<!-- Breadcrumb -->
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Cadastro de Estado</h3>
+        <ol class="breadcrumb">
+            <li><a href="#"> Home</a></li>
+            <li><a href="#Localizacao/Estado"> Estados </a></li>
+            <li class="active">Cadastro de Estado</li>
+        </ol>
+    </div>
+</div>
+<!--Fim breadcrumb -->
+
+<div class="row" ng-controller="EstadoController" ng-init="initEditarEstado()">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Novo Estado</h3>
+            </div>
+            <div class="panel-body">
+
+                <!-- Inicio Cadastro -->
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label>Nome<span style="color:red"> *</span></label>
+                        <input max="255" type="text" class="form-control" maxlength=30 required=""  ng-model="estadoAtual.nome">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label>Codigo<span style="color:red"> *</span></label>
+                        <input maxlength="6" type="text" class="form-control" required="" ng-model="estadoAtual.codigoIBGE">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label>Sigla<span style="color:red"> *</span></label>
+                        <input type="text" class="form-control" maxlength="2" required="" ng-model="estadoAtual.sigla">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label>País<span style="color:red"> *</span></label>
+                        <select class="form-control"
+                            ng-model="estadoAtual.pais"
+                            ng-options="value.nome for value in listapaises track by value.id"
+                            >
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-2">
+                        <a class="form-control btn btn-danger">Remover</a>
+                    </div>
+
+                    <div class="form-group col-sm-2">
+                        <a class="form-control btn btn-warning">Editar</a>
+                    </div>
+
+                    <div class="form-group col-sm-2">
+                        <a class="form-control btn btn-success" ng-click="salvar()" >Salvar</a>
+                    </div>
+                </div>	
+
+            </div> <!-- Fim panel-body -->
+        </div><!--Fim panel-primary-->
+    </div> <!-- Fim col-->
+</div> <!-- Fim row -->
+

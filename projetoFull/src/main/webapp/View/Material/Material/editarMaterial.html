@@ -1,0 +1,26 @@
+<div class="row">
+    <div class="form-group col-sm-2">
+        <input type="submit" class="form-control btn btn-default" value="editora" data-toggle="modal" data-target="#modalEditora" >
+    </div>
+</div>
+
+<div class="modal fade" id="modalEditora">
+    <div class="modal-dialog modal-sm">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                </button>
+                <h4 class="modal-title">Editora</h4>
+            </div>
+            <div class="modal-body">
+                <div class="col-sm-12">
+                    <div ng-include src="'./View/Pessoa/PessoaJuridica.html'"></div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Painel de Controle</title>
+
+    <!-- Bootstrap-->
+    <link rel="stylesheet" type="text/css" href="./Lib/css/bootstrap.css">
+    <link rel="stylesheet" type="text/css" href="./Lib/css/bootstrap-theme.min.css">
+  </head>
+
+  <body ng-controller="MenuController">
+    <!-- Inicio nav-bar -->
+    <nav class="navbar navbar-default" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">AMACAP</a>
+        </div>
+
+        <div class="collapse navbar-collapse " id="bs-example-navbar-collapse-1">
+          <!-- Dropdown de Pessoa -->
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown"> <span class="glyphicon glyphicon-user"></span> Pessoa <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#Pessoa/Usuario">Usuário</a></li>
+                <li><a href="#Pessoa/Cliente">Cliente</a></li>
+              </ul>
+            </li>
+          </ul>
+          <!-- Dropdown de Localização -->
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown">
+                <span class="glyphicon glyphicon-map-marker"></span> Localização
+                <b class="caret"></b>
+              </a>
+              <ul class="dropdown-menu">
+                <li><a href="#Localizacao/Pais">País</a></li>
+                <li><a href="#Localizacao/Estado">Estado</a></li>
+                <li><a href="#Localizacao/Cidade">Cidade</a></li>
+                <li><a href="#Localizacao/Distrito">Distrito</a></li>
+              </ul>
+            </li>
+          </ul>
+          <!-- Dropdown de Configuração -->
+          <ul class="nav navbar-nav">
+            <li class="dropdown">
+              <a href="" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog"></span> Configuração <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#Configuracao/Permissoes">Perfil de Acesso</a></li>
+              </ul>
+            </li>
+          </ul>
+          <!-- Dropdown de Login -->
+          <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown"> Seja Bem Vindo, usuário! <b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li><a href="#"><label class="glyphicon glyphicon-user"></label> Trocar Usuário</a></li>
+                <li><a href="#"><label class="glyphicon glyphicon-off"></label> Sair</a></li>
+              </ul>
+            </li>
+          </ul>
+
+        </div><!-- Fim navbar-collapse -->
+      </div><!-- Fim container-fluid -->
+    </nav> <!-- Fim nav -->
+    
+    <!-- 
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-3" >
+          <div class="row">
+            <div class="col-xs-4 ">
+              <a href="#" class="thumbnail">
+                <img src="pessoa.png">
+              </a>
+            </div>
+            <div class="col-xs-4 ">
+              <a href="#" class="thumbnail">
+                <img src="local.png">
+              </a>
+            </div>
+            <div class="col-xs-4 ">
+              <a href="#" class="thumbnail">
+                <img src="conf.png">
+              </a>
+            </div>
+          </div>
+        </div> 
+      </div> 
+    </div>
+    -->
+
+
+     <div class="container">
+       <div ng-view></div>
+     </div>
+  </body>
+
+
+      <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script type="text/javascript" src="./Lib/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="./Lib/js/bootstrap.min.js"></script>
+
+    <!-- AngularJS -->
+    <script type="text/javascript" src="./Lib/js/angular.min.js"></script>
+    <!-- AngularRoute -->
+    <script type="text/javascript" src="./Lib/js/angular-route.min.js"></script>
+
+    <script type="text/javascript" src="./App/js/myApp.js"></script>    
+
+
+</html>

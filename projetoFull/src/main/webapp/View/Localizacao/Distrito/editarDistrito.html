@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="form-group col-sm-12">
+        <label>Nome: <span style="color:red">*</span></label>
+        <input type="text" class="form-control" name="nome" val-nome ng-minlength="3" ng-maxlength="30" required="" ng-model="distritoAtual.nome" maxlength="31" ng-required="">
+        <p ng-show="{{form}}.nome.$error.required">Campo Obrigatório!</p>
+        <p ng-show="{{form}}.nome.$error.maxlength">O Nome deve conter no máximo 30 caracteres!</p>
+        <p ng-show="{{form}}.nome.$error.minlength">O Nome necessita de no mínimo 3 caracteres!</p>  
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Início Vigência: <span style="color:red">*</span></label>
+        <input type="date" name="data" min="01-01-1500" class="form-control"  required="" ng-model="distritoAtual.inicioVigencia" style="text-align: center;" ng-required="">
+        <p ng-show="{{form}}.data.$error.required">Campo Obrigatório!</p>
+    </div>
+    <div class="form-group col-sm-6">
+        <label>Cidade: <span style="color:red">*</span></label>
+        <select class="form-control"
+                ng-model="distritoAtual.cidade"
+                ng-options="value.nome for value in listacidades track by value.id" name="cidade" required="">
+        </select>
+        <p ng-show="{{form}}.cidade.$error.required">Campo Obrigatório!</p>
+    </div>
+</div>

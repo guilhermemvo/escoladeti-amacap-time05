@@ -1,0 +1,48 @@
+<div class="cl-mcont">		
+    <div class="page-head">
+        <ol class="breadcrumb">
+            <li><a href="{{caminhoinicial}}"> {{nome}}</a></li>
+            <li><a href="#">Cadastro de {{nome}}</a></li>
+            <li class="active">Cadastro de {{nome}}</li>
+        </ol>
+    </div>	
+    <div class="main-content" ng-init="initEditar()">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="block-flat">
+                    <div class="header">							
+                        <h3>{{nome}}</h3>
+                    </div>
+                    <div class="content">
+                        <form role="form" name="{{form}}" enctype="multipart/form-data"> 
+                            <fieldset id="field_set">
+                                <div class="row">
+                                    <div class="col-sm-12 col-md-12">
+                                        <div  ng-include src="caminhoeditar"> </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                            <div class="row">
+                                <div class="form-group col-sm-2">
+                                    <a class="form-control btn btn-default" href="{{caminhoinicial}}" >Voltar</a>
+                                </div>
+                                <div class="form-group col-sm-2"ng-hide="!visualizacaoAtiva">
+                                    <a class="form-control btn btn-warning" ng-click="editar();" >Editar</a>
+                                </div>
+                                <div class="form-group col-sm-2" ng-hide="!visualizacaoAtiva">
+                                    <a class="form-control btn btn-danger" ng-click="remover('')" >Remover</a>
+                                </div>
+
+                                <div class="form-group col-sm-2" ng-hide="visualizacaoAtiva">
+                                    <a class="form-control btn btn-success"  ng-click="salvar()" ng-disabled="{{form}}.$invalid" >Salvar</a>
+                                </div>
+                            </div>
+                        </form>
+                        <div ng-include="'View/Componentes/ModalExcluir.html'"></div>
+                    </div>
+                </div>				
+            </div>
+        </div>
+    </div> 
+</div>
+{{evento.$error}}

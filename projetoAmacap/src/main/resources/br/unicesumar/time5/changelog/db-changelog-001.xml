@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="1" author="arthur">
+        <createTable tableName="USUARIO">
+            <column name="ID" type="${inteiro}">
+                <constraints nullable="false" primaryKey="true"
+                                             primaryKeyName="pk_usuario" />
+            </column>
+            <column name="LOGIN" type="${descricaolonga}">
+                <constraints nullable="false" unique="true" />
+            </column>
+            <column name="SENHA" type="${descricaolonga}">
+                <constraints nullable="false" />
+            </column>
+            <column name="ATIVO" type="${logico}">
+                <constraints nullable="false" />
+            </column>
+        </createTable>
+    </changeSet>
+    
+    <changeSet id="2" author="arthur">
+        <sql>${CREATE_HIBERNATE_SEQUENCE}</sql>
+    </changeSet>
+    
+    
+</databaseChangeLog> 

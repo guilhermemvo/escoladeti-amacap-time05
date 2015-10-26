@@ -1,0 +1,223 @@
+<div class="container" ng-init="init()">
+    <section class="hgroup">
+
+        <h1>{{eventoSite.nome}}</h1>
+        <ul class="breadcrumb pull-right">
+            <li><a href="index.html">Home</a> </li>
+            <li class="active">Evento</li>
+        </ul>
+    </section>
+    <section class="article-text">
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <p>{{eventoSite.descricao}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <p><b>Data</b>: {{formataData(eventoSite.data_inicio)}} <b>até</b> {{formataData(eventoSite.data_fim)}}</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <p><b>Localicade</b>:</p>
+                <div ng-if="eventoSite.enderecos.length > 0">
+                    <table class="table table-responsive table-hover">
+                        <thead>
+                            <tr>
+                                <th class="col-sm-3 form-group">Cidade</th>
+                                <th class="col-sm-2 form-group">CEP</th>
+                                <th class="col-sm-5 form-group">Endereço</th>
+                                <th class="col-sm-2 form-group">Numero</th>
+                            </tr>
+                        </thead>
+
+                        <tbody ng-repeat="endereco in eventoSite.enderecos">
+                            <tr>
+                                <td>{{endereco.cidade.nome}}</td>
+                                <td>{{endereco.logradouro.cep}}</td>
+                                <td>{{endereco.logradouro.nome}}</td>
+                                <td>{{endereco.numero}}</td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div ng-if="eventoSite.enderecos.length === 0"> 
+                    <p>Nenhum lugar definido!</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <p><b>Instrutor:</b> {{eventoSite.instrutor.nome}}</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <p><b>Carga Horária:</b> {{eventoSite.cargaHoraria}} horas</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12 col-md-12">
+                <p><b>Taxa Certificado:</b> R$ {{eventoSite.valor}},00 reais</p>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2 class="section_header skincolored"><b>Realizar inscrição</b></h2>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label>CPF: <span style="color:red"> *</span></label>
+                <input type="text" required="" name="cpf" class="form-control" ng-model="pessoa.cpf" val-cpf ui-mask="999.999.999-99" style="text-align: left;" ng-required="" ng-minlength=11  ng-maxlenght=14  ng-blur="validaCpf(pessoa.cpf)" />
+
+
+            </div>
+            <div class="form-group col-sm-6">
+                <label>RG: <span style="color:red">*</span></label>
+                <input type="text" class="form-control" name="rg" required="" ng-model="pessoa.rg" style="text-align: left;" ng-minlength="5" ng-maxlength="11" ng-required="" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-12">
+                <label>Nome: <span style="color:red">*</span></label>
+                <input type="text" class="form-control" name="nome"  required="" ng-model="pessoa.nome" val-nome ui-mask ng-maxlength="100" ng-minlength="3" ng-required="" />
+                <!--<p ng-show="{{form}}.nome.$error.maxlength">O Nome deve conter no máximo 100 caracteres!</p>
+                <p ng-show="{{form}}.nome.$error.minlength">O Nome necessita de no mínimo 3 caracteres! </p>
+                <p ng-show="{{form}}.nome.$error.required">Campo Obrigatório!</p> -->
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label>Sexo: <span style="color:red">*</span></label>
+                <select class="form-control" ng-disabled="visualizacaoAtiva" ng-model="pessoa.sexo" name="sexo">
+                    <option value="M">Masculino</option>
+                    <option value="F">Feminino</option>
+                </select> 
+            </div>
+            <div class="form-group col-sm-6">
+                <label>Data Nascimento: <span style="color:red">*</span></label>
+                <input type="date" name="dataNascimento" class="form-control" required="" ng-model="pessoa.dataNascimento" style="text-align: center;" ng-required="" />
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-6">
+                <label>Telefone: <span style="color:red">*</span></label>
+                <input type="text" class="form-control" id="telefone" name="telefone"  val-numero ng-minlength="10" ng-maxlength="17" ng-model="telefones.numero" ng-required="" ui-mask="(99) 9999-9999"  />
+                <!--
+                <p ng-show="{{form}}.telefone.$error.minlength">O Telefone necessita de no mínimo 10 caracteres! </p>
+                <p ng-show="{{form}}.telefone.$error.maxlength">O Telefone deve conter no máximo 17 caracteres!  </p>
+                <p ng-show="{{form}}.telefone.$error.required">Campo Obrigatório!</p>   
+                -->
+            </div>
+            <div class="form-group col-sm-6">
+                <label>Tipo Telefone: <span style="color:red">*</span></label>
+                <select name="tipotelefone" class="form-control"
+                        ng-disabled="visualizacaoAtiva"
+                        ng-model="telefones.tipotelefone"
+                        ng-options="value.descricao for value in listatipos track by value.id"
+
+                        >
+                </select>                        
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group col-sm-12">
+                <label>Email: <span style="color:red">*</span></label>
+                <input type="email" class="form-control" name="email" required="" placeholder="amacap@amacap.com.br" ng-model="emails.email" val-email ng-minlength="5" ng-maxlength="100" style="white-space: nowrap" ng-required="" />
+                <!--
+                <p ng-show="{{form}}.email.$invalid">Email Inválido!</p>
+                <p ng-show="{{form}}.email.$error.minlength">O email necessita de no mínimo 5 caracteres! </p>
+                <p ng-show="{{form}}.email.$error.maxlength">O email deve conter no máximo 100 caracteres!  </p>
+                <p ng-show="{{form}}.email.$error.required">Campo Obrigatório!</p>  
+                -->
+            </div>
+        </div>                    
+
+        <div class="row">
+
+            <div class="form-group col-sm-2">
+                <label>País: <span style="color:red"> *</span> </label>
+                <select class="form-control"            
+                        ng-disabled="visualizacaoAtiva"
+                        ng-model="enderecos.pais"                                    
+                        ng-options="value.nome for value in listaPaises track by value.id"
+                        ng-change="procurarUfPorIdPais(enderecos.pais.id)"
+                        >
+                </select>
+            </div>         
+
+            <div class="form-group col-sm-2">
+                <label>Estado: <span style="color:red"> *</span></label>
+                <select class="form-control"
+                        ng-disabled="visualizacaoAtiva"
+                        ng-model="enderecos.uf"
+                        ng-options="value.sigla for value in listaEstados track by value.id"
+                        ng-change="procurarCidadePorIdUf(enderecos.uf.id)"
+                        >
+                </select>
+            </div>              
+
+            <div class="form-group col-sm-4">
+                <label>Cidade: <span style="color:red"> *</span></label>
+                <select class="form-control"  name="cidade"
+                        ng-disabled="visualizacaoAtiva"
+                        ng-model="enderecos.cidade"
+                        ng-options="value.nome for value in listaCidade track by value.id"
+                        ng-change="procurarBairroPorIdCidade(enderecos.cidade.id)"
+                        >
+                </select>
+            </div>                        
+
+            <div class="form-group col-sm-3">
+                <label>Bairro: <span style="color:red"> *</span></label>
+                <select class="form-control" name="bairro"
+                        ng-disabled="visualizacaoAtiva"
+                        ng-model="enderecos.bairro"
+                        ng-options="value.nome for value in listaBairro track by value.id"
+                        ng-change="procurarLogradouroPorIdBairro(enderecos.bairro.id)"
+                        >
+                </select>
+            </div>
+
+        </div>                    
+        <div class="row">           
+
+            <div class="form-group col-sm-2">
+                <label>Cep: <span style="color:red"> *</span></label>
+                <input type="text" ui-mask="{{'99.999-999'}}" class="form-control" ng-disabled="visualizacaoAtiva" ng-model="enderecos.cep" />
+            </div>                                                                      
+            <div class="form-group col-sm-4">
+                <label>Logradouro: <span style="color:red"> *</span></label>
+                <select class="form-control"  name="logradouro"
+                        ng-disabled="visualizacaoAtiva"
+                        ng-model="enderecos.logradouro"
+                        ng-options="value.nome for value in listaLogradouro track by value.id"
+                        >
+                </select>                            
+            </div>
+            <div class="form-group col-sm-2">
+                <label>Numero: <span style="color:red"> *</span></label>
+                <input type="text" class="form-control"  ng-disabled="visualizacaoAtiva" ng-model="enderecos.numero" />
+            </div>                        
+            <div class="form-group col-sm-2">
+                <label>Complemento: </label>
+                <input type="text" class="form-control" required="false" ng-disabled="visualizacaoAtiva" ng-model="enderecos.complemento" ng-required="none" />
+            </div>
+
+        </div>          
+
+        <div class="row">
+            <div class="btn-toolbar list-toolbar">
+                <button type="button" class="btn btn-primary pull-right" data-dismiss="modal" ng-click="salvar()">Concluir Inscrição</button>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+

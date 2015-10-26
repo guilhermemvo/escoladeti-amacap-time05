@@ -1,0 +1,43 @@
+<div class="modal fade" id="modalVisualizarVolumes">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" ng-click="materialModal = false" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+                </button>
+                <h4 class="modal-title">Volumes</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-responsive table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-sm-1 form-group">ID</th>
+                            <th class="col-sm-4 form-group">Identificação</th>
+                            <th class="col-sm-4 form-group">Status</th>
+                            <th class="col-sm-4 form-group">Pagina inicial</th>
+                            <th class="col-sm-4 form-group">Pagina final</th>
+                            <th class="col-sm-4 form-group">Transporte</th>
+                            <th class="col-sm-4 form-group">Un.Produção</th>
+                            <th class="col-sm-4 form-group">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="volumeAtual in pedidoMaterialAtual.volumes"">
+                        <tr>
+                            <td>{{volumeAtual.id}}</td>
+                            <td>{{volumeAtual.identificacao}}</td>
+                            <td>{{descricaoStatus(volumeAtual.status)}}</td>
+                            <td>{{volumeAtual.paginaInicial}}</td>
+                            <td>{{volumeAtual.paginaFinal}}</td>
+                            <td>{{volumeAtual.transportadora.razao}}</td>
+                            <td>{{volumeAtual.unidadeProducao.nome}}</td>
+                            <td></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>  
+            <div class="modal-footer">
+                <button type="button" ng-click="materialModal = false" class="btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="adicionarMaterial()">Atualizar Material</button>
+            </div>
+        </div>
+    </div>
+</div>

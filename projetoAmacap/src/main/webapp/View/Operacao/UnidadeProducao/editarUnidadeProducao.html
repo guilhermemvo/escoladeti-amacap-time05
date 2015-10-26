@@ -1,0 +1,46 @@
+<!-- Breadcrumb -->
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Cadastro de Unidade Produção</h3>
+        <ol class="breadcrumb">
+            <li><a href="#"> Home</a></li>
+            <li> <a href="#Operacao/UnidadeProducao">Unidade Producao</a></li>
+            <li class="active">Cadastro de Unidade Produção</li>
+        </ol>
+    </div>
+</div>
+<!-- Fim breadcrumb -->
+<!-- Página: Editar e Novo Unidade Producao -->
+<div class="row" ng-controller="UnidadeProducaoController" ng-init="initEditarUnidadeProducao()">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Nova Unidade Producao</h3>
+            </div>
+            <div class="panel-body">
+
+                <!-- Inicio Cadastro -->
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label>Nome<span style="color:red"> *</span></label>
+                        <input maxlength="200" type="text" class="form-control" required="" ng-model="unidadeProducaoAtual.nome">
+                    </div>
+                </div>
+                
+                
+                <div class="row">
+               
+                    <div class="form-group col-sm-2">
+                        <a class="form-control btn btn-warning">Editar</a>
+                    </div>
+
+                    <div class="form-group col-sm-2">
+                        <a class="form-control btn btn-success" ng-click="salvar()" >Salvar</a>
+                    </div>
+                </div>	
+
+            </div> <!-- Fim panel-body -->
+        </div><!--Fim panel-primary-->
+    </div> <!-- Fim col-->
+</div> <!-- Fim row -->
+

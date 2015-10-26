@@ -1,0 +1,31 @@
+<div class="modal fade" id="modalMaterial">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" ng-click="materialModal = false" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+                    </button>
+                <h4 class="modal-title">Material</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-responsive table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-sm-1 form-group">Recebido</th>
+                            <th class="col-sm-4 form-group">Material</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="pedidoMaterial in pedidoAtual.pedidoMaterial">
+                        <tr>
+                            <td><input type="checkbox" ng-model="pedidoMaterial.recebido"></td>
+                            <td>{{pedidoMaterial.material.nome}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>  
+            <div class="modal-footer">
+                <button type="button" ng-click="materialModal = false" class="btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="adicionarMaterial()">Atualizar Material</button>
+            </div>
+        </div>
+    </div>
+</div>

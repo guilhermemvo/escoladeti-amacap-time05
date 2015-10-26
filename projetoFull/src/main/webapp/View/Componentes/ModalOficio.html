@@ -1,0 +1,46 @@
+<div class="modal fade" id="modalOficio">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" ng-click="oficioModal = false" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+                </button>
+                <h4 class="modal-title">Ofício</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row" >
+                    <div class="form-group col-sm-6">
+                        <h4>Ofício recebido?</h4>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="optionsRadios" id="sim" value="true" ng-model="oficio.recebido">
+                                Sim
+                            </label>
+                        </div>
+                        <div class="radio">
+                            <label>
+                                <input type="radio" name="optionsRadios" id="nao" value="false" ng-model="oficio.aceito" checked>
+                                Não
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-12">
+                        <label>Descrição: </label>
+                        <textarea class="form-control" rows="5" ng-model="oficio.observacao"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12 form-group">
+                        <label>Ofício</label>
+                        <input type="file" name="origem">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" ng-click="oficioModal = false" class="btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="adicionarOficio()">Adicionar Ofício</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,1148 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.0.xsd
+        		http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+
+    <changeSet author="PauloHenrique" id="8-INSERT">
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="30001"/>
+            <column name="data_cadastro" value="11/04/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="30002"/>
+            <column name="data_cadastro" value="12/04/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="30003"/>
+            <column name="data_cadastro" value="12/04/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="30004"/>
+            <column name="data_cadastro" value="12/04/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="30005"/>
+            <column name="data_cadastro" value="03/05/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="30006"/>
+            <column name="data_cadastro" value="04/05/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="30007"/>
+            <column name="data_cadastro" value="05/05/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="30008"/>
+            <column name="data_cadastro" value="06/05/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="30009"/>
+            <column name="data_cadastro" value="07/05/2014"/>
+            <column name="observacao" value="cliente antigo"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300010"/>
+            <column name="data_cadastro" value="03/05/2014"/>
+        </insert>        
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300011"/>
+            <column name="data_cadastro" value="06/05/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300012"/>
+            <column name="data_cadastro" value="22/09/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300013"/>
+            <column name="data_cadastro" value="22/09/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300014"/>
+            <column name="data_cadastro" value="22/09/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300015"/>
+            <column name="data_cadastro" value="22/09/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300016"/>
+            <column name="data_cadastro" value="22/09/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300017"/>
+            <column name="data_cadastro" value="22/09/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300018"/>
+            <column name="data_cadastro" value="22/09/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300019"/>
+            <column name="data_cadastro" value="22/09/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300020"/>
+            <column name="data_cadastro" value="22/09/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300021"/>
+            <column name="data_cadastro" value="22/09/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300022"/>
+            <column name="data_cadastro" value="22/09/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300023"/>
+            <column name="data_cadastro" value="22/09/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300024"/>
+            <column name="data_cadastro" value="22/09/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300025"/>
+            <column name="data_cadastro" value="22/09/2014"/>
+        </insert>
+        <insert tableName="tbcad_pessoa">
+            <column name="id" value="300026"/>
+            <column name="data_cadastro" value="22/09/2014"/>
+        </insert>
+		
+    </changeSet>
+
+    <changeSet author="PauloHenrique" id="12-INSERT">
+        <insert tableName="tbcad_perfil_acesso">
+            <column name="id" value="30001"/>
+            <column name="descricao" value="ADMINISTRADOR"/>
+        </insert>
+        <insert tableName="tbcad_perfil_acesso">
+            <column name="id" value="30002"/>
+            <column name="descricao" value="FINANCEIRO"/>
+        </insert>
+        <insert tableName="tbcad_perfil_acesso">
+            <column name="id" value="30003"/>
+            <column name="descricao" value="ATENDENTE"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="PauloHenrique" id="15-INSERT">
+        <insert tableName="tbcad_pessoa_fisica">
+            <column name="id" value="30001"/>
+            <column name="nome" value="JOSE DA SILVA"/>
+            <column name="sexo" value="M"/>
+            <column name="cpf" value="78497902602"/>
+            <column name="rg" value="649855"/>
+            <column name="data_nascimento" value="10/07/1982"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_fisica">
+            <column name="id" value="30002"/>
+            <column name="nome" value="MARIA DA PENHA"/>
+            <column name="sexo" value="F"/>
+            <column name="cpf" value="13412607479"/>
+            <column name="rg" value="354689"/>
+            <column name="data_nascimento" value="05/08/1975"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_fisica">
+            <column name="id" value="30003"/>
+            <column name="nome" value="ROMILDO PEREIRA"/>
+            <column name="sexo" value="M"/>
+            <column name="cpf" value="82342942613"/>
+            <column name="rg" value="13369793-8"/>
+            <column name="data_nascimento" value="07/09/1990"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_fisica">
+            <column name="id" value="30004"/>
+            <column name="nome" value="LUIZ HENRIQUE BARROS LOPES"/>
+            <column name="sexo" value="M"/>
+            <column name="cpf" value="92717732683"/>
+            <column name="rg" value="89981-9"/>
+            <column name="data_nascimento" value="09/12/1969"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_fisica">
+            <column name="id" value="30005"/>
+            <column name="nome" value="MARCELO TEIXEIRA MENDES"/>
+            <column name="sexo" value="M"/>
+            <column name="cpf" value="91237882591"/>
+            <column name="rg" value="65889-8"/>
+            <column name="data_nascimento" value="03/04/1974"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_fisica">
+            <column name="id" value="300010"/>
+            <column name="nome" value="RENAN MOREIRA DA SILVA"/>
+            <column name="sexo" value="M"/>
+            <column name="cpf" value="90271901438"/>
+            <column name="rg" value="99912-4"/>
+            <column name="data_nascimento" value="02/09/1977"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_fisica">
+            <column name="id" value="300015"/>
+            <column name="nome" value="KATIA SANTOS "/>
+            <column name="sexo" value="F"/>
+            <column name="cpf" value="61666044245"/>
+            <column name="rg" value="9987612-4"/>
+            <column name="data_nascimento" value="02/09/1988"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_fisica">
+            <column name="id" value="300016"/>
+            <column name="nome" value="JOAO PAULO "/>
+            <column name="sexo" value="M"/>
+            <column name="cpf" value="46012286546"/>
+            <column name="rg" value="99912-4"/>
+            <column name="data_nascimento" value="02/09/1997"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_fisica">
+            <column name="id" value="300017"/>
+            <column name="nome" value="FERNANADO PAES "/>
+            <column name="sexo" value="M"/>
+            <column name="cpf" value="32733112236"/>
+            <column name="rg" value="99912-4"/>
+            <column name="data_nascimento" value="02/09/2000"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_fisica">
+            <column name="id" value="300018"/>
+            <column name="nome" value="ANA PAULA"/>
+            <column name="sexo" value="F"/>
+            <column name="cpf" value="46314704456"/>
+            <column name="rg" value="99912-4"/>
+            <column name="data_nascimento" value="02/09/1997"/>
+        </insert>
+    </changeSet>
+    
+    <changeSet author="PauloHenrique" id="16-INSERT">
+        <insert tableName="tbcad_pessoa_juridica">
+            <column name="id" value="30006"/>
+            <column name="fantasia" value="EDITORA PARAISO"/>
+            <column name="razao" value="PP ASSOCIACOES LTDA"/>
+            <column name="cnpj" value="67086947000138"/>
+            <column name="ie" value="0009510648"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_juridica">
+            <column name="id" value="30007"/>
+            <column name="fantasia" value="ESCOLA ESTADUAL SANTO ANTONIO"/>
+            <column name="razao" value="SANTO ANTONIO ENSINO LTDA"/>
+            <column name="cnpj" value="57815193000156"/>
+            <column name="ie" value="7031180974"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_juridica">
+            <column name="id" value="30008"/>
+            <column name="fantasia" value="TRANSPORTADORA PRINCESA DOS CAMPOS"/>
+            <column name="razao" value="TRANSPORTADORA PRINCESA DOS CAMPOS LTDA"/>
+            <column name="cnpj" value="67757258000108"/>
+            <column name="ie" value="0221004590"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_juridica">
+            <column name="id" value="30009"/>
+            <column name="fantasia" value="ESCOLA PRINCESA ISABEL"/>
+            <column name="razao" value="ESCOLA PRINCESA ISABEL LTDA"/>
+            <column name="cnpj" value="52033627000142"/>
+            <column name="ie" value="2859186346"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_juridica">
+            <column name="id" value="300019"/>
+            <column name="fantasia" value="TUDO 1 REAL"/>
+            <column name="razao" value="TUDO 1 REAL"/>
+            <column name="cnpj" value="44747141000148"/>
+            <column name="ie" value="78392173821"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_juridica">
+            <column name="id" value="300020"/>
+            <column name="fantasia" value="EDITORA ABRIL"/>
+            <column name="razao" value="EDITORA ABRIL"/>
+            <column name="cnpj" value="65485265000172"/>
+            <column name="ie" value="78392173821"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_juridica">
+            <column name="id" value="300021"/>
+            <column name="fantasia" value="OTICAS CAROL"/>
+            <column name="razao" value="OTICAS CAROL"/>
+            <column name="cnpj" value="43011866000100"/>
+            <column name="ie" value="78392173821"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_juridica">
+            <column name="id" value="300022"/>
+            <column name="fantasia" value="MERCADO PARANA"/>
+            <column name="razao" value="MERCADO PARANA"/>
+            <column name="cnpj" value="04579061000106"/>
+            <column name="ie" value="78392173821"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_juridica">
+            <column name="id" value="300023"/>
+            <column name="fantasia" value="SOFTWARE MARINGA"/>
+            <column name="razao" value="SOFTWARE MARINGA"/>
+            <column name="cnpj" value="49474618000182"/>
+            <column name="ie" value="78392173821"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_juridica">
+            <column name="id" value="300024"/>
+            <column name="fantasia" value="LG ELETRONICOS"/>
+            <column name="razao" value="LG ELETRONICOS"/>
+            <column name="cnpj" value="19832515000186"/>
+            <column name="ie" value="78392173821"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_juridica">
+            <column name="id" value="300025"/>
+            <column name="fantasia" value="TRANSPORTES TGM"/>
+            <column name="razao" value="TRANSPORTES TGM"/>
+            <column name="cnpj" value="67532624000120"/>
+            <column name="ie" value="78392173821"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_juridica">
+            <column name="id" value="300026"/>
+            <column name="fantasia" value="CRECHE OLAVO BILAC"/>
+            <column name="razao" value="CRECHE OLAVO BILAC"/>
+            <column name="cnpj" value="02847876000101"/>
+            <column name="ie" value="78392173821"/>
+        </insert>
+        <insert tableName="tbcad_pessoa_juridica">
+            <column name="id" value="300011"/>
+            <column name="fantasia" value="VALMIR BEZERRA"/>
+            <column name="razao" value="VALMIR BEZERRA"/>
+            <column name="cnpj" value="11786307000186"/>
+            <column name="ie" value="78392173821"/>
+        </insert>
+
+    </changeSet>
+
+
+
+
+    <changeSet author="PauloHenrique" id="17-INSERT">
+        <insert tableName="tbcad_escola">
+            <column name="id" value="30007"/>
+        </insert>
+        <insert tableName="tbcad_escola">
+            <column name="id" value="30009"/>
+        </insert>
+        <insert tableName="tbcad_escola">
+            <column name="id" value="300026"/>
+        </insert>
+    </changeSet>
+
+
+
+
+    <changeSet author="PauloHenrique" id="18-INSERT">
+        <insert tableName="tbcad_transportadora">
+            <column name="id" value="30008"/>
+        </insert>
+        <insert tableName="tbcad_transportadora">
+            <column name="id" value="300025"/>
+        </insert>
+    </changeSet>
+
+
+    <changeSet author="PauloHenrique" id="19-INSERT">
+        <insert tableName="tbcad_editora">
+            <column name="id" value="30006"/>
+        </insert>
+        <insert tableName="tbcad_editora">
+            <column name="id" value="300020"/>
+        </insert>
+    </changeSet>
+
+
+
+    <changeSet author="PauloHenrique" id="20-INSERT">
+        <insert tableName="tbcad_aluno">
+            <column name="id" value="30001"/>
+            <column name="deficiencia" value="VISUAL"/>
+            <column name="serie" value="4"/>
+            <column name="turma" value="A"/>
+            <column name="id_escola" value="30007"/>    
+        </insert>
+        <insert tableName="tbcad_aluno">
+            <column name="id" value="30002"/>
+            <column name="deficiencia" value="VISUAL TOTAL"/>
+            <column name="serie" value="7"/>
+            <column name="turma" value="B"/>
+            <column name="id_escola" value="30009"/>    
+        </insert>
+        <insert tableName="tbcad_aluno">
+            <column name="id" value="300015"/>
+            <column name="deficiencia" value="VISUAL TOTAL"/>
+            <column name="serie" value="7"/>
+            <column name="turma" value="B"/>
+            <column name="id_escola" value="30009"/>    
+        </insert>
+        <insert tableName="tbcad_aluno">
+            <column name="id" value="300016"/>
+            <column name="deficiencia" value="VISUAL PARCIAL"/>
+            <column name="serie" value="3"/>
+            <column name="turma" value="B"/>
+            <column name="id_escola" value="300026"/>    
+        </insert>
+    </changeSet>
+
+
+    <changeSet author="PauloHenrique" id="21-INSERT"> 
+        <insert tableName="tbcad_professor">
+            <column name="id" value="30003"/>
+            <column name="id_escola" value="30007"/>
+        </insert>
+        <insert tableName="tbcad_professor">
+            <column name="id" value="300017"/>
+            <column name="id_escola" value="30007"/>
+        </insert>
+        <insert tableName="tbcad_professor">
+            <column name="id" value="300018"/>
+            <column name="id_escola" value="30009"/>
+        </insert>
+    </changeSet>
+    <changeSet author="PauloHenrique" id="22-INSERT">
+        <insert tableName="tbcad_funcao">
+            <column name="id" value="30001"/>
+            <column name="descricao" value="FINANCEIRO"/>
+        </insert>
+        <insert tableName="tbcad_funcao">
+            <column name="id" value="30002"/>
+            <column name="descricao" value="SECRETARIO(A)"/>
+        </insert>
+        <insert tableName="tbcad_funcao">
+            <column name="id" value="30003"/>
+            <column name="descricao" value="PROFESSOR(A)"/>
+        </insert>
+        <insert tableName="tbcad_funcao">
+            <column name="id" value="30004"/>
+            <column name="descricao" value="ASSISTENTE"/>
+        </insert>
+        <insert tableName="tbcad_funcao">
+            <column name="id" value="30005"/>
+            <column name="descricao" value="AUXILIAR"/>
+        </insert>
+    </changeSet>
+    <changeSet author="PauloHenrique" id="23-INSERT">
+        <insert tableName="tbcad_funcionario">
+            <column name="id" value="30004"/>
+            <column name="id_funcao" value="30001"/>
+        </insert>
+        <insert tableName="tbcad_funcionario">
+            <column name="id" value="30005"/>
+            <column name="id_funcao" value="30004"/>
+        </insert>
+        <insert tableName="tbcad_funcionario">
+            <column name="id" value="300010"/>
+            <column name="id_funcao" value="30003"/>
+        </insert>		
+    </changeSet>
+
+    <changeSet author="PauloHenrique" id="25-INSERT">
+        <insert tableName="tbcad_aluno_professor">
+            <column name="id_aluno" value="30001"/>
+            <column name="id_professor" value="30003"/>
+        </insert>
+        <insert tableName="tbcad_aluno_professor">
+            <column name="id_aluno" value="30002"/>
+            <column name="id_professor" value="30003"/>
+        </insert>
+        <insert tableName="tbcad_aluno_professor">
+            <column name="id_aluno" value="300015"/>
+            <column name="id_professor" value="300017"/>
+        </insert>
+        <insert tableName="tbcad_aluno_professor">
+            <column name="id_aluno" value="300016"/>
+            <column name="id_professor" value="300018"/>
+        </insert>
+		
+    </changeSet>
+
+
+
+
+    <changeSet author="PauloHenrique" id="26-INSERT">
+        <insert tableName="tbcad_unidade_producao">
+            <column name="nome" value="PENITENCIARIA DE CIANORTE"/>
+        </insert>
+        <insert tableName="tbcad_unidade_producao">
+            <column name="nome" value="REFORMATORIO ESPERANCA"/>
+        </insert>
+        <insert tableName="tbcad_unidade_producao">
+            <column name="nome" value="AMACAP"/>
+        </insert>
+        <insert tableName="tbcad_unidade_producao">
+            <column name="nome" value="CAP"/>
+        </insert>
+        <insert tableName="tbcad_unidade_producao">
+            <column name="nome" value="PENITENCIARIA MARINGA"/>
+        </insert>
+        <insert tableName="tbcad_unidade_producao">
+            <column name="nome" value="APAE SARANDI"/>
+        </insert>		
+    </changeSet>
+    
+    <changeSet author="johnLima" id="106-INSERT-UN">
+        <insert tableName="tbcad_unidade_medida">
+            <column name="id" value="30001"/>
+            <column name="descricao" value="CAIXA"/>                      
+        </insert>
+
+        <insert tableName="tbcad_unidade_medida">
+            <column name="id" value="30002"/>
+            <column name="descricao" value="LITRO"/>                      
+        </insert>
+
+        <insert tableName="tbcad_unidade_medida">
+            <column name="id" value="30003"/>
+            <column name="descricao" value="METRO"/>                      
+        </insert>
+
+        <insert tableName="tbcad_unidade_medida">
+            <column name="id" value="30004"/>
+            <column name="descricao" value="CENTIMETRO"/>                      
+        </insert>
+        <insert tableName="tbcad_unidade_medida">
+            <column name="id" value="30005"/>
+            <column name="descricao" value="UNIDADE"/>                      
+        </insert>
+    </changeSet>
+
+
+    <changeSet  author="PauloHenrique" id="27-INSERT">
+        <insert tableName="tbcad_materia_prima">
+            <column name="id" value="30001"/>
+            <column name="nome" value="PAPEL SULFITE"/>
+            <column name="valor_unitario" value="1"/>
+            <column name="quantidade" value="20"/>
+            <column name="id_unidade_medida" value="30002"/>
+        </insert> 
+        <insert tableName="tbcad_materia_prima">
+            <column name="id" value="30002"/>
+            <column name="nome" value="CAPA CD"/>
+            <column name="valor_unitario" value="1"/>
+            <column name="quantidade" value="15"/>
+            <column name="id_unidade_medida" value="30001"/>
+        </insert> 
+        <insert tableName="tbcad_materia_prima">
+            <column name="id" value="30003"/>
+            <column name="nome" value="CAPA DURA"/>
+            <column name="valor_unitario" value="1"/>
+            <column name="quantidade" value="1500"/>
+            <column name="id_unidade_medida" value="30005"/>
+        </insert>
+        <insert tableName="tbcad_materia_prima">
+            <column name="id" value="30004"/>
+            <column name="nome" value="COLA"/>
+            <column name="valor_unitario" value="3"/>
+            <column name="quantidade" value="100"/>
+            <column name="id_unidade_medida" value="30005"/>
+        </insert>
+        <insert tableName="tbcad_materia_prima">
+            <column name="id" value="30005"/>
+            <column name="nome" value="TINTA"/>
+            <column name="valor_unitario" value="3"/>
+            <column name="quantidade" value="500"/>
+            <column name="id_unidade_medida" value="30005"/>
+        </insert>
+        <insert tableName="tbcad_materia_prima">
+            <column name="id" value="30006"/>
+            <column name="nome" value="CANETAS"/>
+            <column name="valor_unitario" value="1"/>
+            <column name="quantidade" value="75"/>
+            <column name="id_unidade_medida" value="30005"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="PauloHenrique" id="29-INSERT">
+        <insert tableName="tbcad_item_acesso">
+            <column name="id" value="30001"/>
+            <column name="id_perfil_acesso" value="30001"/>
+            <column name="titulo_tela" value="PESSOA"/>
+        </insert>
+        
+    </changeSet>
+
+    <changeSet author="JohnLima" id="30-INSERT">
+        <insert tableName="tbcad_evento">
+            <column name="id" value="30001"/>
+            <column name="nome" value="SERVIDORES ORACLE"/>
+            <column name="quantidade_vagas" value="200"/>
+            <column name="descricao" value="ABERTO AO PÚBLICO"/>
+            <column name="local_evento" value="TEATRO MARISTA"/>
+            <column name="valor" value="24.50"/>
+            <column name="data_inicio" value="11/01/2015"/>
+            <column name="data_fim" value="12/01/2015"/>
+        </insert>
+    
+        <insert tableName="tbcad_evento">
+            <column name="id" value="30002"/>
+            <column name="nome" value="DATA MINING"/>
+            <column name="quantidade_vagas" value="250"/>
+            <column name="descricao" value="VOLTADO PARA DBAs"/>
+            <column name="local_evento" value="TEATRO MARISTA"/>
+            <column name="valor" value="320.50"/>
+            <column name="data_inicio" value="05/01/2015"/>
+            <column name="data_fim" value="03/01/2015"/>
+        </insert>
+		
+        <insert tableName="tbcad_evento">
+            <column name="id" value="30003"/>
+            <column name="nome" value="EMPREENDEDORISMO EM TI"/>
+            <column name="quantidade_vagas" value="250"/>
+            <column name="descricao" value="PROFISSIONAIS DE TI"/>
+            <column name="local_evento" value="TEATRO MARISTA"/>
+            <column name="valor" value="320.50"/>
+            <column name="data_inicio" value="05/02/2015"/>
+            <column name="data_fim" value="09/02/2015"/>
+        </insert>
+		
+        <insert tableName="tbcad_evento">
+            <column name="id" value="30004"/>
+            <column name="nome" value="DEV ANGULAR JS"/>
+            <column name="quantidade_vagas" value="250"/>
+            <column name="descricao" value="DESENVOLVEDORES"/>
+            <column name="local_evento" value="ETELVINA"/>
+            <column name="valor" value="320.50"/>
+            <column name="data_inicio" value="05/01/2015"/>
+            <column name="data_fim" value="03/01/2015"/>
+        </insert>
+    </changeSet>    
+
+
+
+    <changeSet author="JohnLima" id="32-INSERT"> 
+        <insert tableName="tbcad_instrutor">
+            <column name="id" value="30005"/>
+        </insert>
+        <insert tableName="tbcad_instrutor">
+            <column name="id" value="300010"/>
+        </insert>
+        <insert tableName="tbcad_instrutor">
+            <column name="id" value="300018"/>
+        </insert>
+    </changeSet>
+
+    <changeSet author="JohnLima" id="33-INSERT"> 
+        <insert tableName="tbcad_disciplina">
+            <column name="id" value="30001"/>
+            <column name="descricao" value="BANCO DE DADOS" />
+        </insert>
+        <insert tableName="tbcad_disciplina">
+            <column name="id" value="30002"/>
+            <column name="descricao" value="MATEMATICA DISCRETA" />
+        </insert>
+        <insert tableName="tbcad_disciplina">
+            <column name="id" value="30003"/>
+            <column name="descricao" value="ALGORITMOS" />
+        </insert>
+        <insert tableName="tbcad_disciplina">
+            <column name="id" value="30004"/>
+            <column name="descricao" value="EMPREENDEDORISMO" />
+        </insert>
+        <insert tableName="tbcad_disciplina">
+            <column name="id" value="30005"/>
+            <column name="descricao" value="GERENCIAMENTO DE PROJETOS" />
+        </insert>
+        <insert tableName="tbcad_disciplina">
+            <column name="id" value="30006"/>
+            <column name="descricao" value="MUSICA" />
+        </insert>
+    </changeSet>
+
+    <changeSet id="JohnLima" author="34-INSERT">
+        <insert tableName="tbcad_material">
+            <column name="id" value="30001" />
+            <column name="nome" value="ARPEGIOS FROM HELL" />
+            <column name="observacao" value="ARPEGIOS FROM HELL" />
+        </insert>
+        <insert tableName="tbcad_material">
+            <column name="id" value="30002" />
+            <column name="nome" value="SQL SERVER" />
+            <column name="observacao" value="FOR DBA" />
+        </insert>
+        <insert tableName="tbcad_material">
+            <column name="id" value="30003" />
+            <column name="nome" value="ANJOS E DEMONIOS" />
+            <column name="observacao" value="DAMN BROWN" />
+        </insert>
+        <insert tableName="tbcad_material">
+            <column name="id" value="30004" />
+            <column name="nome" value="CUMPRINDO O ESCOPO" />
+            <column name="observacao" value="CUMPRINDO O ESCOPO" />
+        </insert>
+        <insert tableName="tbcad_material">
+            <column name="id" value="30005" />
+            <column name="nome" value="CALENDARIO 2014" />
+            <column name="observacao" value="CALENDARIO 2014" />
+        </insert>
+        <insert tableName="tbcad_outros">
+            <column name="id" value="30003" />
+            <column name="type" value="outros"/>
+        </insert>
+    
+        <insert tableName="tbcad_material">
+            <column name="id" value="30006" />
+            <column name="nome" value="CALENDARIO 2015" />
+            <column name="observacao" value="CALENDARIO 2015" />
+        </insert>
+        <insert tableName="tbcad_outros">
+            <column name="id" value="30004" />
+            <column name="type" value="outros"/>
+        </insert>
+        
+        <insert tableName="tbcad_livro">
+            <column name="id" value="30001" />
+            <column name="id_disciplina" value="30006" />
+            <column name="autor" value="JOAO CARLOS MARTINS" />
+            <column name="edicao" value="01-A" />
+            <column name="serie" value="ERUDITO" />
+            <column name="ano" value="2013" />
+            <column name="pnld" value="PNLD" />
+            <column name="type" value="livro"/>
+            <column name="codigo_prateleira" value="005" />
+        </insert>
+        <insert tableName="tbcad_livro">
+            <column name="id" value="30002" />
+            <column name="id_disciplina" value="30005" />
+            <column name="autor" value="CARLOS GUITE" />
+            <column name="edicao" value="01" />
+            <column name="serie" value="AMPLO" />
+            <column name="ano" value="2013" />
+            <column name="type" value="livro"/>
+            <column name="pnld" value="PNLD" />
+            <column name="codigo_prateleira" value="005" />
+        </insert>
+        <insert tableName="tbcad_livro">
+            <column name="id" value="30003" />
+            <column name="id_disciplina" value="30006" />
+            <column name="autor" value="CLEBER MACHUTIA" />
+            <column name="edicao" value="3" />
+            <column name="serie" value="NAVAL" />
+            <column name="type" value="livro"/>
+            <column name="ano" value="2013" />
+            <column name="pnld" value="PNLD" />
+            <column name="codigo_prateleira" value="005" />
+        </insert>
+        <insert tableName="tbcad_livro">
+            <column name="id" value="30004" />
+            <column name="id_disciplina" value="30006" />
+            <column name="autor" value="ELANO ALBERGUE" />
+            <column name="edicao" value="01-A" />
+            <column name="serie" value="ERUDITO" />
+            <column name="ano" value="2013" />
+            <column name="type" value="livro"/>
+            <column name="pnld" value="PNLD" />
+            <column name="codigo_prateleira" value="005" />
+        </insert>
+        <insert tableName="tbcad_livro">
+            <column name="id" value="30005" />
+            <column name="id_disciplina" value="30006" />
+            <column name="autor" value="EMERSON JOSE" />
+            <column name="edicao" value="5" />
+            <column name="serie" value="MUSICA" />
+            <column name="ano" value="2013" />
+            <column name="type" value="livro"/>
+            <column name="pnld" value="PNLD" />
+            <column name="codigo_prateleira" value="005" />
+        </insert>
+    </changeSet>
+
+    <changeSet id="JohnLima" author="35-INSERT">
+        
+        <insert tableName="tbcad_livro">
+            <column name="id" value="30006" />
+            <column name="id_disciplina" value="30005" />
+            <column name="autor" value="PATRONNI" />
+            <column name="type" value="livro"/>
+            <column name="edicao" value="02-C" />
+            <column name="serie" value="GERENCIA" />
+            <column name="ano" value="2013" />
+            <column name="pnld" value="PNLD" />
+            <column name="codigo_prateleira" value="001" />
+            <column name="nome" value="CUMPRINDO O ESCOPO" />
+        </insert>
+    </changeSet>
+    <changeSet id="PauloHenrique" author="100-INSERT">
+        <insert tableName="tbcad_tipo_material">
+            <column name="id" value="30001" />
+            <column name="descricao" value="Braile" />
+        </insert>
+        <insert tableName="tbcad_tipo_material">
+            <column name="id" value="30002" />
+            <column name="descricao" value="Tinta" />
+        </insert>
+        <insert tableName="tbcad_tipo_material">
+            <column name="id" value="30003" />
+            <column name="descricao" value="Audio" />
+        </insert>
+    </changeSet>
+    
+    <changeSet id="PauloHenrique" author="101-INSERT">
+        <insert tableName="tbcad_arquivo">
+            <column name="id" value="30001" />
+            <column name="origem" value="arquivo.pdf" />
+            <column name="observacao" value="arquivo de teste" />
+            <column name="id_tipo_material" value="30002" />
+        </insert>
+        <insert tableName="tbcad_arquivo">
+            <column name="id" value="30002" />
+            <column name="origem" value="arquivo.pdf" />
+            <column name="observacao" value="arquivo de teste" />
+            <column name="id_tipo_material" value="30001" />
+        </insert>
+        <insert tableName="tbcad_arquivo">
+            <column name="id" value="30003" />
+            <column name="origem" value="arquivo11.pdf" />
+            <column name="observacao" value="arquivo de teste11" />
+            <column name="id_tipo_material" value="30001" />
+        </insert>
+        <insert tableName="tbcad_arquivo">
+            <column name="id" value="30004" />
+            <column name="origem" value="arquivo1111111111.pdf" />
+            <column name="observacao" value="arquivo de teste11111111" />
+            <column name="id_tipo_material" value="30003" />
+        </insert>
+    </changeSet>
+    
+    <changeSet id="TiagoHipolito" author="102-INSERT">
+        <insert tableName="tbcad_tipo_telefone">
+            <column name="id" value="30001" />
+            <column name="descricao" value="Casa" />
+        </insert>
+        <insert tableName="tbcad_tipo_telefone">
+            <column name="id" value="30002" />
+            <column name="descricao" value="Celular" />
+        </insert>
+        <insert tableName="tbcad_tipo_telefone">
+            <column name="id" value="30003" />
+            <column name="descricao" value="Comercial" />
+        </insert>
+    </changeSet>
+    <changeSet id="PauloHenrique" author="103-INSERT">
+        <insert tableName="tbcad_arquivo_material">
+            <column name="id_material" value="30001" />
+            <column name="id_arquivo" value="30001" />
+        </insert>
+        <insert tableName="tbcad_arquivo_material">
+            <column name="id_material" value="30002" />
+            <column name="id_arquivo" value="30002" />
+        </insert>
+    </changeSet>
+    
+    <changeSet id="PauloHenrique" author="104-INSERT">
+        <insert tableName="tbcad_materia_prima_material">
+            <column name="id" value="30001" />
+            <column name="id_materia_prima" value="30001" />
+            <column name="quantidade" value="20" />
+            <column name="id_tipo_material" value="30001" />
+        </insert>
+        <insert tableName="tbcad_materia_prima_material">
+            <column name="id" value="30002" />
+            <column name="id_materia_prima" value="30002" />
+            <column name="quantidade" value="30" />
+            <column name="id_tipo_material" value="30002" />
+        </insert>
+    </changeSet>
+    <changeSet id="PauloHenrique" author="105-INSERT">
+        <insert tableName="tbcad_materia_prima_material_material">
+            <column name="id_material" value="30001" />
+            <column name="id_materia_prima_material" value="30001" />
+        </insert>
+        <insert tableName="tbcad_materia_prima_material_material">
+            <column name="id_material" value="30002" />
+            <column name="id_materia_prima_material" value="30002" />
+        </insert>
+    </changeSet>
+    
+    <changeSet id="NuriellyBrizola" author="106-INSERT">
+        <insert tableName="tbcad_inscritos">
+            <column name="id" value="30001" />
+            <column name="id_evento" value="30002" />
+            <column name="id_pessoa" value="30002" />
+            <column name="pago" value="TRUE" />
+        </insert>
+        <insert tableName="tbcad_inscritos">
+            <column name="id" value="30002" />
+            <column name="id_evento" value="30002" />
+            <column name="id_pessoa" value="30003" />
+            <column name="pago" value="FALSE" />
+        </insert>
+        <insert tableName="tbcad_inscritos">
+            <column name="id" value="30003" />
+            <column name="id_evento" value="30002" />
+            <column name="id_pessoa" value="300017" />
+            <column name="pago" value="TRUE" />
+        </insert>
+        <insert tableName="tbcad_inscritos">
+            <column name="id" value="30004" />
+            <column name="id_evento" value="30003" />
+            <column name="id_pessoa" value="30005" />
+            <column name="pago" value="TRUE" />
+        </insert>
+        <insert tableName="tbcad_inscritos">
+            <column name="id" value="30005" />
+            <column name="id_evento" value="30004" />
+            <column name="id_pessoa" value="30005" />
+            <column name="pago" value="TRUE" />
+        </insert>
+        <insert tableName="tbcad_inscritos">
+            <column name="id" value="30006" />
+            <column name="id_evento" value="30001" />
+            <column name="id_pessoa" value="30007" />
+            <column name="pago" value="TRUE" />
+        </insert>
+        <insert tableName="tbcad_inscritos">
+            <column name="id" value="30007" />
+            <column name="id_evento" value="30002" />
+            <column name="id_pessoa" value="30005" />
+            <column name="pago" value="TRUE" />
+        </insert>
+        <insert tableName="tbcad_inscritos">
+            <column name="id" value="30008" />
+            <column name="id_evento" value="30004" />
+            <column name="id_pessoa" value="300019" />
+            <column name="pago" value="TRUE" />
+        </insert>
+        <insert tableName="tbcad_inscritos">
+            <column name="id" value="30009" />
+            <column name="id_evento" value="30002" />
+            <column name="id_pessoa" value="300015" />
+            <column name="pago" value="TRUE" />
+        </insert>
+    </changeSet>
+    
+    <changeSet author="NuriellyBrizola" id="107-INSERT"> 
+        <insert tableName="tbcad_associado_pessoa_fisica">
+            <column name="id" value="30001"/>
+            <column name="id_pessoa" value="300010"/>
+            <column name="valor_contribuicao" value="70.00"/>
+            <column name="ativo" value="TRUE"/>
+        </insert>
+        <insert tableName="tbcad_associado_pessoa_fisica">
+            <column name="id" value="30002"/>
+            <column name="id_pessoa" value="30001"/>
+            <column name="valor_contribuicao" value="50.00"/>
+            <column name="ativo" value="TRUE"/>
+        </insert>
+        <insert tableName="tbcad_associado_pessoa_fisica">
+            <column name="id" value="30003"/>
+            <column name="id_pessoa" value="30002"/>
+            <column name="valor_contribuicao" value="55.00"/>
+            <column name="ativo" value="TRUE"/>
+        </insert>
+        <insert tableName="tbcad_associado_pessoa_fisica">
+            <column name="id" value="30004"/>
+            <column name="id_pessoa" value="300018"/>
+            <column name="valor_contribuicao" value="60.00"/>
+            <column name="ativo" value="TRUE"/>
+        </insert>
+        <insert tableName="tbcad_associado_pessoa_fisica">
+            <column name="id" value="30005"/>
+            <column name="id_pessoa" value="300015"/>
+            <column name="valor_contribuicao" value="70.00"/>
+            <column name="ativo" value="TRUE"/>
+        </insert>
+        <insert tableName="tbcad_associado_pessoa_fisica">
+            <column name="id" value="30006"/>
+            <column name="id_pessoa" value="300016"/>
+            <column name="valor_contribuicao" value="70.00"/>
+            <column name="ativo" value="TRUE"/>
+        </insert>
+        <insert tableName="tbcad_associado_pessoa_fisica">
+            <column name="id" value="30007"/>
+            <column name="id_pessoa" value="300017"/>
+            <column name="valor_contribuicao" value="70.00"/>
+            <column name="ativo" value="TRUE"/>
+        </insert>
+        
+        <insert tableName="tbcad_associado_pessoa_juridica">
+            <column name="id" value="30001"/>
+            <column name="id_pessoa" value="300011"/>
+            <column name="valor_contribuicao" value="80.00"/>
+            <column name="ativo" value="TRUE"/>
+        </insert>
+        <insert tableName="tbcad_associado_pessoa_juridica">
+            <column name="id" value="30002"/>
+            <column name="id_pessoa" value="30006"/>
+            <column name="valor_contribuicao" value="80.00"/>
+            <column name="ativo" value="TRUE"/>
+        </insert>
+        <insert tableName="tbcad_associado_pessoa_juridica">
+            <column name="id" value="30003"/>
+            <column name="id_pessoa" value="30007"/>
+            <column name="valor_contribuicao" value="80.00"/>
+            <column name="ativo" value="TRUE"/>
+        </insert>
+        <insert tableName="tbcad_associado_pessoa_juridica">
+            <column name="id" value="30004"/>
+            <column name="id_pessoa" value="30008"/>
+            <column name="valor_contribuicao" value="80.00"/>
+            <column name="ativo" value="TRUE"/>
+        </insert>
+        <insert tableName="tbcad_associado_pessoa_juridica">
+            <column name="id" value="30005"/>
+            <column name="id_pessoa" value="30009"/>
+            <column name="valor_contribuicao" value="80.00"/>
+            <column name="ativo" value="TRUE"/>
+        </insert>
+        <insert tableName="tbcad_associado_pessoa_juridica">
+            <column name="id" value="30006"/>
+            <column name="id_pessoa" value="300019"/>
+            <column name="valor_contribuicao" value="80.00"/>
+            <column name="ativo" value="TRUE"/>
+        </insert>
+        <insert tableName="tbcad_associado_pessoa_juridica">
+            <column name="id" value="30007"/>
+            <column name="id_pessoa" value="300020"/>
+            <column name="valor_contribuicao" value="80.00"/>
+            <column name="ativo" value="TRUE"/>
+        </insert>
+        <insert tableName="tbcad_associado_pessoa_juridica">
+            <column name="id" value="30008"/>
+            <column name="id_pessoa" value="300021"/>
+            <column name="valor_contribuicao" value="80.00"/>
+            <column name="ativo" value="TRUE"/>
+        </insert>
+        <insert tableName="tbcad_associado_pessoa_juridica">
+            <column name="id" value="30009"/>
+            <column name="id_pessoa" value="300022"/>
+            <column name="valor_contribuicao" value="80.00"/>
+            <column name="ativo" value="TRUE"/>
+        </insert>
+    </changeSet>
+    
+    <changeSet author="NuriellyBrizola" id="108-INSERT"> 
+        <insert tableName="tbcad_solicitante">
+            <column name="id" value="300016"/>
+        </insert>
+        <insert tableName="tbcad_solicitante">
+            <column name="id" value="300015"/>
+        </insert>
+        <insert tableName="tbcad_solicitante">
+            <column name="id" value="300010"/>
+        </insert>
+    </changeSet>
+
+    
+    <changeSet  author="PauloHenrique" id="110-INSERT_PEDIDO">
+        <insert tableName="tbcad_pedido">
+            <column name="id" value="30001"/>
+            <column name="datapedido" value="2014-06-01"/>
+            <column name="observacao" value="Observaçoes sobre o Pedido"/>
+            <column name="status" value="Producao"/>
+            <column name="idaluno" value="300015"/>
+            <column name="idprofessor" value="30003"/>
+            <column name="idoficio" value="30002"/>
+            <column name="idsolicitante" value="300015"/>
+            <column name="idescola" value="30007"/>
+            <column name="paginainicial" value="1"/>
+            <column name="paginafinal" value="50"/>
+            <column name="status" value="AGUARDANDO OFICIO"/>		
+        </insert> 
+        <insert tableName="tbcad_pedido">
+            <column name="id" value="30002"/>
+            <column name="datapedido" value="2013-06-01"/>
+            <column name="observacao" value="Observaçoes sobre o Pedido"/>
+            <column name="status" value="Producao"/>
+            <column name="idaluno" value="300015"/>
+            <column name="idprofessor" value="300018"/>
+            <column name="idoficio" value="30001"/>
+            <column name="idsolicitante" value="300015"/>
+            <column name="idescola" value="300026"/>
+            <column name="paginainicial" value="1"/>
+            <column name="paginafinal" value="50"/>
+            <column name="status" value="AGUARDANDO OFICIO"/>			
+        </insert>
+        <insert tableName="tbcad_pedido">
+            <column name="id" value="30003"/>
+            <column name="datapedido" value="2014-07-01"/>
+            <column name="observacao" value="Observaçoes sobre o Pedido"/>
+            <column name="status" value="Producao"/>
+            <column name="idaluno" value="30002"/>
+            <column name="idprofessor" value="300017"/>
+            <column name="idoficio" value="30003"/>
+            <column name="idsolicitante" value="300016"/>
+            <column name="idescola" value="30007"/>
+            <column name="paginainicial" value="1"/>
+            <column name="paginafinal" value="50"/>
+            <column name="status" value="AGUARDANDO OFICIO"/>			
+        </insert>
+        <insert tableName="tbcad_pedido">
+            <column name="id" value="30004"/>
+            <column name="datapedido" value="2014-10-06"/>
+            <column name="observacao" value="Observaçoes sobre o Pedido"/>
+            <column name="status" value="Producao"/>
+            <column name="idaluno" value="30002"/>
+            <column name="idprofessor" value="30003"/>
+            <column name="idoficio" value="30002"/>
+            <column name="idsolicitante" value="300016"/>
+            <column name="idescola" value="30009"/>
+            <column name="paginainicial" value="1"/>
+            <column name="paginafinal" value="50"/>
+            <column name="status" value="AGUARDANDO OFICIO"/>			
+        </insert>
+        <insert tableName="tbcad_pedido">
+            <column name="id" value="30005"/>
+            <column name="datapedido" value="2014-06-01"/>
+            <column name="observacao" value="Observaçoes sobre o Pedido"/>
+            <column name="status" value="Producao"/>
+            <column name="idaluno" value="30001"/>
+            <column name="idprofessor" value="30003"/>
+            <column name="idoficio" value="30002"/>
+            <column name="idsolicitante" value="300010"/>
+            <column name="idescola" value="30007"/>
+            <column name="paginainicial" value="1"/>
+            <column name="paginafinal" value="50"/>
+            <column name="status" value="AGUARDANDO OFICIO"/>			
+        </insert>
+        <insert tableName="tbcad_pedido">
+            <column name="id" value="30006"/>
+            <column name="datapedido" value="2014-08-10"/>
+            <column name="observacao" value="Observaçoes sobre o Pedido"/>
+            <column name="status" value="Producao"/>
+            <column name="idaluno" value="300016"/>
+            <column name="idprofessor" value="30003"/>
+            <column name="idoficio" value="30003"/>
+            <column name="idsolicitante" value="300010"/>
+            <column name="idescola" value="30007"/>
+            <column name="paginainicial" value="1"/>
+            <column name="paginafinal" value="50"/>
+            <column name="status" value="AGUARDANDO OFICIO"/>			
+        </insert>
+        <insert tableName="tbcad_pedido">
+            <column name="id" value="30007"/>
+            <column name="datapedido" value="2011-03-05"/>
+            <column name="observacao" value="Observaçoes sobre o Pedido"/>
+            <column name="status" value="Producao"/>
+            <column name="idaluno" value="30001"/>
+            <column name="idprofessor" value="300017"/>
+            <column name="idoficio" value="30002"/>
+            <column name="idsolicitante" value="300010"/>
+            <column name="idescola" value="30007"/>
+            <column name="paginainicial" value="1"/>
+            <column name="paginafinal" value="50"/>
+            <column name="status" value="AGUARDANDO OFICIO"/>			
+        </insert>
+        <insert tableName="tbcad_pedido">
+            <column name="id" value="30008"/>
+            <column name="datapedido" value="2014-11-11"/>
+            <column name="observacao" value="Observaçoes sobre o Pedido"/>
+            <column name="status" value="Producao"/>
+            <column name="idaluno" value="30002"/>
+            <column name="idprofessor" value="300017"/>
+            <column name="idoficio" value="30003"/>
+            <column name="idsolicitante" value="300015"/>
+            <column name="idescola" value="30009"/>
+            <column name="paginainicial" value="1"/>
+            <column name="paginafinal" value="50"/>
+            <column name="status" value="AGUARDANDO OFICIO"/>			
+        </insert>
+        <insert tableName="tbcad_pedido">
+            <column name="id" value="30009"/>
+            <column name="datapedido" value="2014-12-12"/>
+            <column name="observacao" value="Observaçoes sobre o Pedido"/>
+            <column name="status" value="Producao"/>
+            <column name="idaluno" value="300015"/>
+            <column name="idprofessor" value="300018"/>
+            <column name="idoficio" value="30002"/>
+            <column name="idsolicitante" value="300010"/>
+            <column name="idescola" value="30009"/>
+            <column name="paginainicial" value="1"/>
+            <column name="paginafinal" value="50"/>
+            <column name="status" value="AGUARDANDO OFICIO"/>			
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

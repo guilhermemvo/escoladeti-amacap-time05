@@ -1,0 +1,55 @@
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Funcionário: <span style="color:red">*</span></label>
+        <select class="form-control"
+                ng-disabled="visualizacaoAtiva"
+                ng-model="pessoa.funcionario"
+                ng-options="value.nome for value in listafuncionario track by value.id">
+        </select>
+    </div>
+    <div class="form-group col-sm-6">
+        <label>Login do Usuário: <span style="color:red">*</span></label>
+        <input type="text" class="form-control" name="login" style="white-space: nowrap" required=""  ng-model="pessoa.login" ng-minlength="4" ng-maxlength="100" ng-required="" />
+        <p ng-show="{{form}}.login.$error.maxlength">O Login deve conter no máximo 100 caracteres! </p>
+        <p ng-show="{{form}}.login.$error.minlength">O Login necessita de no mínimo 4 caracteres! </p>
+        <p ng-show="{{form}}.login.$error.required">Campo Obrigatório!</p>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Senha: <span style="color:red">*</span></label>
+        <input type="password" class="form-control"  name="senha" style="white-space: nowrap"  id="senha" onkeyup="javascript:verifica()" val-senha ng-required="" ng-model="pessoa.senha" ng-minlength="8" ng-maxlength="200" />
+        <table id="mostra" ></table>
+        <p ng-show="{{form}}.senha.$error.maxlength">A Senha deve conter no máximo 200 caracteres!</p>
+        <p ng-show="{{form}}.senha.$error.minlength">A Senha necessita de no mínimo 8 caracteres! </p>
+        <p ng-show="{{form}}.senha.$error.required">Campo Obrigatório!</p>
+    </div>
+    <div class="form-group col-sm-6">
+        <label>Confirmar Senha: <span style="color:red">*</span></label>
+        <input type="password" class="form-control" name="confirmarSenha" required="" ng-model="confirmarSenha"   ng-minlength="8" ng-maxlength="200" ng-required="" data-match="pessoa.senha" />
+        <p data-ng-show="{{form}}.confirmarSenha.$error.match">Senha não confere!</p>
+        <p ng-show="{{form}}.confirmarSenha.$error.maxlength">A Confirmação de Senha deve conter no máximo 200 caracteres!</p>
+        <p ng-show="{{form}}.confirmarSenha.$error.minlength">A Confirmação de Senha necessita de no mínimo 8 caracteres! </p>
+        <p ng-show="{{form}}.confirmarSenha.$error.required">Campo Obrigatório!</p>
+    </div>
+</div>
+<div class="row">
+
+    <div class="form-group col-sm-6">
+
+        <label>Ativo: <span style="color:red">*</span></label>
+        <label class="radio-inline"><input ng-model="pessoa.ativo" ng-value="true" type="radio">Sim</label>
+        <label class="radio-inline"><input ng-model="pessoa.ativo" ng-value="false" type="radio">Não</label>
+
+    </div>
+
+    <div class="form-group col-sm-6">
+        <label>Perfil de Acesso: <span style="color:red">*</span></label>
+        <select class="form-control"
+                ng-disabled="visualizacaoAtiva"
+                ng-model="pessoa.perfilAcesso"
+                ng-options="value.descricao for value in listaperfilacesso track by value.id"
+                >
+        </select>
+    </div>
+</div>

@@ -1,0 +1,61 @@
+<!-- Breadcrumb-->
+<div class="row">
+    <div class="col-sm-12">
+        <h2>Distrito</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li class="active">Distrito</li>
+        </ol>
+    </div>
+</div>
+<!--Fim Breadcrumb-->
+
+<!-- Página: Lista de Distritos -->
+<div class="row" ng-controller="DistritoController" ng-init="init()">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <a ng-click="incluir()" class="btn btn-default btn-sm"><span class="glyphicon glyphicon-plus"></span> Novo</a>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-sm-12">
+                        <input type="text" class="form-control " placeholder="Digite o que você procura" ng-model="search">
+                    </div>
+                </div>
+                <table class="table table-responsive table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-sm-1 form-group">Id</th>
+                            <th class="col-sm-4 form-group">Nome</th>
+                            <th class="col-sm-3 form-group">Cidade</th>
+                            <th class="col-sm-2 form-group">Início Vigêcia</th>
+                            <th class="col-sm-2 form-group">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="distrito in page.list|filter:search">
+                        <tr>
+                            <td>{{distrito.id}}</td>
+                            <td>{{distrito.nome}}</td>
+                            <td>{{distrito.cidade.nome}}</td>
+                            <td>{{distrito.inicioVigencia}}</td>
+                            <td>
+                                <div class="pull-right">  
+                                    <a href="#/Localizacao/Distrito/{{distrito.id}}" class="btn btn-primary btn-sm">
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                    </a>
+                                    <a href="#/Localizacao/Distrito/{{distrito.id}}" class="btn btn-warning btn-sm">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </a>
+                                    <a ng-click="remover($index)" class="btn btn-danger btn-sm">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>  <!-- Fim panel-body -->
+        </div> <!-- Fim panel -->
+    </div> <!-- Fim col -->
+</div> <!-- Fim row-->

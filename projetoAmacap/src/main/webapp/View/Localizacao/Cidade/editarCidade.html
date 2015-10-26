@@ -1,0 +1,29 @@
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Nome<span style="color:red"> *</span></label>
+        <input maxlength="255" type="text" class="form-control" required="" ng-disabled="visualizacaoAtiva" ng-model="cidadeAtual.nome">
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Data de Fundação</label>
+        <input type="date" placeholder="dd-MM-yyyy" min="01-01-1500" max="25-05-2014" ng-disabled="visualizacaoAtiva" class="form-control"  required="" ng-model="cidadeAtual.dataFundacao">
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Código IBGE</label>
+        <input maxlength="6" type="text" class="form-control"  required="" ng-disabled="visualizacaoAtiva" ng-model="cidadeAtual.codigoIBGE">
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Estado<span style="color:red"> *</span></label>
+        <select class="form-control"
+                ng-disabled="visualizacaoAtiva"
+                ng-model="cidadeAtual.unidadefederativa"
+                ng-options="value.nome for value in listaestados track by value.id"
+                >
+        </select>
+    </div>
+</div>

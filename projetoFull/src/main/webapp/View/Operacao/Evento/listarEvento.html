@@ -1,0 +1,104 @@
+<table class="table table-responsive table-hover">
+    <thead>
+        <tr>
+
+            <th class="col-sm-1 form-group">Id</th>
+            <th class="col-sm-4 form-group">Nome</th>
+            <th class="col-sm-1 form-group">Vagas</th>
+            <th class="col-sm-1 form-group">Data Inicio</th>
+            <th class="col-sm-1 form-group">Data Fim</th>
+            <th class="col-sm-4 form-group">Ações</th>
+        </tr>
+    </thead>
+
+    <tbody ng-repeat="evento in page.list| filter:search">
+        <tr>
+
+            <td>{{evento.id}}</td>
+            <td>{{evento.nome}}</td>
+            <td>{{evento.quantidade_vagas}}</td>
+            <td>{{evento.data_inicio| date: 'dd/MM/yyyy'}}</td>
+            <td>{{evento.data_fim| date: 'dd/MM/yyyy'}}</td>
+            <!--<td>{{evento.instrutor.nome}}</td>-->
+
+            <td>
+                <div class="pull-right">  
+                    <a ng-click="carregaAgendas($index)" class="btn btn-success btn-sm" title="Confirmar presenças">
+                        <span class="glyphicon glyphicon-check"></span>
+                    </a>
+                    <a  href="#/Operacao/Evento/{{evento.id}}/Galeria" class="btn btn-info btn-sm" title="Galeria de Fotos">
+                        <span class="glyphicon glyphicon-camera"></span>
+                    </a>
+                    <a  href="#/Operacao/Evento/{{evento.id}}/Inscritos" class="btn btn-warning btn-sm" title="Inscrito">
+                        <span class="glyphicon glyphicon-plus"></span>
+                    </a>
+                    <a href="#/Operacao/Evento/{{evento.id}}/Visualizar" class="btn btn-primary btn-sm" title="Visualizar" >
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                    <a href="#/Operacao/Evento/{{evento.id}}/Editar" class="btn btn-warning btn-sm" title="Editar">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a ng-click="remover($index)" class="btn btn-danger btn-sm" title="Remover">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                    <a href="evento/relatorio/listaParticipante/{{evento.id}}" class="btn btn-sm btn-info" title="Relatório" target="_blank">
+                        <span class="glyphicon glyphicon-print"></span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+<div class="modal fade" id="modalPresencas">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+                </button>
+                <h4 class="modal-title">Presença do dia:</h4>
+                <select class="form-control"
+                        ng-model="agendaAtualizar"
+                        ng-change="carregaParticipantes(agendaAtualizar)"
+                        ng-options="value.data for value in agendaEvento track by value.id"
+                        >
+                </select>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <table class="table table-responsive table-hover">
+                        <thead>
+                            <tr>
+                                <th class="col-sm-2 form-group">Participante</th>
+                                <th ng-if="presencaManha" class="col-sm-2 form-group">Manha</th>
+                                <th ng-if="presencaTarde" class="col-sm-2 form-group">Tarde</th>
+                                <th ng-if="presencaNoite" class="col-sm-2 form-group">Noite</th>
+                            </tr>
+                        </thead>
+
+                        <tbody ng-repeat="participante in presencaDosParticipantes">
+                            <tr>
+                                <td>{{participante.inscricao.pessoa.nome}}</td>
+                                <td ng-if="presencaManha">
+                                    <input type="checkbox" ng-model="participante.manha" name="manha">
+                                </td>
+                                <td ng-if="presencaTarde">
+                                    <input type="checkbox" ng-model="participante.tarde" name="tarde">
+                                <td ng-if="presencaNoite">
+                                    <input type="checkbox" ng-model="participante.noite" name="noite">
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="salvarPresencas()">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

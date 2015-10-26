@@ -1,0 +1,39 @@
+<div ng-include src="'./View/Pessoa/PessoaFisica.html'"></div>
+<div class="row">
+    <div class="form-group col-sm-8">
+        <label>Deficiência: <span style="color:red">*</span></label>
+        <input type="text" class="form-control" name="deficiencia" val-nome required="" ng-model="pessoa.deficiencia" ng-maxlength="255" ng-minlength="3" ng-required="">
+        <p ng-show="{{form}}.deficiencia.$error.maxlength">O Campo Deficiência deve conter no máximo 255 caracteres! </p>
+        <p ng-show="{{form}}.deficiencia.$error.minlength">O Campo Deficiência necessita de no mínimo 3 caracteres! </p>
+        <p ng-show="{{form}}.deficiencia.$error.required">Campo Obrigatório!</p> 
+    </div>
+    <div class="form-group col-sm-2">
+        <label>Série: <span style="color:red">*</span></label>
+        <input type="text" name="serie" class="form-control" ng-model="pessoa.serie" val-nome required="" ng-maxlength="2" ng-minlength="1" ng-required="">
+        <p ng-show="{{form}}.serie.$error.maxlength">A Série deve conter no máximo 2 caracteres! </p>
+        <p ng-show="{{form}}.serie.$error.minlength">A Série necessita de no mínimo 1 caracteres!  </p>
+        <p ng-show="{{form}}.serie.$error.required">Campo Obrigatório!</p> 
+    </div>
+    <div class="form-group col-sm-2">
+        <label>Turma: <span style="color:red">*</span></label>
+        <input type="text" name="turma" class="form-control" required="" ng-model="pessoa.turma" val-nome style="text-align: left;" ng-maxlength="2" ng-minlength="1" ng-required="">
+        <p ng-show="{{form}}.turma.$error.maxlength">A Turma deve conter no máximo 2 caracteres! </p>
+        <p ng-show="{{form}}.turma.$error.minlength">A Turma necessita de no mínimo 1 caracteres!  </p>
+        <p ng-show="{{form}}.turma.$error.required">Campo Obrigatório!</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-sm-12">
+        <label>Escola: <span style="color:red">*</span></label>
+        <select name="escola" class="form-control"
+                ng-disabled="visualizacaoAtiva"
+                ng-model="pessoa.escola"
+                ng-options="value.razao for value in listaescola track by value.id"
+                ng-required="true"
+                >
+        </select>
+        <p ng-show="{{form}}.escola.$error.required">Campo Obrigatório!</p>
+    </div>
+</div>
+

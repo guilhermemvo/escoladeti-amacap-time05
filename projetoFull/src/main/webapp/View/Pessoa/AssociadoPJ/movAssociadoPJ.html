@@ -1,0 +1,55 @@
+<div class="row" >
+    <div class="form-group col-sm-3">
+        <input type="submit" class="form-control btn btn-primary" value="Pagar" data-toggle="modal" data-target="#modalPagar" >
+    </div>
+</div>
+<div class="row">
+    <div class="table-responsive col-sm-12">
+        <table class="table no-border table-hover">
+            <thead class="no-border">
+                <tr>                  
+                    <th class="col-sm-4 form-group">Data Pagamento</th>
+                    <th class="col-sm-4 form-group">Valor</th>
+                    <th class="col-sm-4 form-group">Pago</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="mov in listamovimentacoes">
+                <tr>
+                    <td>{{mov.dataPagamento| date: 'dd/MM/yyyy'}}</td>
+                    <td>{{mov.valorPago}}</td>
+                    <td ng-if="mov.isPago == true">Sim</td>
+                    <td ng-if="mov.isPago != true">Não</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> 
+
+<div class="modal fade colored-header" id="modalPagar" tabindex="-1" role="dialog">
+    <div class="modal-dialog custom-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="title-modal">Pagamento da Contribuição:</h3>
+                <button type="button" class="close md-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-sm-12">
+                        <label>Data Pagamento</label>
+                        <input type="date" class="form-control" ng-model="movimentacaoAtual.dataPagamento"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <label>Valor</label>
+                        <input type="number" class="form-control" ng-model="movimentacaoAtual.valorPago"/>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="salvar()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

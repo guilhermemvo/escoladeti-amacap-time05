@@ -1,0 +1,342 @@
+<div class="bs-callout borderBlue">
+    <div class="row">
+        <div class="form-group col-sm-4">
+            <label>Título: <span style="color: red">*</span></label> <input
+                type="text" class="form-control" ng-disabled="visualizacaoAtiva"
+                id="nome" name="nome" val-nome ng-model="eventoAtual.nome"
+                required="" ng-maxlength="30" ng-minlength="3" ng-required="true" />
+            <p ng-show="{{form}}.nome.$error.maxlength">Título deve conter no
+                máximo 30 caracteres!</p>
+            <p ng-show="{{form}}.nome.$error.minlength">Título necessita de
+                no mínimo 3 caracteres</p>
+            <p ng-show="{{form}}.nome.$error.required">Campo Obrigatório!</p>
+        </div>
+        <div class="form-group col-sm-4">
+            <label>Instrutor: <span style="color: red">*</span></label> <select
+                class="form-control" name="instrutor"
+                ng-disabled="visualizacaoAtiva" required="" id="instrutor"
+                ng-required="true" ng-model="eventoAtual.instrutor"
+                ng-options="value.nome for value in listainstrutores track by value.id">
+            </select>
+            <p ng-show="{{form}}.instrutor.$error.required">Campo
+                Obrigatório!</p>
+        </div>
+
+        <div class="form-group col-sm-2">
+            <input type="submit" class="form-control btn btn-primary"
+                   value="Novo Instrutor" ng-click="abrirInstrutor()">
+        </div>
+    </div>
+    <div ng-if="instrutor" ng-include
+         src="'./View/Operacao/Evento/instrutor.html'"></div>
+
+    <div class="row">
+        <div class="form-group col-sm-2">
+            <label>Vagas: <span style="color: red">*</span></label> <input
+                type="number" class="form-control" ng-disabled="visualizacaoAtiva"
+                id="vagas" name="vagas" ng-model="eventoAtual.quantidade_vagas"
+                ng-blur="validaVagas(eventoAtual.quantidade_vagas)" required />
+            <p ng-show="{{form}}.vagas.$error.required">Campo Obrigatório!</p>
+        </div>
+        <div class="form-group col-sm-2">
+            <label>Carga Horária: <span style="color: red">*</span></label> <input
+                type="number" class="form-control" ng-disabled="visualizacaoAtiva"
+                id="horas" name="horas" ng-model="eventoAtual.cargaHoraria"
+                ng-blur="validaCargaH(eventoAtual.cargaHoraria)" required />
+            <p ng-show="{{form}}.horas.$error.required">Campo Obrigatório!</p>
+        </div>
+
+        <div class="form-group col-sm-2">
+            <label>Valor Evento: <span style="color: red">*</span></label> <input
+                type="number" class="form-control" ng-disabled="visualizacaoAtiva"
+                id="valor" name="valor" ng-model="eventoAtual.valor"
+                ng-blur="validaValorEvento(eventoAtual.valor)" required />
+            <p ng-show="{{form}}.valor.$error.required">Campo Obrigatório!</p>
+        </div>
+        <div class="form-group col-sm-3">
+            <label>Data Inicio: <span style="color: red">*</span></label> <input
+                type="date" class="form-control" ng-disabled="visualizacaoAtiva"
+                id="dataInicio" name="dataInicio" placeholder="dd-MM-yyyy"
+                ng-model="eventoAtual.data_inicio"
+                ng-blur="validaDataInicial(eventoAtual.data_inicio, eventoAtual.data_fim)"
+                required />
+            <p ng-show="{{form}}.dataInicio.$error.required">Campo
+                Obrigatório!</p>
+        </div>
+        <div class="form-group col-sm-3">
+            <label>Data Fim: <span style="color: red">*</span></label> <input
+                type="date" class="form-control" ng-disabled="visualizacaoAtiva"
+                id="dataFim" name="dataFim" placeholder="dd-MM-yyyy"
+                ng-model="eventoAtual.data_fim"
+                ng-blur="validaDataFinal(eventoAtual.data_inicio, eventoAtual.data_fim)"
+                required />
+            <p ng-show="{{form}}.dataFim.$error.required">Campo Obrigatório!</p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <label>Descrição: <span style="color: red">*</span></label>
+            <textarea type="text    " class="form-control"
+                      ng-disabled="visualizacaoAtiva" name="descricao" 
+                      required="" ng-maxlength="200" ng-minlength="3"
+                      ng-model="eventoAtual.descricao"></textarea>
+            <p ng-show="{{form}}.descricao.$error.maxlength">Descrição deve
+                conter no máximo 200 caracteres!</p>
+            <p ng-show="{{form}}.descricao.$error.minlength">Descrição
+                necessita de no mínimo 3 caracteres!</p>
+            <p ng-show="{{form}}.descricao.$error.required">Campo
+                Obrigatório!</p>
+        </div>
+        <!--
+<div class="form-group col-sm-12">
+    <label>Descrição: <span style="color: red">*</span></label>
+    <textarea type="text" class="form-control"
+              ng-disabled="visualizacaoAtiva" name="descricao" val-nome
+              required="" ng-maxlength="50" ng-minlength="3"
+              ng-model="eventoAtual.descricao"></textarea>
+    <p ng-show="{{form}}.descricao.$error.maxlength">Descrição deve
+        conter no máximo 50 caracteres!</p>
+    <p ng-show="{{form}}.descricao.$error.minlength">Descrição
+        necessita de no mínimo 3 caracteres!</p>
+    <p ng-show="{{form}}.descricao.$error.required">Campo
+        Obrigatório!</p>
+</div>
+        <!--
+        <div class="form-group col-sm-12">
+            <label>Localização: <span style="color:red">*</span></label>
+            <textarea type="text" class="form-control" ng-disabled="visualizacaoAtiva" name="localizacao" ng-model="eventoAtual.local_evento" required="" val-nome ng-maxlength="200" ng-minlength="3" ng-required="true" ></textarea>
+            <p ng-show="{{form}}.localizacao.$error.maxlength">Localização deve conter no máximo 200 caracteres! </p>
+            <p ng-show="{{form}}.localizacao.$error.minlength">Localização necessita de no mínimo 3 caracteres! </p>
+            <p ng-show="{{form}}.localizacao.$error.required">Campo Obrigatório!</p> 
+        </div>
+        -->
+    </div>
+</div>
+
+<div class="bs-callout borderRed">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="row col-sm-12">
+                <h4 class="row col-sm-6">Agenda</h4>
+                <div class="btn-toolbar list-toolbar">
+                    <a class="btn btn-primary pull-right" ng-click="addAgenda()"><i
+                            class="fa fa-plus"></i> Adicionar Agenda</a>
+                </div>
+            </div>
+            <table class="table table-responsive table-hover">
+                <thead>
+                    <tr>
+                        <th class="col-sm-2 form-group">Data</th>
+                        <th class="col-sm-2 form-group">Manhã</th>
+                        <th class="col-sm-2 form-group">Tarde</th>
+                        <th class="col-sm-2 form-group">Noite</th>
+                        <th class="col-sm-1 form-group">Excluir</th>
+                    </tr>
+                </thead>
+
+                <tbody ng-repeat="agenda in eventoAtual.agendaEvento">
+                    <tr>
+                        <td>
+                            <input type="date" class="form-control" placeholder="dd/MM/yyyy" id="{{'dataEdicao_' + $index}}" ng-model="agenda.data" ng-blur="validaDataPeriodoEvento(agenda.data, eventoAtual.data_inicio, eventoAtual.data_fim, $index)" >
+                        </td>
+                        <td>
+                            <input type="checkbox" ng-model="agenda.manha" name="manha" id="manha">
+                        </td>
+                        <td>
+                            <input type="checkbox" ng-model="agenda.tarde" name="tarde" id="tarde">
+                        </td>
+                        <td>
+                            <input type="checkbox" ng-model="agenda.noite" name="noite" id="noite">
+                        </td>
+                        <td>
+                            <a ng-click="removerDeAgenda($index)" ng-disabled="!bloqueiaPresencas" class="btn btn-danger btn-sm" title="Editar">
+                                <span class="glyphicon glyphicon-trash"></span>
+                            </a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalPresencas">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">
+                    <span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+                </button>
+                <h4 class="modal-title">Presença do dia {{labelDataPresenca}}</h4>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <table class="table table-responsive table-hover">
+                        <thead>
+                            <tr>
+                                <th class="col-sm-2 form-group">Participante</th>
+                                <th ng-if="presencaManha" class="col-sm-2 form-group">Manha</th>
+                                <th ng-if="presencaTarde" class="col-sm-2 form-group">Tarde</th>
+                                <th ng-if="presencaNoite" class="col-sm-2 form-group">Noite</th>
+                            </tr>
+                        </thead>
+
+                        <tbody ng-repeat="participante in presencaDosParticipantes">
+                            <tr>
+                                <td>{{participante.inscricao.pessoa.nome}}</td>
+                                <td ng-if="presencaManha"><select class="form-control"
+                                                                  ng-model="participante.manha">
+                                        <option value="true">Sim</option>
+                                        <option value="false">Não</option>
+                                    </select></td>
+                                <td ng-if="presencaTarde"><select class="form-control"
+                                                                  ng-model="participante.tarde">
+                                        <option value="true">Sim</option>
+                                        <option value="false">Não</option>
+                                    </select>
+                                <td ng-if="presencaNoite"><select class="form-control"
+                                                                  ng-model="participante.noite">
+                                        <option value="true">Sim</option>
+                                        <option value="false">Não</option>
+                                    </select></td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal"
+                            ng-click="salvarPresencas()">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lista Endereço -->
+
+<div class="form-group col-sm-3">
+    <input type="submit" class="form-control btn btn-primary" value="Adicionar Endereço" data-toggle="modal" data-target="#modalEndereco" ng-click="novoEndereco()" />
+</div>
+<div class="col-sm-12">
+    <div class="table-responsive">
+        <table class="table no-border hover">
+            <thead class="no-border">
+                <tr>
+                    <th class="col-sm-2 form-group">CEP</th>
+                    <th class="col-sm-3 form-group">Logradouro</th>
+                    <th class="col-sm-1 form-group">Complemento</th>
+                    <th class="col-sm-1 form-group">Número</th>
+                    <th class="col-sm-2 form-group">Bairro</th>
+                </tr>
+            </thead>
+            <tbody class="no-border-y" ng-repeat="e in eventoAtual.enderecos">
+                <tr>
+                    <!-- adicionado em 20140914byMonica filtro|cep abaixo para view mascarado, caso necessário só deletar o filtro -->
+                    <!-- a row ja estava desalinhada com os demais campos do formulário, aumentei a th col-sm- em 1 unidade -->
+                    <td>{{e.cep| cep}}</td>
+                    <td>{{e.logradouro.nome| uppercase}}</td>
+                    <td>{{e.complemento| uppercase}}</td>                    
+                    <td>{{e.numero}}</td>
+                    <td>{{e.bairro.nome| uppercase}}</td>
+                    <td>
+                        <a ng-click="editarEndereco($index)"  class="btn btn-warning btn-sm" title="Editar">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a ng-click="removerEndereco($index)" class="btn btn-danger btn-sm" title="Remover">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Fim Lista Endereço -->				
+<div class="modal fade colored-header" id="modalEndereco" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 style="color:#FFF">Adicionar Endereço:</h3>
+                <button type="button" class="close md-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body form">
+                <div class="row">
+                    <div class="form-group col-sm-2">
+                        <label>CEP: <span style="color:red"> *</span></label>
+                        <input type="text" ui-mask="{{'99.999-999'}}" class="form-control" ng-disabled="visualizacaoAtiva" ng-model="enderecos.cep"ng-blur="encontraEnderecoPorCEP(enderecos.cep)" />
+                    </div> 
+                    <div class="form-group col-sm-2">
+                        <label>País: <span style="color:red"> *</span> </label>
+                        <select class="form-control"            
+                                ng-disabled="visualizacaoAtiva"
+                                ng-model="enderecos.pais"                                    
+                                ng-options="value.nome for value in listaPaises track by value.id"
+                                ng-change="procurarUfPorIdPais(enderecos.pais.id)"
+                                >
+                        </select>
+                    </div>         
+                    <div class="form-group col-sm-2">
+                        <label>Estado: <span style="color:red"> *</span></label>
+                        <select class="form-control"
+                                ng-disabled="visualizacaoAtiva"
+                                ng-model="enderecos.uf"
+                                ng-options="value.sigla for value in listaEstados track by value.id"
+                                ng-change="procurarCidadePorIdUf(enderecos.uf.id)"
+                                >
+                        </select>
+                    </div>              
+                    <div class="form-group col-sm-6">
+                        <label>Cidade: <span style="color:red"> *</span></label>
+                        <select class="form-control"  name="cidade"
+                                ng-disabled="visualizacaoAtiva"
+                                ng-model="enderecos.cidade"
+                                ng-options="value.nome for value in listaCidade track by value.id"
+                                ng-change="procurarBairroPorIdCidade(enderecos.cidade.id)"
+                                >
+                        </select>
+                    </div>                        
+                </div>                    
+                <div class="row">         
+                    <div class="form-group col-sm-3">
+                        <label>Bairro: <span style="color:red"> *</span></label>
+                        <select class="form-control" name="bairro"
+                                ng-disabled="visualizacaoAtiva"
+                                ng-model="enderecos.bairro"
+                                ng-options="value.nome for value in listaBairro track by value.id"
+                                ng-change="procurarLogradouroPorIdBairro(enderecos.bairro.id)"
+                                >
+                        </select>
+                    </div>
+                    <div class="form-group col-sm-4">
+                        <label>Logradouro: <span style="color:red"> *</span></label>
+                        <select class="form-control"  name="logradouro"
+                                ng-disabled="visualizacaoAtiva"
+                                ng-model="enderecos.logradouro"
+                                ng-options="value.nome for value in listaLogradouro track by value.id"
+                                >
+                        </select>                            
+                    </div>
+                    <div class="form-group col-sm-2">
+                        <label>Numero: <span style="color:red"> *</span></label>
+                        <input type="text" class="form-control"  ng-disabled="visualizacaoAtiva" ng-model="enderecos.numero" />
+                    </div>                        
+                    <div class="form-group col-sm-3">
+                        <label>Complemento: </label>
+                        <input type="text" class="form-control" required="false" ng-disabled="visualizacaoAtiva" ng-model="enderecos.complemento" ng-required="none" />
+                    </div>
+
+                </div>  
+            </div>
+            <div class="modal-footer" >
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-disabled="!validaEndereco()" ng-click="adicionarEndereco()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div ng-include="'View/Componentes/ModalMensagem.html'"></div>

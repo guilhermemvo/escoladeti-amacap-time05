@@ -1,0 +1,125 @@
+<div class="row">
+    <div class="form-group col-sm-12">
+        <label>Nome: <span style="color:red">*</span></label>   
+        <input type="text" class="form-control" ng-disabled="visualizacaoAtiva" id="nome" name="nome" required="" val-nome ng-model="material.nome"  ng-maxlength="30" ng-minlength="3" ng-required="" style="white-space: nowrap" />
+        <p ng-show="{{form}}.nome.$error.maxlength">Nome deve conter no máximo 30 caracteres! </p>
+        <p ng-show="{{form}}.nome.$error.minlength">Nome necessita de no mínimo 3 caracteres! </p>
+        <p ng-show="{{form}}.nome.$error.required">Campo Obrigatório! </p> 
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-8">
+        <label>Autor: <span style="color:red">*</span></label>
+        <input type="text" class="form-control" ng-disabled="visualizacaoAtiva" id="autor" name="autor" ng-model="material.autor" required="" val-nome ng-maxlength="30" ng-minlength="3" ng-required="" style="white-space: nowrap" />
+        <p ng-show="{{form}}.autor.$error.maxlength">Autor deve conter no máximo 30 caracteres! </p>
+        <p ng-show="{{form}}.autor.$error.minlength">Autor necessita de no mínimo 3 caracteres! </p>
+        <p ng-show="{{form}}.autor.$error.required">Campo Obrigatório!</p> 
+    </div>
+    <div class="form-group col-sm-2">
+        <label>Edição:</label>
+        <input type="text" class="form-control" id="edicao" name="edicao" ng-model="material.edicao" val-nome/>
+    </div>
+
+    <div class="form-group col-sm-2">
+        <label>Serie: </label>
+        <input type="text" class="form-control" id="serie" name="serie" ng-model="material.serie" val-nome ng-maxlength="10" ng-minlength="1"/>
+        <p ng-show="{{form}}.serie.$error.maxlength">Série deve conter no máximo 10 caracteres! </p>
+        <p ng-show="{{form}}.serie.$error.minlength">Série necessita de no mínimo 1 caracteres! </p>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-2">
+        <label>Ano:</label>
+        <input type="text" class="form-control" id="ano" name="ano" ng-model="material.ano" val-numero ng-maxlength="4" ng-minlength="4"/>
+    </div>
+    <div class="form-group col-sm-2">
+        <label>PNLD: </label>
+        <input type="text" class="form-control" id="pnld" name="pnld" ng-model="material.pnld" val-nome ng-maxlength="30" ng-minlength="1" style="white-space: nowrap" />
+    </div>
+    <div class="form-group col-sm-8">
+        <label>Disciplina: </label>
+        <select name="disciplina" class="form-control"
+                ng-disabled="visualizacaoAtiva"
+                ng-model="material.disciplina"
+                ng-options="value.descricao for value in listaDisciplina track by value.id"
+                >
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-3">
+        <input type="submit" class="form-control btn btn-primary" value="Adicionar Arquivo" data-toggle="modal" data-target="#modalArquivo" ng-click="novoArquivo()">
+    </div>
+</div>
+<div class="row">
+    <div class="col-sm-12">
+    <table class="table table-responsive table-hover">
+        <thead>
+            <tr>
+                <th class="col-sm-2 form-group">Tipo</th>
+                <th class="col-sm-5 form-group">Origem</th>
+                <th class="col-sm-4 form-group">Observação</th>
+                <th class="col-sm-1 form-group">Ações</th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="t in material.arquivos">
+            <tr>
+                <td>{{t.tipomaterial.descricao| uppercase }}</td>
+                <td>{{t.origem}}</td>
+                <td>{{t.observacao| uppercase }}</td>
+                <td>
+                    <a ng-click="delArquivo($index)" class="btn btn-danger btn-sm" title="Remover">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    </div>
+</div>
+
+
+<div class="modal fade colored-header" id="modalArquivo" tabindex="-1" role="dialog">
+    <div class="modal-dialog custom-width">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="title-modal">Adicionar Arquivo:</h3>
+                <button type="button" class="close md-close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            </div>
+            <div class="modal-body form">
+                <div class="row">
+                    <div class="form-group col-sm-12">
+                        <label>Tipo Arquivo: <span style="color:red">*</span></label>
+                        <select name="tipoarquivo" class="form-control"
+                                ng-disabled="visualizacaoAtiva"
+                                ng-model="arq.tipomaterial"
+                                ng-options="value.descricao for value in listatipos track by value.id"
+                                required=""
+                                ng-required=""
+                                >
+                        </select>
+                        <p ng-show="{{form}}.tipomaterial.$error.required">Campo Obrigatório! </p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label>Arquivo: <span style="color:red">*</span></label>
+                        <input type="file" name="origem" file-model="arq.origem" ng-file-select="onFileSelect($files)" multiple ng-required=""/>
+                        <p ng-show="{{form}}.origem.$error.required">Campo Obrigatório!</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-md-12">
+                        <label>Observação:</label>
+                        <textarea class="form-control" name="observacao" val-nome ng-model="arq.observacao" ng-maxlength="100" ng-minlength="0" ng-required=""></textarea>
+                        <p ng-show="{{form}}.observacao.$error.maxlength">Observação deve conter no máximo 100 caracteres! </p>
+                    </div>
+                </div>
+            </div>    
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-disabled="!validaArquivo()" ng-click="addArquivo()">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+input.ng-invalid{
+    border-color: red;
+}
+.msg-block {
+    margin-top:5px;
+}
+.msg-error {
+    color:#F00;
+    font-size:14px;
+}
+
+a, a:hover {
+    cursor:pointer;
+}

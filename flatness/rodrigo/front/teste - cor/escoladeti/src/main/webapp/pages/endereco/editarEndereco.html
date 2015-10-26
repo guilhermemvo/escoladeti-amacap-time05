@@ -1,0 +1,42 @@
+<div ng-controller="EnderecoController" ng-init="initEditarEndereco()">
+    <form>
+        <div class="row">
+            <div class="form-group col-md-3">
+                <label for="idCep">CEP</label>
+                <input type="text" class="form-control" placeholder="Cep " ng-model="enderecoAtual.cep"/>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="idNumero">Numero</label>
+                <input type="text" class="form-control" placeholder="Numero " ng-model="enderecoAtual.numero"/>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="idComplemento">Complemento</label>
+                <input type="text" class="form-control" placeholder="Complemento " ng-model="enderecoAtual.complemento"/>
+            </div>
+            <div class="form-group col-md-3">
+                <label for="idBairro">Bairro</label>
+                <select class="form-control">
+                </select>
+                <!--<input type="text" class="form-control" placeholder="Bairro "/>-->
+            </div>
+            <div class="form-group col-md-3">
+                <label for="idLogradouro">Logradouro</label>
+                <select class="form-control">
+                </select>
+                <!--<input type="text" class="form-control" placeholder="Logradouro "/>-->
+            </div>
+
+        </div>
+
+        <hr>
+
+        <div class="row">
+            <div class="row pull-right">
+                <div class="form-group col-lg-12 col-sm-12">
+                    <button class="btn btn-success" ng-click="salvar()"><i class="glyphicon glyphicon-ok"></i> Salvar</button>
+                    <a href="#/cadastros/endereco/listar" class="btn btn-danger"><i class="glyphicon glyphicon-remove"></i> Cancelar</a>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

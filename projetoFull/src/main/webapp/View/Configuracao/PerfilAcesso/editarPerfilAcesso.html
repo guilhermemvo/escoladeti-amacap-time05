@@ -1,0 +1,11 @@
+<div class="row">
+    <div class="form-group col-sm-12">
+        <label>Descrição: <span style="color:red">*</span></label>
+        <input type="text" class="form-control" name="descricao" required=""
+               ng-disabled="visualizacaoAtiva" 
+               ng-model="perfilAcessoAtual.descricao" ng-minlength="3" ng-maxlength="100" ng-required="" >
+        <p ng-show="{{form}}.descricao.$error.maxlength">O Perfil de Acesso deve conter no máximo 100 caracteres!  </p>
+        <p ng-show="{{form}}.descricao.$error.minlength">O Perfil de Acesso necessita de no mínimo 3 caracteres!  </p>
+        <p ng-show="{{form}}.descricao.$error.required">Campo Obrigatório! </p>
+    </div>
+</div>

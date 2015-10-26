@@ -1,0 +1,32 @@
+<div class="table-responsive">
+    <table class="table no-border hover">
+        <thead class="no-border">
+            <tr>
+                <th class="col-sm-1 form-group">Id</th>
+                <th class="col-sm-4 form-group">Nome</th>
+                <th class="col-sm-3 form-group">Cidade</th>
+                <th class="col-sm-2 form-group">Início Vigêcia</th>
+                <th class="col-sm-2 form-group">Ações</th>
+            </tr>
+        </thead>
+        <tbody class="no-border-y" ng-repeat="distrito in page.list| filter:search">
+            <tr>
+                <td>{{distrito.id}}</td>
+                <td>{{distrito.nome}}</td>
+                <td>{{distrito.cidade.nome}}</td>
+                <td>{{distrito.inicioVigencia| date: 'dd/MM/yyyy'}}</td>
+                <td>
+                    <a href="#/Localizacao/Distrito/{{distrito.id}}/Visualizar" class="btn btn-primary btn-sm" title="Visualizar">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                    <a href="#/Localizacao/Distrito/{{distrito.id}}/Editar" class="btn btn-warning btn-sm" title="Editar">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a ng-click="remover($index)" class="btn btn-danger btn-sm" title="Remover">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

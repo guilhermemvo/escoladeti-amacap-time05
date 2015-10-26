@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Nome<span style="color:red"> *</span></label>
+        <input maxlength="255" type="text" class="form-control" ng-disabled="visualizacaoAtiva" required="" ng-model="paisAtual.nome"  ng-minlength="3" ng-maxlength="30">
+        <p ng-show="{{nome}}.nome.$error.maxlength">Quantidade maxima de caracteres no nome e de 30 </p>
+        <p ng-show="{{nome}}.nome.$error.minlength">O Nome precisa de no minimo 3 caracteres</p>   
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Codigo<span style="color:red"> *</span></label>
+        <input maxlength="6" type="text" class="form-control" required="" ng-disabled="visualizacaoAtiva" ng-model="paisAtual.codigoIBGE">
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Sigla<span style="color:red"> *</span></label>
+        <input type="text" class="form-control" maxlength="2" required="" ng-disabled="visualizacaoAtiva" ng-model="paisAtual.sigla">
+    </div>
+</div>

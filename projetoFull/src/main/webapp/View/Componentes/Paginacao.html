@@ -1,0 +1,32 @@
+<html>
+    <div class = "row" ng-open="initPagina()">  
+      <pagination total-items="bigTotalItems" 
+                  ng-model="bigCurrentPage" 
+                  items-per-page="8"
+                  max-size="maxSize" 
+                  class="pagination-sm" 
+                  boundary-links="true" 
+                  rotate="false" 
+                  ng-change="carregarPagina()"
+                  num-pages="numPages"
+                  previous-text="Anterior"
+                  next-text="Proximo"
+                  first-text="Primeiro"
+                  last-text="Ultimo">                   
+      </pagination>
+        
+        <!--
+        <ul class="pagination"> 
+            <li class="{{habilitarVoltar()}}"> 
+                <a ng-click="voltar()">&laquo;</a> 
+            </li> 
+            <li> 
+                <a>{{numeroPagina()}}</a> 
+            </li> 
+            <li class="{{habilitarAvancar()}}"> 
+                <a ng-click="avancar()">&raquo;</a> 
+            </li> 
+        </ul> 
+        -->
+    </div>
+</html>

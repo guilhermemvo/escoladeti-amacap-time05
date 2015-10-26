@@ -1,0 +1,60 @@
+<!-- Breadcrumb-->
+<div class="row">
+    <div class="col-sm-12">
+        <h2>Logradouro</h2>
+        <ol class="breadcrumb">
+            <li><a href="#"></i>Home</a></li>
+            <li class="active">País</li>
+        </ol>
+    </div>
+</div>
+<!--Fim Breadcrumb-->
+<!-- Página: Lista de Logradouro -->
+<div class="row" ng-controller="LogradouroController" ng-init="init()">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <a class="btn btn-default btn-sm" ng-click="incluir()"><span class="glyphicon glyphicon-plus"></span> Novo</a>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-sm-12">
+                        <input type="text" class="form-control " placeholder="Digite o que você procura" ng-model="search">
+                    </div>
+                </div>
+                <table class="table table-responsive table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-sm-1 form-group">Id</th>
+                            <th class="col-sm-5 form-group">Nome</th>
+                            <th class="col-sm-2 form-group">Bairro</th>
+                            <th class="col-sm-2 form-group">Cidade</th>
+                            <th class="col-sm-2 form-group">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="logradouro in page.list|filter:search">
+                        <tr>
+                            <td>{{logradouro.id}}</td>
+                            <td>{{logradouro.nome}}</td>
+                            <td>{{logradouro.bairros.nome}}</td>
+                            <td>{{logradouro.cidade.nome}}</td>
+                            <td>
+                                <div class="pull-right">  
+                                    <a href="#/Localizacao/Pais/{{logradouro.id}}" class="btn btn-primary btn-sm">
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                    </a>
+                                    <a href="#/Localizacao/Pais/{{logradouro.id}}" class="btn btn-warning btn-sm">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </a>
+                                    <a ng-click="remover($index)" class="btn btn-danger btn-sm">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>  <!-- Fim panel-body -->
+        </div> <!-- Fim panel -->
+    </div> <!-- Fim col -->
+</div> <!-- Fim row-->

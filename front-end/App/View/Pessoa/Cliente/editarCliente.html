@@ -1,0 +1,127 @@
+<!-- Breadcrumb -->
+<div class="row">
+  <div class="col-sm-12">
+    <h3>Cadastro de Cliente</h3>
+    <ol class="breadcrumb">
+      <li><a href="#"></i> Home</a></li>
+      <li><a href="#Pessoa/Cliente">Cliente</a></li>
+      <li class="active">Cadastro de Cliente</li>
+    </ol>
+  </div>
+</div>
+<!-- Fim breadcrumb -->
+
+<div class="row">
+  <div class="col-sm-12">
+    <div class="panel panel-primary">
+      <div class="panel-heading">
+        <h3 class="panel-title">Novo Cliente</h3>
+      </div>
+      <div class="panel-body">
+      
+      <!-- Inicio Cadastro-->
+        <form role="form">
+          <div class="row">
+            <div class="form-group col-sm-6">
+              <label>Tipo</label>
+              <div class="form-control" ng-init="tipo='F'">
+                <label class="radio-inline">
+                  <input type="radio" value="F" ng-model="tipo"> Física
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" value="J" ng-model="tipo"> Jurídica
+                </label>
+              </div>
+            </div>
+          </div>
+          <!-- Pessoa Física -->
+          <div class="row">
+            <div class="form-group col-sm-3" ng-if="tipo=='F'">
+              <label>CPF</label>
+              <input type="text" class="form-control" required="" disabled="" id="cpf">
+            </div>
+     
+            <div class="form-group col-sm-3" ng-if="tipo=='F'">
+              <label>RG</label>
+              <input type="text" class="form-control" >
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-sm-6" ng-if="tipo=='F'">
+              <label>Nome</label>
+              <input type="text" class="form-control" required="">
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="form-group col-sm-3" ng-if="tipo=='F'">
+              <label> Data Nascimento </label>
+              <input type="date" class="form-control"  id="datepicker">
+            </div>
+
+            <div class="col-sm-3" ng-if="tipo=='F'">
+              <label>Sexo</label>
+              <label class="checkbox inline">
+                <input type="radio" name="sexo" value="Feminino">
+                Feminino
+              </label>
+              <label class="checkbox inline">
+                <input type="radio" name="sexo" value="Masculino">
+                Masculino
+              </label>
+              <label class="checkbox inline">
+                <input type="radio" name="sexo" value="Outros">
+                Outros
+              </label>
+            </div>
+          </div>
+          <!-- Fim Pessoa Física -->
+
+          <!-- Pessoa Jurídica -->
+          <div class="row">
+            <div class="form-group col-sm-3" ng-if="tipo=='J'">
+              <label>CNPJ</label>
+              <input type="text" class="form-control">
+            </div>
+            <div class="form-group col-sm-3" ng-if="tipo=='J'">
+              <label>Inscrição Estadual</label>
+              <input type="text" class="form-control" placeholder="Isento" required="">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-sm-6" ng-if="tipo=='J'">
+              <label>Razão Social</label>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-sm-6" ng-if="tipo=='J'">
+              <label>Nome Fantasia</label>
+              <input type="text" class="form-control" >
+            </div>
+          </div>
+          <!-- Fim Pessoa Jurídica -->
+          <div class="row">
+            <div class="form-group col-sm-3">
+              <label>Telefone</label>
+              <input type="text" class="form-control" required="" ui-mask="(999) 999-9999">
+            </div>
+            <div class="form-group col-sm-3" >
+              <label>Celular</label>
+              <input type="text" class="form-control">
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <button type="submit" class="btn btn-success pull-right">Adicionar</button>
+            </div>
+          </div>
+        </form>
+      </div> <!-- Fim Panel-body -->
+    </div> <!-- Fim Panel-primary -->
+  </div> <!-- Fim Col-sm -->
+</div> <!-- Fim Row -->
+

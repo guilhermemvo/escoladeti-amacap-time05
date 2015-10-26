@@ -1,0 +1,301 @@
+<!-- Breadcrumb -->
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Cadastro de Cliente</h3>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#Pessoa/Cliente">Cliente</a></li>
+            <li class="active">Cadastro de Cliente</li>
+        </ol>
+    </div>
+</div>
+<!-- Fim breadcrumb -->
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Novo Cliente</h3>
+    </div>
+    <div class="panel-body">
+        <!-- Coluna 1 -->
+        <form>
+            <div class="row">
+                <div class="col-sm-6">
+                    <!-- Tipo Física e Jurídica -->
+                    <div class="row">
+                        <div class="form-group  col-sm-12">
+                            <label>Tipo</label>
+                            <div class="form-control" ng-init="clienteAtual.tipo = 'F'">
+                                <label class="radio-inline">
+                                    <input type="radio" value="F" ng-model="clienteAtual.tipo"> Física
+                                </label>
+                                <label class="radio-inline">
+                                    <input type="radio" value="J" ng-model="clienteAtual.tipo"> Jurídica
+                                </label>
+                            </div>           
+                        </div>
+                    </div>
+
+                    <!-- Sub-tipos -->
+                    <div class="row">
+                        <!-- Sub-tipos Física -->
+                        <div class="form-group col-sm-12" ng-init="clienteAtual.tipoPessoa = 'Aluno'" ng-if="clienteAtual.tipo == 'F'" >
+                            <div class="form-control">
+                                <label class="radio-inline">
+                                    <input type="radio" value="Aluno" ng-model="clienteAtual.tipoPessoa" > Aluno   
+                                </label>
+                                <label class="radio-inline" >
+                                    <input type="radio" value="Professor" ng-model="clienteAtual.tipoPessoa"> Professor(a)   
+                                </label>
+                                <label class="radio-inline" >
+                                    <input type="radio" value="Funcionario" ng-model="clienteAtual.tipoPessoa" > Funcionario   
+                                </label>                                                   
+                            </div>
+                        </div>
+
+                        <!-- Sub-tipos Jurídica -->
+                        <div class="form-group col-sm-12" ng-init="clienteAtual.tipoPessoa = 'Escola'" ng-if="clienteAtual.tipo == 'J'">
+                            <div class="form-control" > 
+                                <label class="radio-inline" >
+                                    <input type="radio" value="Escola" ng-model="clienteAtual.tipoPessoa"> Escola   
+                                </label>  
+                                <label class="radio-inline">
+                                    <input type="radio" value="Editora" ng-model="clienteAtual.tipoPessoa"> Editora   
+                                </label>                                  
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Inputs de Pessoa Física -->
+                    <div class="row">
+                        <div class="form-group col-sm-6" ng-if="clienteAtual.tipo == 'F'">
+                            <label>CPF</label>
+                            <input type="text" class="form-control" required="" ng-model="clienteAtual.cpf" val-cpf ui-mask>
+                        </div>
+
+                        <div class="form-group col-sm-6" ng-if="clienteAtual.tipo == 'F'">
+                            <label>RG</label>
+                            <input type="text" class="form-control" ng-model="clienteAtual.rg">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-12" ng-if="clienteAtual.tipo == 'F'">
+                            <label>Nome</label>
+                            <input type="text" class="form-control" required="" ng-model="clienteAtual.nome" val-nome>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-6" ng-if="clienteAtual.tipo == 'F'">
+                            <label> Data Nascimento </label>
+                            <input type="date" class="form-control"  id="datepicker" ng-model="clienteAtual.dataNascimento">
+                        </div>
+
+                        <div class="col-sm-6" ng-if="clienteAtual.tipo == 'F'">
+                            <label>Sexo</label>
+                            <label class="checkbox inline">
+                                <input type="radio" name="sexo" value="Feminino" ng-model="clienteAtual.sexo">
+                                Feminino
+                            </label>
+                            <label class="checkbox inline">
+                                <input type="radio" name="sexo" value="Masculino" ng-model="clienteAtual.sexo">
+                                Masculino
+                            </label>
+                            <label class="checkbox inline">
+                                <input type="radio" name="sexo" value="Outros" ng-model="clienteAtual.sexo">
+                                Outros
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- Inputs de Pessoa Jurídica -->
+
+                    <div class="row">
+                        <div class="form-group col-sm-6" ng-if="clienteAtual.tipo == 'J'">
+                            <label>CNPJ</label>
+                            <input type="text" class="form-control" ng-model="clienteAtual.cnpj" val-cnpj ui-mask>
+                        </div>
+                        <div class="form-group col-sm-6" ng-if="clienteAtual.tipo == 'J'">
+                            <label>Inscrição Estadual</label>
+                            <input type="text" class="form-control" placeholder="Isento" required="">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-12" ng-if="clienteAtual.tipo == 'J'">
+                            <label>Razão Social</label>
+                            <input type="text" class="form-control" ng-model="clienteAtual.apelidoFantasia">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-12" ng-if="clienteAtual.tipo == 'J'">
+                            <label>Nome Fantasia</label>
+                            <input type="text" class="form-control" ng-model="clienteAtual.nomeRazao" >
+                        </div>
+                    </div>
+
+                    <!-- Inputs de endereço -->
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <label>Endereco</label>
+                            <a type="submit" class="btn btn-default" data-toggle="modal" data-target="#modalEndereco"><span class="glyphicon glyphicon-plus"></span></a>    
+                        </div>   
+                    </div>
+
+                    <div class="row">
+                        <ol>
+                            <li>Endereco 1</li>
+                        </ol>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <label>Telefone</label>
+                            <a type="submit" class="btn btn-default" data-toggle="modal" data-target="#modalTelefone">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </a>    
+                        </div>                            
+                    </div>
+
+                    <div class="row">
+                        <ol>
+                            <li>Telefone 1</li>
+                        </ol>    
+                    </div>
+                    <input type="text" class="form-control" ng-model="clienteAtual.telefone" val-telefone ui-mask>
+                </div>
+                <!-- Modal Endereco -->
+                <div class="modal face" id="modalEndereco" role="dialog" aria-labelledby="modalEnderecoLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title" id="modalEnderecoLabel"> Endereço</h3>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="form-group col-sm-10">
+                                        <label>Logradouro</label>
+                                        <input type="text" class="form-control">            
+                                    </div>
+                                    <div class="form-group col-sm-2">
+                                        <label>Numero</label>
+                                        <input type="text" class="form-control">
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="form-group col-sm-5">
+                                        <label>Bairro</label>
+                                        <input type="text" class="form-control">            
+                                    </div>
+                                    <div class="form-group col-sm-5">
+                                        <label>Cidade</label>
+                                        <select  class="form-control">
+                                            <option>Cidade01</option>
+                                            <option>Cidade01</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group col-sm-2">
+                                        <label>UF</label>
+                                        <select  class="form-control">
+                                            <option>PR</option>
+                                            <option>SP</option>
+                                        </select>
+                                    </div>                                        
+                                </div>
+
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Salvar</button>                                    
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Fim modal endereço -->
+
+                <!-- Modal Telefone-->
+                <div class="modal face" id="modalTelefone" role="dialog" aria-labelledby="modalTelefoneLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3 class="modal-title" id="modalTelefoneLabel"> Telefone</h3>
+                            </div>
+
+                            <div class="modal-body">
+                                <div class="row">
+                                    <div class="form-group col-sm-5">
+                                        <label>Telefone</label>
+                                        <input type="text" class="form-control" ng-model="telefone" ng-required="true" ng-pattern="/\d{4}-\d{4}/">            
+
+                                        <!-- <span ng-show="telefone.$error.pattern"> O tele</span>-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
+                                <button type="button" class="btn btn-success" data-dismiss="modal">Salvar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>                    
+                <!-- Fim Modal Telefone -->
+
+
+            </div> <!-- fim col -->
+
+            <!-- Coluna 2 -->
+            <div class="col-sm-6">
+                <!-- Inputs gerais de pessoa física -->
+                <!--
+                <div class="row">
+                    <div class="form-group col-sm-12" ng-show="clienteAtual.tipo === 'F' && (clienteAtual.tipoPessoa == 'Aluno' || clienteAtual.tipoPessoa == 'Professor')">
+                        <label>Escola</label>
+                        <select class="form-control" ng-model="clienteAtual.escola">
+
+                        </select>
+                    </div>    
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-12" ng-show="clienteAtual.tipo === 'F' && clienteAtual.tipoPessoa == 'Aluno'">
+                        <label>Professor</label>
+                        <select class="form-control" ng-model="clienteAtual.professor">
+
+                        </select>
+                    </div>    
+                </div>-->
+
+                <div class="row">
+                    <div class="form-group col-sm-12" ng-if="clienteAtual.tipo == 'F' && clienteAtual.tipoPessoa == 'Aluno'">
+                        <label>Deficiência</label>
+                        <input type="text" class="form-control" ng-model="clienteAtual.deficiencia">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-group col-sm-12" ng-if="clienteAtual.tipo == 'F' && clienteAtual.tipoPessoa == 'Funcionario'">
+                        <label>Função</label>
+                        <input type="text" class="form-control" ng-model="clienteAtual.funcao">
+                    </div> 
+                </div>
+
+
+                {{ clienteAtual.tipoPessoa}}
+            </div> <!-- fim col -->
+    </div> <!-- Fim row-->
+    <div class="row">
+        <div class="form-group col-sm-12">
+            <button type="submit" class="btn btn-success pull-right" ng-click="salvar()">Adicionar</button>
+        </div>
+    </div>            
+</form>
+</div> <!-- Fim Panel-body -->
+</div> <!-- Fim Panel-primary -->
+
+
+

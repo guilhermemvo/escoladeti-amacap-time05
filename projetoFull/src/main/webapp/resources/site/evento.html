@@ -1,0 +1,176 @@
+<div class="main" ng-init="loadTodosEventos()">
+    <div class="container">
+        <section class="hgroup centered">
+            <h1>Eventos</h1>
+            <h2>A AMACAP disponibiliza cursos e treinamentos de capacitação, para Deficiêntes Visuais, guias e professores. Conheça:</h2>
+            <ul class="breadcrumb pull-right">
+                <li><a href="index.html">Home</a> </li>
+                <li class="active">Eventos</li>
+            </ul>
+        </section>
+        <section class="service_teasers" ng-repeat="evento in listaeventos">
+            <div class="service_teaser">
+                <div class="row">
+                    <div class="service_photo col-sm-4 col-md-4">
+                        <figure style="background-image:url('{{root}}{{evento.fotos[0].origem}}')"></figure>
+                    </div>
+                    <div class="service_details col-sm-8 col-md-8">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <h2 class="section_header skincolored"><b>{{evento.nome}}</b></h2>
+                                <p>Local: {{evento.local_evento}}</p>
+                                <p>Período: {{evento.data_inicio}} - {{evento.data_fim}} </p>
+                            </div>
+                            <div class="col-sm-6">
+                                <a class="btn btn-primary pull-right" href="#/inscricao/{{evento.id}}" title="Faça sua Inscrição" ng-click="loadEventoPeloId(evento.id)">Faça sua Inscrição</a><br><br>
+                                <input type="submit" class="btn btn-primary pull-right" ng-click="fotos(evento.fotos)" value=" Galeria de Fotos " data-toggle="modal" data-target="#modalGaleria" >
+                            </div>
+                        </div>
+
+                    </div>
+                </div> 
+            </div>
+        </section>
+    </div>
+</div>
+
+<div class="modal fade"  id="modalGaleria">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content"  style="width: 630px;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+                </button>
+                <h4 class="modal-title">Galeria de Fotos</h4>
+            </div>
+            <div class="modal-body">
+
+                <div class="container slider">
+                    <img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{root}}{{photo.origem}}" width="560" height="420" />
+                    <a class="arrow prev"  ng-click="showPrev()"></a>
+                    <a class="arrow next"  ng-click="showNext()"></a>
+
+                    <ul class="nav" style="width: 560px">
+                        <li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}" style="float:left;margin: 10px 10px 10px 0px;cursor: pointer;">
+                            <img src="{{root}}{{photo.origem}}" alt="{{photo.descricao}}"  title="{{photo.descricao}}" ng-click="showPhoto($index);" width="56" height="42" />
+                        </li>
+                    </ul>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--</div>-->            
+
+
+
+<!--    
+<div id="eventos">
+    <div ng-init="loadTodosEventos()">
+        <div class="row eventos">
+            <h4 class="titulo-evento"><i class="fa fa-users"></i> Eventos</h4>
+            <p>Veja abaixo os eventos e cursos da AMACAP</p>
+        </div>
+
+        <div class="row bloco-evento" ng-repeat="evento in listaeventos">
+            <div class="col-sm-1 bloco-icon">
+                <h4 class="icon"><i class="fa fa-users"></i></h4>
+            </div>
+            <div class="col-sm-9">
+                <h4>{{evento.nome}}</h4>
+                <h5>Local: {{evento.local_evento}}</h5>
+                <h5>Período: {{evento.data_inicio}} - {{evento.data_fim}} </h5>
+
+            </div>
+            <div class="col-sm-2">
+                <div class="row">
+                    <input type="submit" class="btn btn-primary pull-right" ng-click="getId(evento.id)" value="Faça sua Inscrição" data-toggle="modal" data-target="#modalInscricao" >
+                </div>
+                <br>
+                <div class="row">
+                    <input type="submit" class="btn btn-primary pull-right" ng-click="fotos(evento.fotos)" value=" Galeria de Fotos " data-toggle="modal" data-target="#modalGaleria" >
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="modalInscricao">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+                    </button>
+                    <h4 class="modal-title">Informe seus Dados</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group col-md-15">
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <div class="form-group col-md-15">
+                                    <label>CPF: <span style="color:red"> *</span></label>
+                                    <input type="text" required="" name="cpf" class="form-control" ng-model="pessoa.cpf" val-cpf ui-mask style="text-align: left;" ng-required="" ng-minlength=11  ng-maxlenght=14  ng-blur="validaCpf(pessoa.cpf)"/>
+                                    <p ng-show="cpf.$error.cpf">CPF inválido!</p>
+                                </div>
+
+                                <div class="form-group col-md-15">
+                                    <label>Nome: <span style="color:red">*</span></label>
+                                    <input type="text" class="form-control" name="nome"  required="" ng-model="pessoa.nome" style="white-space: nowrap" val-nome ui-mask ng-maxlength="100" ng-minlength="3" ng-required="" />
+
+                                    <label>RG: <span style="color:red">*</span></label>
+                                    <input type="text" class="form-control" name="rg" required="" ng-model="pessoa.rg" style="text-align: left;" ng-minlength="5" ng-maxlength="11" ng-required="" />
+
+                                    <label>Sexo: <span style="color:red">*</span></label>
+                                    <select class="form-control" ng-disabled="visualizacaoAtiva" ng-model="pessoa.sexo" name="sexo">
+                                        <option value="M">Masculino</option>
+                                        <option value="F">Feminino</option>
+                                    </select> 
+
+                                    <label>Data Nascimento: <span style="color:red">*</span></label>
+                                    <input type="date" name="dataNascimento" class="form-control" required="" ng-model="pessoa.dataNascimento" style="text-align: center;" ng-required="" />
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="init()">Cancelar</button>
+                        <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="salvar()">Concluir Inscri��o</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade"  id="modalGaleria">
+        <div class="modal-dialog modal-md">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+                    </button>
+                    <h4 class="modal-title">Galeria de Fotos</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="container slider">
+                        <img ng-repeat="photo in photos" class="slide" ng-swipe-right="showPrev()" ng-swipe-left="showNext()" ng-show="isActive($index)" ng-src="{{root}}{{photo.origem}}" width="560" height="420" />
+                        <a class="arrow prev"  ng-click="showPrev()"></a>
+                        <a class="arrow next"  ng-click="showNext()"></a>
+
+                        <ul class="nav">
+                            <li ng-repeat="photo in photos" ng-class="{'active':isActive($index)}" style="float:left;margin: 10px 10px 10px 0px;cursor: pointer;">
+                                <img src="{{root}}{{photo.origem}}" alt="{{photo.descricao}}"  title="{{photo.descricao}}" ng-click="showPhoto($index);" width="56" height="42" />
+                            </li>
+                        </ul>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+

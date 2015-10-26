@@ -1,0 +1,234 @@
+#line-chart{height:300px;width:800px;margin: 0px auto;margin-top: 1em;}
+.navbar-default .navbar-brand, .navbar-default .navbar-brand:hover { color: #fff;}
+/*Menu lateral*/
+.imagem{margin-left: 60px;height: 150px;}
+.li-imagem{background-color: #fff}
+
+/*Topo*/
+.content .header h1.page-title{font-size: 25px;margin-top: 20px;}
+.content .header ul.breadcrumb li{margin: none;font-size: 12px;}
+input.ng-invalid{border-color: red;}
+.msg-block {margin-top:5px;}
+.msg-error {color:#F00;font-size: 14px;}
+.msg-error {color:#F00;font-size: 14px;}
+a, a:hover {cursor:pointer;}
+th {cursor:pointer;}
+*{margin:0;padding:0;}
+
+.false{color: #c1c0c0;}
+.true, .true :hover{cursor: default;}
+
+
+/*Site*/
+
+
+
+.clear{
+    clear:both;
+}
+.ng-invalid {border-color: red;}
+.panel.panel-default .panel-body div.bloco{background-color: #f3f3f3;padding: 15px; border: 1px solid #c1c0c0;margin-bottom: 10px;}
+.btn-warning{background-color: #eea236;border-color:#eea236}
+
+.descPagina{
+    line-height: 1.1em;
+    font: 42px/1.1em 'patrick hand', cursive;
+    color: rgb(242, 101, 36);
+    margin-top: 20px; 
+    margin-bottom: 20px; 
+}
+
+#dataEvento{
+    margin-bottom: 10px;
+}
+#dataEvento img{
+    width: 130px;
+    height: 130px;
+    float: left;
+}
+
+#infoEvento{
+    margin-left: 140px;
+    width: 90%;
+    height: auto;
+}
+
+.bold{
+    font-weight: bold;
+}
+
+.infoEventoNome{
+    font-size: 16px;
+}
+
+.infoEvento2{
+    margin-left: 30px;
+}
+
+.inscricaoEvento input[type=text],
+.inscricaoEvento input[type=date],
+.inscricaoEvento select{
+    width: 100%;
+}
+
+.bs-callout {
+    padding: 20px;
+    margin: 20px 0;
+    border: 1px solid #eee;
+    border-left-width: 5px;
+    box-sizing: border-box;
+    border-radius: 3px;
+}
+
+.bs-callout+.bs-callout {
+    margin-top: -5px;
+}
+.borderOrange {
+    border-left-color: #f0ad4e !important;
+}
+.borderRed {
+    border-left-color: #d9534f !important;
+}
+
+.borderBlue {
+    border-left-color: #5bc0de !important;
+}
+
+.borderGreen {
+    border-left-color: #a3d48e !important;
+}
+
+.borderYellow {
+    border-left-color: #EFFF36 !important;
+}
+
+
+/*Home*/
+/*Topo*/
+.site .topo{margin-top: 20px;}
+.site .topo nav.navbar.navbar-default{margin-top: 30px;background-color: #3276b1;}
+.site .topo nav.navbar.navbar-default div#navbar-collapse.collapse.navbar-collapse ul.nav.navbar-nav li a{color: #ffffff; font-size: 18px;}
+.site .topo nav.navbar.navbar-default div#navbar-collapse.collapse.navbar-collapse ul.nav.navbar-nav li.dropdown ul.dropdown-menu li a{color:#111}
+.site .topo nav.navbar.navbar-default div#navbar-collapse.collapse.navbar-collapse ul.nav.navbar-nav li.active {background-color: #3276b1;}
+.site .topo nav.navbar.navbar-default div#navbar-collapse.collapse.navbar-collapse ul.nav.navbar-nav li a:focus{background-color:#5bc0de }
+.site .topo h4 {font-size: 30px;margin-top: 20px;color:#ea7a24}
+.site .topo .acesso a{font-weight: bold;color:#3276b1}
+
+/*Footer*/
+footer{background-color: #5bc0de;color: #ffffff; font-size: 18px;}
+footer .rodape{margin-top: 15px;}
+footer .rodape p{text-align: center; margin-top: 50px;color:#10106a;}
+footer .rodape .endereco{margin-top: 50px;text-align: center}
+footer .rodape .contato h4{font-size:30px;margin-top: 50px;text-align: center;}
+footer .rodape .contato h3{font-size:18px;text-align: center}
+footer h5{text-align: center;color:#199dc4;font-weight: bold}
+
+/*O que é AMACAP*/
+.site .amacap{margin-top: 40px; background-color:#5bc0de;color: #ffffff}
+.site .amacap h3{text-align: center;margin: 25px;}
+.site .amacap p{text-align: center;margin-left: 15px;margin-right: 15px; font-size: 16px;}
+.site .amacap a{text-align: center;margin: 20px;color:#ffffff;}
+.site .amacap a:link{text-decoration: none}
+.site .amacap a:hover{color:#3276b1}
+.navbar-default .navbar-nav .active a:hover{background-color: #5bc0de;color: #555;}
+.navbar-default .navbar-nav .active a:focus {background-color: #5bc0de;color: #555;}
+
+/*Botões - Materiais e Eventos*/
+.site a .bottom{margin-top: 80px;margin-bottom: 80px;text-align: center;background-color: #3276b1;padding: 20px;margin-left: 50px;margin-right: 50px}
+.site a .bottom h4{color: #ffffff;font-size:60px}
+.site a .bottom h3{color: #ffffff;font-size:25px}
+.site a:link{text-decoration: none}
+.site div.content div.ng-scope div.row.ng-scope div.col-sm-6 a div.bottom:hover{background-color: #4e8fc8}
+
+
+/*Materiais Disponíveis*/
+.site .material h4.titulo-material{padding: 25px;background-color: #c7254e;color: #ffffff;font-size: 20px;margin-top: 40px}
+.site .material p{margin-top: 30px;margin-bottom: 30px;}
+.site .material table.table.table-responsive.table-hover tbody tr{height: 50px;margin-top: 25px;}
+
+/*Eventos*/
+.site .eventos h4.titulo-evento {padding: 25px;background-color: #ea7a24;color: #ffffff;font-size: 20px;margin-top: 40px}
+.site .eventos p{margin-top: 30px;margin-bottom: 30px;}
+.site .bloco-evento{background-color: #ffc89e;margin-bottom: 50px;padding: 20px;}
+.site .bloco-evento .bloco-icon{ padding:8px;color: #ffffff;text-align: center}
+.site .bloco-evento .bloco-icon h4.icon{font-size: 60px;}
+.site .bloco-evento a.btn.btn-primary{margin-top: 30px;background-color: #ea7a24;border-color: #ea7a24}
+
+
+.arrow {
+    cursor: pointer;
+    display: block;
+    height: 64px;
+    margin-top: -35px;
+    outline: medium none;
+    position: absolute;
+    top: 50%;
+    width: 64px;
+    z-index: 5;
+}
+.arrow.prev {
+    background-image: url("../imagens/arrows.png");
+    left: 40px;
+    opacity: 0.2;
+    transition: all 0.2s linear 0s;
+}
+.arrow.next {
+    background-image: url("../imagens/arrows.png");
+    opacity: 0.2;
+    background-position: 50px 0px;
+    right: 0px;
+    transition: all 0.2s linear 0s;
+}
+.arrow.prev:hover{
+    opacity:1;
+}
+.arrow.next:hover{
+    opacity:1;
+}
+
+.slide.ng-hide-add.ng-hide-add-active {
+    opacity:0;
+}
+.slide.ng-hide-remove {
+    -webkit-transition:1s linear all;
+    -moz-transition:1s linear all;
+    -o-transition:1s linear all;
+    transition:1s linear all;
+
+    display:block!important;
+    opacity:0;
+}
+.slide, .slide.ng-hide-remove.ng-hide-remove-active {
+    opacity:1;
+}
+
+.pesquisaGoogle td {
+    padding: 5px;
+    color: #000000;
+    margin-bottom: 4px;
+
+}
+
+.pesquisaGoogle td:hover {
+    background-color: lightblue;
+}
+
+
+.pesquisaGoogle{
+    cursor: pointer;
+    background-position: center;
+    background-size: contain;
+    outline: 0;
+    border-color: #ECECEC;
+    border-style: solid;
+    border-width: 1px;
+    width: 95%;
+    background-color: #ffffff;
+    padding: 6px;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    font-size: 14px;
+    z-index: 3000;
+    position: absolute;
+
+}

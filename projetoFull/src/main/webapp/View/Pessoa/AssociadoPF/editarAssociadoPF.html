@@ -1,0 +1,23 @@
+<div class="row">
+
+    <div class="form-group col-sm-6">
+        <label>Associado: <span style="color:red">*</span></label>
+        <select class="form-control"
+                ng-disabled="visualizacaoAtiva"
+                ng-model="associadoPFAtual.pessoaFisica"
+                ng-options="value.nome for value in listaPessoaFisica track by value.id">
+        </select>
+    </div>
+
+    <div class="form-group col-sm-3">
+        <label>Valor Contribuição: <span style="color:red">*</span></label>
+        <input type="number" class="form-control"  required=""  ng-model="associadoPFAtual.valorContribuicao"/>
+    </div>
+
+    <div class="form-group col-sm-3">
+        <label>Ativo: <span style="color:red">*</span></label><br>
+        <label class="radio-inline"><input ng-model="associadoPFAtual.ativo" ng-value="true" type="radio">Sim</label>
+        <label class="radio-inline"><input ng-model="associadoPFAtual.ativo" ng-value="false" type="radio">Não</label>
+    </div>
+
+</div>

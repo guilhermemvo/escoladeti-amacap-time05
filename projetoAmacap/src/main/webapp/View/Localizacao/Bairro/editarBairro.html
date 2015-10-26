@@ -1,0 +1,21 @@
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Nome<span style="color:red"> *</span></label>
+        <input maxlength="255" type="text" class="form-control" name="nome" required="" ng-disabled="visualizacaoAtiva" ng-model="bairroAtual.nome" ng-minlength="3" ng-maxlength="30">
+        <p ng-show="{{nome}}.nome.$error.maxlength">Quantidade maxima de caracteres no nome e de 30 </p>
+        <p ng-show="{{nome}}.nome.$error.minlength">O Nome precisa de no minimo 3 caracteres</p>                            
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Cidade<span style="color:red"> *</span></label>
+        <select class="form-control" required=""
+                ng-disabled="visualizacaoAtiva"
+                ng-model="bairroAtual.cidade"
+                ng-options="value.nome for value in listaCidade track by value.id"
+                >
+        </select>
+    </div>
+</div>
+

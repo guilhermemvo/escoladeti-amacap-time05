@@ -1,0 +1,25 @@
+<div class="row">
+    <div class="form-group col-sm-12">
+        <label>Nome: <span style="color:red">*</span></label>
+        <input type="text" class="form-control" name="nome" val-nome ng-minlength="3" ng-maxlength="30" ng-disabled="visualizacaoAtiva" required="" ng-model="paisAtual.nome" maxlength="31">
+        <p ng-show="{{form}}.nome.$error.required">Campo Obrigatório!</p>
+        <p ng-show="{{form}}.nome.$error.maxlength">O Nome deve conter no máximo 30 caracteres!</p>
+        <p ng-show="{{form}}.nome.$error.minlength">O Nome necessita de no mínimo 3 caracteres! </p>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Código do IBGE: <span style="color:red">*</span></label>
+        <input type="number"  class="form-control" name="ibge" required="" ng-disabled="visualizacaoAtiva" ng-minlength="4" ng-maxlength="4" maxlength="4" ng-model="paisAtual.codigoIBGE" style="text-align: left;">
+        <p ng-show="{{form}}.ibge.$error.required">Campo Obrigatório!</p>
+        <p ng-show="{{form}}.ibge.$error.maxlength">O Código do IBGE deve conter no máximo 4 caracteres!</p>
+        <p ng-show="{{form}}.ibge.$error.minlength">O Código do IBGE de no mínimo 4 caracteres! </p>
+    </div>
+    <div class="form-group col-sm-6">
+        <label>Sigla: <span style="color:red">*</span></label>
+        <input type="text" val-nome name="sigla" class="form-control" maxlength="2" required="" ng-disabled="visualizacaoAtiva" ng-model="paisAtual.sigla" ng-minlength="2" ng-maxlength="2" ng-required="">
+        <p ng-show="{{form}}.sigla.$error.required">Campo Obrigatório!</p>
+        <p ng-show="{{form}}.sigla.$error.maxlength">A Sigla deve conter no máximo 2 caracteres! </p>
+        <p ng-show="{{form}}.sigla.$error.minlength">A Sigla necessita de no mínimo 2 caracteres!</p>
+    </div>
+</div>

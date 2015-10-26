@@ -1,0 +1,36 @@
+<div class="row">
+    <div class="form-group col-sm-12">
+        <label>Nome:<span style="color:red"> *</span></label>
+        <input type="text" class="form-control" name="nome" val-nome ng-minlength="3" ng-maxlength="30" required="" ng-disabled="visualizacaoAtiva" ng-model="cidadeAtual.nome" maxlength="31">
+        <p ng-show="{{form}}.nome.$error.required">Campo Obrigatório!</p>
+        <p ng-show="{{form}}.nome.$error.maxlength">O Nome deve conter no máximo 30 caracteres!</p>
+        <p ng-show="{{form}}.nome.$error.minlength">O Nome necessita de no mínimo 3 caracteres! </p>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Data de Fundação:<span style="color:red"> *</span></label>
+        <input type="date" name="data" placeholder="dd-MM-yyyy" min="01-01-1500" max="25-05-2014" ng-disabled="visualizacaoAtiva" class="form-control"  required="" ng-model="cidadeAtual.dataFundacao" style="text-align: center;">
+        <p ng-show="{{form}}.data.$error.required">Campo Obrigatório!</p>
+    </div>
+
+    <div class="form-group col-sm-6">
+        <label>Código do IBGE:<span style="color:red"> *</span></label>
+        <input type="number" class="form-control" name="ibge" ng-disabled="visualizacaoAtiva" ng-model="cidadeAtual.codigoIBGE" ng-minlength="7" ng-maxlength="7">
+        <p ng-show="{{form}}.ibge.$error.required">Campo Obrigatório!</p>
+        <p ng-show="{{form}}.ibge.$error.maxlength">O Nome deve conter no máximo 7 caracteres!</p>
+        <p ng-show="{{form}}.ibge.$error.minlength">O Nome necessita de no mínimo 7 caracteres! </p>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-12">
+        <label>Estado:<span style="color:red"> *</span></label>
+        <select class="form-control"
+                ng-disabled="visualizacaoAtiva"
+                ng-model="cidadeAtual.unidadefederativa"
+                ng-options="value.nome for value in listaestados track by value.id" name="estado" required=""
+                >
+        </select>
+        <p ng-show="{{form}}.estado.$error.required">Campo Obrigatório!</p>
+    </div>
+</div>

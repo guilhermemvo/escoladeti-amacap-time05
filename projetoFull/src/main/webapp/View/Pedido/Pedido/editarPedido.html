@@ -1,0 +1,338 @@
+<!--solicitante -->
+<div class="row bs-callout borderBlue">
+    <div class="col-sm-12"> 
+        <div class="row">
+            <div class="col-sm-12">
+                <h4>Solicitante</h4>
+            </div>
+        </div>
+        <div>
+            <div class="row"  ng-show="pedido.solicitante.id">
+                <div class="form-group col-sm-12">
+                    <h5><strong>Pessoa selecionada:</strong> {{pedido.solicitante.nome}}<span class="glyphicon glyphicon glyphicon-trash btn"  ng-click="pedido.solicitante = undefined;
+                                consultaSolicitanteNome = '';"></span> </h5> 
+                </div>
+            </div>
+            <div class="row" ng-hide="pedido.solicitante.id">
+                <div class="form-group col-sm-9">
+                    <label>Busque uma Pessoa pelo nome ou CPF:</label>
+                    <input type="text" class="form-control" ng-model="consultaSolicitanteNome" placeholder="Ex.: José Pereira de Souza ou 000.000.000-00" ng-change="consultaSolicitante(consultaSolicitanteNome)"/>  
+                    <div ng-show="listaSolicitante" class="pesquisaGoogle">
+                        <table class="table table-responsive">
+                            <tbody ng-repeat="t in listaSolicitante">
+                                <tr ng-click="selecionarSolicitante($index);">
+                                    <td ng-click="selecionarSolicitante($index)">{{t.nome}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="form-group col-sm-3">
+                    <label>&nbsp;</label>
+                    <input type="submit" class="form-control btn btn-primary" value="Adicionar Solicitante" ng-click="abrirSolicitante()">
+                </div>
+            </div>
+            <div ng-if="solicitante"  ng-include src="'./View/Pedido/Pedido/solicitante.html'"></div>
+        </div>
+    </div>
+
+</div>
+<!-- fim solicitante -->
+
+<!-- Escola -->      
+<div class="row bs-callout borderBlue">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-12">
+                <h4>Escola</h4>
+            </div>
+        </div>
+        <div class="row"  ng-show="pedido.escola.id">
+            <div class="form-group col-sm-12">
+                <h5><strong>Escola selecionada:</strong> {{pedido.escola.razao}}<span class="glyphicon glyphicon glyphicon-trash btn"  ng-click="pedido.escola = undefined;
+                            consultaEscolaNome = '';"></span> </h5> 
+            </div>
+        </div>
+        <div class="row" ng-hide="pedido.escola.id">
+            <div class="form-group col-sm-10">
+                <label>Busque a Escola pelo nome ou CNPJ:</label>
+                <input type="text" class="form-control" ng-model="consultaEscolaNome" placeholder="Ex.: Escola Municipal Dr. Helenton Cortes ou 01.000.000/0000-00" ng-change="loadListaEscola(consultaEscolaNome)"/>
+                <div ng-show="listaEscolas" class="pesquisaGoogle">
+                    <table class="table table-responsive">
+                        <tbody ng-repeat="t in listaEscolas">
+                            <tr ng-click="selecionarEscola($index);">
+                                <td ng-click="selecionarEscola($index)"><div class="col-sm-6">{{t.fantasia}}</div><div class="col-sm-6">{{t.razao}}</div></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="form-group col-sm-2">
+                <label>&nbsp;</label>{{esc}}
+                <input type="submit" class="form-control btn btn-primary" value="Adicionar Escola" ng-click="abrirEscola();">
+            </div>
+        </div>
+
+    </div>
+</div>
+<div ng-if="esc" ng-include src="'./View/Pedido/Pedido/escola.html'" ></div>
+<div ng-if="pedido.escola.id" ng-include src="'./View/Pedido/Pedido/professor.html'" ></div>
+<div ng-if="pedido.professor.id" ng-include src="'./View/Pedido/Pedido/aluno.html'"></div>
+
+<!--Modal Confirmacao-->
+<!--Modal Confirmacao-->
+<div class="modal fade" id="modalConfirmacao">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+                </button>
+                <h4 class="modal-title">Confirmação de Pedido</strong>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <h3>Solicitante</h3>
+                    <strong>Nome:</strong>{{pedido.solicitante.nome}}<br>
+                    <strong>CPF:</strong>{{pedido.solicitante.cpf}}<br>
+                    <strong>Data Nascimento:</strong>{{pedido.solicitante.dataNascimento}}<br>
+                                        <strong>Gênero:</strong>{{pedido.solicitante.sexo}}<br>
+                                        <strong>Endereços:</strong><br>
+                    <li		ng-repeat="s in pedido.solicitante.enderecos">
+                    
+                        {{s.logradouro.tipoLogradouro.descricao}} {{s.logradouro.nome}},{{s.numero}} | {{s.cidade.nome}} -  {{s.uf.nome}}<br>
+                    </li>
+                    <strong>Telefones</strong><br>
+                    <li		ng-repeat="t in pedido.solicitante.telefones">
+                        {{t.numero}}	-:{{t.tipotelefone.descricao}}<br>
+                    </li>
+
+                    <strong>E-Mail:</strong>
+                    <li		ng-repeat="m in pedido.solicitante.emails">
+                        {{m.email}}<br>
+                    </li>
+                    <hr>
+
+                    <h3>Escola</h3>
+                    <strong>Razão Social:</strong>
+                    {{pedido.escola.razao}}<br>
+                    <strong>CNPJ:</strong>
+                    {{pedido.escola.cnpj}}<br>
+                    
+                    <strong>Fantasia:</strong>
+                    {{pedido.escola.fantasia}}<br>
+                    <strong>Endereços:</strong><br>
+                    <li	ng-repeat="ss in pedido.escola.enderecos">
+                        {{ss.logradouro.tipoLogradouro.descricao}} {{ss.logradouro.nome}},{{ss.numero}} | {{ss.cidade.nome}} -  {{ss.uf.nome}}<br>
+                    </li>  
+
+                    <strong>Telefones:</strong><br>
+                    <li ng-repeat="escolaFone in pedido.escola.telefones">
+                        {{escolaFone.numero}}	-:{{escolaFone.tipotelefone.descricao}}<br>
+                    </li>    
+
+                    <strong>E-Mail:</strong><br>
+                    <li ng-repeat="mail in pedido.escola.emails">
+                        {{mail.email}}<br>
+                    </li>
+
+                    <hr>
+
+                    <h3>Aluno</h3>                      
+
+                    <strong>CPF:</strong>
+                    {{pedido.aluno.cpf}}<br>
+
+                    <strong>Nome Aluno:</strong>
+                    {{pedido.aluno.nome}}<br>
+
+                    <strong>Data Nascimento:</strong>
+                    {{pedido.aluno.dataNascimento}}<br>
+
+                    <strong>Gênero:</strong>
+                    {{pedido.aluno.sexo}}<br>
+
+                    <strong>Endereços:</strong><br>
+                    <li		ng-repeat="ss in pedido.aluno.enderecos">
+                    {{ss.logradouro.tipoLogradouro.descricao}} {{ss.logradouro.nome}},{{ss.numero}} | {{ss.cidade.nome}} -  {{ss.uf.nome}}<br>
+                    </li>
+
+                    <strong>Telefones:</strong><br>
+                    <li		ng-repeat="alunoFone in pedido.aluno.telefones">
+                        {{alunoFone.numero}}	-:{{alunoFone.tipotelefone.descricao}}<br>
+                    </li>
+
+                    <strong>E-Mail:</strong><br>
+                    <li		ng-repeat="alunoMail in pedido.aluno.emails">
+                        {{alunoMail.email}}<br>
+                    </li>
+
+                    <hr>
+                    <h3>Professor</h3>
+
+                    <strong>CPF:</strong>
+                    {{pedido.professor.cpf}}<br>
+
+                    <strong>Nome Professor:</strong>
+                    {{pedido.professor.nome}}<br>
+
+                    <strong>Data Nascimento:</strong>
+                    {{pedido.professor.dataNascimento}}<br>
+
+                    <strong>Gênero:</strong>
+                    {{pedido.professor.sexo}}<br>
+                    <strong>Endereços:</strong>
+                    <li		ng-repeat="ss in pedido.professor.enderecos">
+                    {{ss.logradouro.tipoLogradouro.descricao}} {{ss.logradouro.nome}},{{ss.numero}} | {{ss.cidade.nome}} -  {{ss.uf.nome}}<br>
+                    </li>
+
+                    <strong>Telefones:</strong>
+                    <li		ng-repeat="profFone in pedido.professor.telefones">
+                        {{profFone.numero}}	-:{{profFone.tipotelefone.descricao}}
+                    </li>
+
+                    <strong>E-Mail:</strong>
+                    <li		ng-repeat="profMail in pedido.professor.emails">
+                        {{profMail.email}}
+                    </li>
+
+                    <hr>
+
+                    <h4>Materiais</h4>
+
+                    <li		ng-repeat="listMat in pedido.pedidoMaterial">
+                        <strong>Nome:</strong> {{listMat.material.nome}}		  <strong>Autor:</strong> {{listMat.material.autor}}<br>
+                    </li>
+
+                    <hr>
+                    <strong>Observação:</strong>
+                    {{pedido.observacao}}
+                </div>
+            </div>  
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="init()">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="salvarPedido()">Concluir Pedido</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Material-->
+<div class="row bs-callout borderBlue">
+    <div class="col-sm-12">
+        <div class="row">
+            <div class="col-sm-12">
+                <h4>Material</h4>
+            </div>
+        </div>
+        <div class="row">
+            <div class="form-group col-sm-10">
+                <label>Digite o nome ou o código do material:</label>
+                <input type="text" class="form-control" ng-model="consultaMaterial" placeholder="Ex.: Livro de Matemática, 0013652" ng-change="loadListaMaterial(consultaMaterial)"/>
+            </div>
+            <div class="form-group col-sm-2">
+                <span>&nbsp;</span>
+                <button ng-click="novoMaterial();" class="form-control btn btn-primary" type="button">Novo Material</button>
+            </div>
+        </div>
+        <div ng-include src="'./View/Pedido/Pedido/material.html'"></div>
+        <div ng-show="listaMaterial">
+            <div class="row" >
+                <div class="col-sm-12">
+                    <table class="table table-responsive table-hover">
+                        <thead>
+                            <tr>
+                                <th class="col-sm-6 form-group">Nome</th>
+                                <th class="col-sm-5 form-group">Observação</th>
+                                <th class="col-sm-1 form-group">Selecionar</th>
+                            </tr>
+                        </thead>
+                        <tbody ng-repeat="t in listaMaterial">
+                        <td>{{t.nome}}</td>
+                        <td>{{t.observacao}}</td>
+                        <td>  
+                            <a  ng-click="selecionarMaterial($index)" class="btn btn-warning btn-sm">
+                                <span class="glyphicon glyphicon-hand-left"></span>
+                            </a>
+                        </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="MateriaisSelecionados" ng-show="pedido.pedidoMaterial[0]">
+    <div class="form-group col-sm-12">
+        <h5><strong>Materiais Selecionados: ({{qtdMaterial}})</strong></h5> 
+    </div>
+    <input type="number" ng-model="qtdMaterial" name="qtdMaterial" required="" ng-hide="true" min="1" ng-required="true" />
+    <p ng-show="{{form}}.qtdMaterial.$error.required">Material é Obrigatório</p>
+
+    <table class="table table-responsive table-hover">
+        <thead>
+            <tr>
+                <th class="col-sm-2 form-group">Nome</th>
+                <th class="col-sm-2 form-group">Autor</th>
+                <th class="col-sm-1 form-group">Pag. Inicial</th>
+                <th class="col-sm-1 form-group">Pag. Final</th>
+                <th class="col-sm-2 form-group">Tipo material</th>
+                <th class="col-sm-2 form-group">Ações</th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="t in pedido.pedidoMaterial">
+            <tr>
+
+                <td>{{t.material.nome}}</td>
+                <td>{{t.material.autor}}</td>
+                <td><input type="number" class="form-control" ng-model="t.paginaInicial" required></td>
+                <td><input type="number" class="form-control" ng-model="t.paginaFinal" required></td>
+                <td ng-init="loadTodosTipoDeMaterial();">
+                    <select class="form-control" 
+                        ng-model="t.tipoMaterial"
+                        ng-options="value.descricao for value in listaTipoMaterial track by value.id"
+                        required>
+                    </select>
+                </td>                                 
+                <td>                                      
+                    <a ng-click="editarMaterial($index)" class="btn btn-warning btn-sm">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a ng-click="delMaterial($index)" class="btn btn-danger btn-sm">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div ng-include="'View/Pedido/Volume.html'"></div>
+<div ng-include="'View/Pedido/modalpedidoMaterialInformacoesAdicionais.html'"></div>
+<div class="row bs-callout borderBlue">
+    <div class="col-sm-12"> 
+        <div class="form-group col-sm-12">
+            <label>Observações:</label>
+            <textarea type="text" class="form-control" name="observacao" ng-model="pedido.observacao"></textarea> 
+        </div>
+    </div>
+</div>
+<!-- Demais campos de pedido
+<div class="row">
+    <div class="col-sm-12"> 
+        <div class="form-group col-sm-2">
+            <label>Página Inicial:</label>
+            <input type="text" class="form-control" name="pg-inicial" ng-model="pedido.paginaInicial" required="" ng-required="">
+        </div>
+        <div class="form-group col-sm-2">
+            <label>Página Final:</label>
+            <input type="text" class="form-control" name="pg-final" ng-model="pedido.paginaFinal" required="" ng-required="">
+        </div>
+        <div class="form-group col-sm-8">
+            <label>Tipo de Material: </label>
+            <select class="form-control" name="pg-final" ng-model="pedido.tipoLivroOutros" ng-options="value.descricao as value.descricao for value in listaTipoMaterial" required="">
+            </select>
+
+        </div>
+    </div>	
+</div>
+-->

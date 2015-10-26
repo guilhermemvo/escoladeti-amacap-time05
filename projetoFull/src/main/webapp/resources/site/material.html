@@ -1,0 +1,26 @@
+<div class="main" ng-init="loadTodosLivros()">
+    <div class="container">
+        <section class="hgroup">
+            <h1>Materiais Disponíveis</h1>
+            <ul class="breadcrumb pull-right">
+                <li><a href="index.html">Home</a> </li>
+                <li class="active">Acervo</li>
+            </ul>
+        </section>
+
+        <table class="table table-responsive table-hover">
+            <thead>
+                <tr>
+                    <th>Arquivos</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="material in listarlivros">
+                <tr>
+                    <td>{{material.nome}}</td>
+                </tr>           
+            </tbody>
+        </table>
+    </div>
+</div>
+
+

@@ -1,0 +1,9 @@
+<div class="row">
+    <div class="form-group col-sm-12">
+        <label>Descrição: <span style="color:red">*</span></label>
+        <input type="text" class="form-control" name="descricao" required="" ng-disabled="visualizacaoAtiva" ng-model="funcaoAtual.descricao" ng-minlength="3" ng-maxlength="50" ng-required="">
+        <p ng-show="{{form}}.descricao.$error.maxlength">A Função deve conter no máximo 50 caracteres!  </p>
+        <p ng-show="{{form}}.descricao.$error.minlength">A Função necessita de no mínimo 3 caracteres! </p>
+        <p ng-show="{{form}}.descricao.$error.required">Campo Obrigatório! </p>
+    </div>
+</div>

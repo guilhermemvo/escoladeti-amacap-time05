@@ -1,0 +1,60 @@
+<!-- Breadcrumb-->
+<div class="row">
+    <div class="col-sm-12">
+        <h2>Usuário</h2>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li class="active">Usuário</li>
+        </ol>
+    </div>
+</div>
+<!--Fim Breadcrumb-->
+
+<!-- Página: Lista de Usuário -->
+<div class="row" ng-controller="UsuarioController" ng-init="init()">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <a class="btn btn-default btn-sm" ng-click="incluir()"><span class="glyphicon glyphicon-plus"></span> Novo</a>
+            </div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="form-group col-sm-12">
+                        <input type="text" class="form-control " placeholder="Digite o que você procura" ng-model="search">
+                    </div>
+                </div>
+                <table class="table table-responsive table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-sm-1">Id</th>
+                            <th class="col-sm-6 form-group">Nome do Usuário</th>
+                            <th class="col-sm-3 form-group">Ativo</th>
+                            <th class="col-sm-2 form-group">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="usuario in page.list|filter:search">
+                        <tr>
+                            <td>{{usuario.id}}</td>
+                            <td>{{usuario.login}}</td>
+                            <td ng-if="usuario.ativo == true">Sim</td>
+                            <td ng-if="usuario.ativo != true">Não</td>
+                            <td>
+                                <div class="pull-right">  
+                                    <a href="#/Pessoa/Usuario/{{usuario.id}}" class="btn btn-primary btn-sm">
+                                        <span class="glyphicon glyphicon-eye-open"></span>
+                                    </a>
+                                    <a href="#/Pessoa/Usuario/{{usuario.id}}" class="btn btn-warning btn-sm">
+                                        <span class="glyphicon glyphicon-pencil"></span>
+                                    </a>
+                                    <a ng-click="remover($index)" class="btn btn-danger btn-sm">
+                                        <span class="glyphicon glyphicon-trash"></span>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>  <!-- Fim panel-body -->
+        </div> <!-- Fim panel -->
+    </div> <!-- Fim col -->
+</div> <!-- Fim row-->

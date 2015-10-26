@@ -1,0 +1,33 @@
+<div class="table-responsive">
+    <table class="table no-border hover">
+        <thead class="no-border">
+            <tr>
+                <th class="col-sm-1 form-group">Id</th>
+                <th class="col-sm-4 form-group">Nome</th>
+                <th class="col-sm-1 form-group">Observação</th>
+                <th class="col-sm-2 form-group">Ações</th>
+            </tr>
+        </thead>
+        <tbody class="no-border-y" ng-repeat="material in page.list|filter:search">
+            <tr>
+                <td>{{material.id}}</td>
+                <td>{{material.nome| uppercase }}</td>
+                <td>{{material.observacao| uppercase }}</td>
+
+                <td>
+                    <div class="pull-right">  
+                        <a href="#/Material/Outros/{{material.id}}/Visualizar" class="btn btn-primary btn-sm" title="Visualizar">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </a>
+                        <a href="#/Material/Outros/{{material.id}}/Editar" class="btn btn-warning btn-sm" title="Editar">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a ng-click="remover($index)" class="btn btn-danger btn-sm" title="Removers">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

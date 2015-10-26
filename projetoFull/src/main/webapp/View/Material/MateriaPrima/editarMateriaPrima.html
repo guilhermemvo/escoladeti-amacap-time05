@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Nome *</label>
+   <!-- <input type="text" class="form-control" required="" ng-model="materiaPrimaAtual.nome">-->
+        <input type="text" class="form-control" required="" ng-model="materiaPrimaAtual.nome"  ng-minlength="2" ng-maxlength="30">                        
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-sm-2">
+        <label>Quantidade</label>
+        <input type="text" class="form-control" required="" ng-model="materiaPrimaAtual.quantidade">                        
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-sm-2">
+        <label>Valor Unitário</label>
+        <input type="text" class="form-control" required="" ng-model="materiaPrimaAtual.valorUnitario">                        
+    </div>
+</div>
+
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Unidade Medida: <span style="color:red">*</span></label>
+        <select class="form-control" ng-model="materiaPrimaAtual.unidadeMedida" ng-options="value.descricao for value in listaUnidadeMedida track by value.id" name="unidadeMedida" required="">
+        </select>
+    </div>
+</div>
+
+<!--<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Fornecedor<span style="color:red"> *</span></label>
+        <select class="form-control" required=""
+                ng-model="materiaPrimaAtual.fornecedores"
+                ng-options="value.nome for value in listaFornecedores track by value.id"
+                >
+        </select>
+    </div>
+</div>-->

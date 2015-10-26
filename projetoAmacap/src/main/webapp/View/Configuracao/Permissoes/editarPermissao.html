@@ -1,0 +1,68 @@
+<!-- Breadcrumb-->
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Perfil de Acesso</h3>
+        <ol class="breadcrumb">
+            <li><a href="#"></i> Home</a></li>
+            <li><a href="#Configuracao/Permissoes">Perfil de Acesso</a></li>
+            <li class="active">Novo Perfil de Acesso</li>
+        </ol>
+    </div>
+</div>
+<!-- Fim breadcrumb-->
+
+<div class="row">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Novo Perfil de Acesso</h3>
+            </div>
+            <div class="panel-body">
+
+                <!-- Inicio Cadastro -->
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label>Nome do Perfil de Acesso<span style="color:red"> *</span></label>
+                        <input type="text" class="form-control">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="control-group col-sm-6" ng-if="tipo == 'F'">
+                        <label>Escolha quais áreas este perfil pode acessar:</label>
+
+                        <div class="row">
+                            <div class="col-sm-2">
+                                <label>
+                                    <input type="checkbox">
+                                    Teste 
+                                </label>
+                            </div>
+
+                            <div class="col-sm-2">
+                                <label>
+                                    <input type="checkbox">
+                                    Teste 
+                                </label>
+                            </div> 
+
+                            <div class="col-sm-2">
+                                <label>
+                                    <input type="checkbox">
+                                    Teste 
+                                </label>
+                            </div>  
+                        </div>
+                    </div>
+                </div> <!-- Fim row -->
+
+                <div class="row">
+                    <div class="col-sm-6">
+                        <button class="btn btn-success pull-right">Adicionar</button>
+                    </div>
+                </div>
+                <!-- Fim cadastro -->
+            </div> <!-- Fim panel-body -->
+        </div> <!-- Fim panel -->
+    </div> <!-- Fim col -->
+</div> <!-- Fim row-->

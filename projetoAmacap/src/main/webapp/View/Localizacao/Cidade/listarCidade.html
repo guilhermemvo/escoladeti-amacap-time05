@@ -1,0 +1,32 @@
+<table class="table table-responsive table-hover">
+    <thead>
+        <tr>
+            <th class="col-sm-1 form-group">Id</th>
+            <th class="col-sm-4 form-group">Nome</th>
+            <th class="col-sm-3 form-group">Estado</th>
+            <th class="col-sm-2 form-group">IBGE</th>
+            <th class="col-sm-2 form-group">Ações</th>
+        </tr>
+    </thead>
+    <tbody ng-repeat="cidade in page.list|filter:search">
+        <tr>
+            <td>{{cidade.id}}</td>
+            <td>{{cidade.nome}}</td>
+            <td>{{cidade.unidadefederativa.nome}}</td>
+            <td>{{cidade.codigoIBGE}}</td>
+            <td>
+                <div class="pull-right">  
+                    <a href="#/Localizacao/Cidade/{{cidade.id}}/Visualizar" class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                    <a href="#/Localizacao/Cidade/{{cidade.id}}/Editar" class="btn btn-warning btn-sm">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+                    <a ng-click="remover($index)" class="btn btn-danger btn-sm">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>

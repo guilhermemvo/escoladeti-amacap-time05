@@ -1,0 +1,86 @@
+<div class="main">
+    <div class="container">
+        <section class="hgroup">
+            <h1>Informações</h1>
+            <ul class="breadcrumb pull-right">
+                <li><a href="index.html">Home</a> </li>
+                <li class="active">Contato</li>
+            </ul>
+        </section>
+        <section>
+            <div class="row">
+                <div class="col-sm-12 col-md-12">
+                    <div class="alert alert-info alert-dismissable"> 
+                        Esta pagina está em desenvolvimento!  
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="row">
+                <div class="office_address col-sm-4 col-md-4">
+                    <div class="team_member">
+                        <h5>AMACAP</h5>
+                        <small>Associação Maringaense dos Amigos do Centro de Apoio Pedagógico para Atendimento às Pessoas com Deficiência Visual</small><br><br>
+                        <address>
+                            <strong></strong><br>
+                            R. Martin Afonso, 50 - Zona 02<br>
+                            Maringá - PR<br>
+                            87050-000<br>
+                            <abbr title="Phone">Tel:</abbr> (44)3255-5498
+                        </address>
+                        <address>
+                            <abbr title="Phone">E-mail:</abbr> <a href="mailto:#">first.last@example.com</a>
+                        </address>
+                    </div>
+                </div>
+                <div class="col-sm-8 col-md-8" >
+                    <div class="col-sm-12 col-md-12 mapa">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1830.4589293612516!2d-51.939482152772!3d-23.427334222795718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ecd73287b6a115%3A0x174ef3fbbc36674e!2sR.+Martin+Afonso%2C+50+-+Zona+02%2C+Maring%C3%A1+-+PR!5e0!3m2!1spt-BR!2sbr!4v1416511041366" width="720" height="400" frameborder="0" style="border:0"></iframe>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        <section class="hgroup">
+            <h1>Entre em contato conosco</h1>
+            <h2>Dúvidas, envie seu contato:</h2>
+            
+        </section>
+        <section>
+            <div class="row" ng-hide="emailenviado">
+                <div class="contact_form col-sm-12 col-md-12">
+                    <form>
+                        <div class="row">
+                            <div class="col-sm-6 col-md-6">
+                                <label>Nome:</label>
+                                <input ng-model="email.nome" id="name" required="" class="form-control" type="text" value="">
+                            </div>
+                            <div class="col-sm-6 col-md-6">
+                                <label>E-mail:</label>
+                                <input id="email" class="form-control" required="" ng-model="email.email" type="text" value="">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <label>Título:</label>
+                                <input id="assunto" ng-model="email.assunto" required="" class="form-control" type="text">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-12 col-md-12">
+                                <label>Mensagem:</label>
+                                <textarea id="mensagem" ng-model="email.mensagem" required="" rows="3" class="form-control"></textarea>
+                            </div>
+                            <div class="col-sm-12 col-md-12"><br/>
+                                <a id="submit_btn" class="btn btn-primary" name="submit" ng-click="salvar()">Enviar</a> <span id="notice" class="alert alert-warning alert-dismissable hidden" style="margin-left:20px;"></span> 
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div><h1>E-Mail enviado com sucesso.</h1></div>
+        </section>
+    </div>
+</div>

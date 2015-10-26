@@ -1,0 +1,317 @@
+<div  id="adicionarSolicitante" ng-show="solicitante" ng-hide="pedido.solicitante.id">
+    <div class=" modal-md" >
+        <div class="modal-content">
+            <form name="{{form}}" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <button ng-click="fecharSolicitante()" type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+                    </button>
+                    <h4 class="modal-title">Cadastro de Solicitante</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="row">
+                        <div class="form-group col-sm-12">
+                            <label>Nome: <span style="color:red"> *</span></label>
+                            <input type="text" class="form-control" name="nomeSolicitante"  required="" ng-model="pedido.solicitante.nome" style="white-space: nowrap" val-nome ui-mask ng-maxlength="100" ng-minlength="7" ng-required="" />
+                            <p ng-show="{{form}}.nomeSolicitante.$error.maxlength">O Nome deve contar no máximo 100 caracteres!</p>
+                            <p ng-show="{{form}}.nomeSolicitante.$error.minlength">O Nome necessita de no mínimo 7 caracteres!</p>
+                            <p ng-show="{{form}}.nomeSolicitante.$error.required">Campo Obrigatório!</p> 
+
+                        </div>
+
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label>CPF:<span style="color:red"> *</span></label>
+                        <input type="text" required="" name="solicitanteCpf" id="solicitanteCpf" class="form-control" ng-model="pedido.solicitante.cpf" val-cpf ui-mask style="text-align: left;" ng-required="" ng-minlength="11" ng-maxlenght="14" >
+                        <p ng-show="{{form}}.solicitanteCpf.$error.minlength">O CPF necessita de no mínimo 11 caracteres!</p>
+                        <p ng-show="{{form}}.solicitanteCpf.$error.maxlength">O CPF deve conter no máximo 14 caracteres!</p>
+                        <p ng-show="{{form}}.solicitanteCpf.$error.cpf">CPF inválido!</p>
+                    </div>
+
+                    <div class="form-group col-sm-3">
+                        <label>RG:<span style="color:red"> *</span></label>
+                        <input type="text" name="rgSolicitante" class="form-control"  ng-model="pedido.solicitante.rg" style="text-align: left;" ng-minlength="5" ng-maxlenght="10">
+                        <p ng-show="{{form}}.rgSolicitante.$error.required">Campo Obrigatório!</p>
+                        <p ng-show="{{form}}.rgSolicitante.$error.minlength">O RG necessita de no mínimo 5 caracteres!</p>
+                        <p ng-show="{{form}}.rgSolicitante.$error.maxlength">O RG deve conter no máximo 10 caracteres!</p>
+                    </div>
+
+                    <div class="form-group col-sm-3">
+                        <label>Data de Nascimento: <span style="color:red"> *</span></label>
+                        <input type="date" name="dataNascimentoSolicitante" class="form-control" required="" ng-model="pedido.solicitante.dataNascimento" style="text-align: center;" ng-required="" />
+                        <p ng-show="{{form}}.dataNascimentoSolicitante.$error.required">Campo Obrigatório!</p> 
+                    </div>
+                    <div class="form-group col-sm-3">
+                        <label>Sexo: <span style="color:red"> *</span></label>
+                        <select class="form-control" ng-disabled="visualizacaoAtiva" ng-required="" ng-model="pedido.solicitante.sexo" name="sexoSolicitante">
+                            <option value="M">Masculino</option>
+                            <option value="F">Feminino</option>
+                        </select>     
+                        <p ng-show="{{form}}.sexoSolicitante.$error.required">Campo Obrigatório!</p> 
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-3">
+                            <input type="submit" class="form-control btn btn-primary" value="Adicionar Endereço" data-toggle="modal" data-target="#modalEndereco" ng-click="setFocusPais('#modalEndereco', '#pais'); loadTodosPaises();">
+                        </div>
+                    </div>
+                    <div class="row" >
+                        <div class="col-sm-12">
+                            <table class="table table-responsive table-hover">
+                                <thead>
+                                    <tr>
+                                        <th class="col-sm-1 form-group">CEP</th>
+                                        <th class="col-sm-4 form-group">Logradouro</th>
+                                        <th class="col-sm-2 form-group">Complemento</th>
+                                        <th class="col-sm-1 form-group">Número</th>
+                                        <th class="col-sm-2 form-group">Bairro</th>
+                                        <th class="col-sm-2 form-group">Ações</th>
+                                    </tr>
+                                </thead>
+                                <tbody ng-repeat="e in pedido.solicitante.enderecos">
+                                    <tr>
+                                        <td>{{e.cep}}</td>
+                                        <td>{{e.logradouro.nome}}</td>
+                                        <td>{{e.complemento}}</td>                    
+                                        <td>{{e.numero}}</td>
+                                        <td>{{e.bairro.nome}}</td>
+                                        <td>
+                                            <a ng-click="editarEnderecoSolicitante($index)"  class="btn btn-warning btn-sm">
+                                                <span class="glyphicon glyphicon-pencil"></span>
+                                            </a>
+                                            <a ng-click="removerEnderecoSolicitante($index)" class="btn btn-danger btn-sm">
+                                                <span class="glyphicon glyphicon-trash"></span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="modal fade" id="modalEndereco">
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                    </button>
+                                    <h4 class="modal-title">Adicionar Endereço</h4>
+                                </div>
+                                <div class="modal-body"> 
+                                    <div class="form-group col-sm-2">
+                                        <label>CEP: <span style="color:red"> *</span></label>
+                                        <input type="text" ui-mask="{{'99.999-999'}}" class="form-control" ng-disabled="visualizacaoAtiva" ng-model="enderecos.cep"ng-blur="encontraEnderecoPorCEP(enderecos.cep)" />
+                                    </div> 
+                                    <div class="row">
+                                        <div class="form-group col-sm-5">
+                                            <label>País: <span style="color:red"> *</span> </label>
+                                            <select class="form-control"            
+                                                    ng-disabled="visualizacaoAtiva"
+                                                    ng-model="enderecos.pais"                                    
+                                                    ng-options="value.nome for value in listaPaises track by value.id"
+                                                    ng-change="procurarUfPorIdPais(enderecos.pais.id)"
+                                                    id="pais">
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label>Estado: <span style="color:red"> *</span></label>
+                                            <select class="form-control"
+                                                    ng-disabled="visualizacaoAtiva"
+                                                    ng-model="enderecos.uf"
+                                                    ng-options="value.sigla for value in listaEstados track by value.id"
+                                                    ng-change="procurarCidadePorIdUf(enderecos.uf.id)"
+                                                    >
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-sm-5">
+                                            <label>Cidade: <span style="color:red"> *</span></label>
+                                            <select class="form-control"  name="cidade"
+                                                    ng-disabled="visualizacaoAtiva"
+                                                    ng-model="enderecos.cidade"
+                                                    ng-options="value.nome for value in listaCidade track by value.id"
+                                                    ng-change="procurarBairroPorIdCidade(enderecos.cidade.id)">
+                                            </select>
+                                        </div>
+                                    </div>  
+                                    <div class="row">
+                                        <div class="form-group col-sm-4">
+                                            <label>Bairro: <span style="color:red"> *</span></label>
+                                            <select class="form-control" name="bairro"
+                                                    ng-disabled="visualizacaoAtiva"
+                                                    ng-model="enderecos.bairro"
+                                                    ng-options="value.nome for value in listaBairro track by value.id"
+                                                    ng-change="procurarLogradouroPorIdBairro(enderecos.bairro.id)"
+                                                    >
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-sm-4">
+                                            <label>Logradouro: <span style="color:red"> *</span></label>
+                                            <select class="form-control"  name="logradouro"
+                                                    ng-disabled="visualizacaoAtiva"
+                                                    ng-model="enderecos.logradouro"
+                                                    ng-options="value.nome for value in listaLogradouro track by value.id"
+                                                    >
+                                            </select>                            
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label>Número: <span style="color:red"> *</span></label>
+                                            <input type="text" class="form-control"  ng-disabled="visualizacaoAtiva" ng-model="enderecos.numero" />
+                                        </div>                          
+                                    </div>   
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label>Complemento: </label>
+                                            <input type="text" class="form-control" required="false" ng-disabled="visualizacaoAtiva" ng-model="enderecos.complemento" ng-required="none" />
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger"  data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-success"  data-dismiss="modal" ng-click="adicionarEnderecoSolicitante()">Salvar</button>
+                                </div>
+                            </div> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class=" col-sm-6">
+                            <div class="row">
+                                <div class="form-group col-sm-5">
+                                    <input type="submit" class="form-control btn btn-primary" value="Adicionar Telefone" data-toggle="modal" data-target="#modalTelefone" ng-click="setFocusTelefone('#modalTelefone', '#telefone')">
+                                </div>
+                            </div>
+                            <div class="row" >
+                                <div class="col-sm-12">
+                                    <table class="table table-responsive table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-sm-3 form-group">Tipo</th>
+                                                <th class="col-sm-6 form-group">Número</th>
+                                                <th class="col-sm-3 form-group">Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody ng-repeat="t in pedido.solicitante.telefones">
+                                            <tr>
+                                                <td>{{t.tipotelefone.descricao}}</td>
+                                                <td>{{t.numero}}</td>
+                                                <td>
+                                                    <a  ng-click="editarTelefoneSolicitante($index)" class="btn btn-warning btn-sm">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a ng-click="delTelefoneSolicitante($index)" class="btn btn-danger btn-sm">
+                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="row">
+                                <div class="form-group col-sm-5">
+                                    <input type="submit" class="form-control btn btn-primary" value="Adicionar Email" data-toggle="modal" data-target="#modalEmail" ng-click="setFocusEmail('#modalEmail', '#email')" >
+                                </div> 
+                            </div>
+                            <div class="row" >
+                                <div class="col-sm-12">
+                                    <table class="table table-responsive table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th class="col-sm-9 form-group">Email</th>
+                                                <th class="col-sm-3 form-group">Ações</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody ng-repeat="e in pedido.solicitante.emails">
+                                            <tr>
+                                                <td>{{e.email}}</td>
+                                                <td>
+                                                    <a  ng-click="editarEmailSolicitante($index)" class="btn btn-warning btn-sm">
+                                                        <span class="glyphicon glyphicon-pencil"></span>
+                                                    </a>
+                                                    <a ng-click="delEmailSolicitante($index)" class="btn btn-danger btn-sm">
+                                                        <span class="glyphicon glyphicon-trash"></span>
+                                                    </a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="modalTelefone">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                    </button>
+                                    <h4 class="modal-title">Adicionar Telefones</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="form-group col-sm-12">
+                                        <div class="row">
+                                            <input type="text" class="form-control" id="telefone" name="telefone"   ng-minlength="10" ng-maxlength="17" ng-model="telefones.numero"   /><br>
+                                            <p ng-show="{{form}}.telefone.$error.minlength">O Telefone necessita de no mínimo 10 caracteres! </p>
+                                            <p ng-show="{{form}}.telefone.$error.maxlength">O Telefone deve conter no máximo 17 caracteres!  </p>
+                                            <p ng-show="{{form}}.telefone.$error.required">Campo Obrigatório!</p>   
+                                        </div>
+
+                                        <div class="row">
+                                            <label>Tipo Telefone: <span style="color:red">*</span></label><br>
+                                            <select name="tipotelefone" class="form-control"
+                                                    ng-disabled="visualizacaoAtiva"
+                                                    ng-model="telefones.tipotelefone"
+                                                    ng-options="value.descricao for value in listatipos track by value.id"
+
+                                                    >
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" class="btn btn-success" ng-disabled="{{form}}.telefone.$invalid" data-dismiss="modal" ng-click="addTelefoneSolicitante()">Salvar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal fade" id="modalEmail">
+                        <div class="modal-dialog modal-md">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+                                    </button>
+                                    <h4 class="modal-title">Adicionar Email</h4>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="row">
+                                        <div class="form-group col-sm-12">
+                                            <div class="row">
+                                                <input type="email" class="form-control" name="email" required="" placeholder="escoladeti@cesumar.br" ng-model="emails.email" val-email ng-minlength="5" ng-maxlength="100" style="white-space: nowrap" ng-required="" />
+                                                <p ng-show="{{form}}.email.$invalid">Email Inválido!</p>
+                                                <p ng-show="{{form}}.email.$error.minlength">O email necessita de no mínimo 5 caracteres! </p>
+                                                <p ng-show="{{form}}.email.$error.maxlength">O email deve conter no máximo 100 caracteres!  </p>
+                                                <p ng-show="{{form}}.email.$error.required">Campo Obrigatório!</p>  
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                    <button type="button" ng-disabled="{{form}}.email.$invalid"  class="btn btn-success" data-dismiss="modal" ng-click="addEmailSolicitante()">Salvar</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>  
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="init(); fecharSolicitante()">Cancelar</button>
+                    <button type="button" class="btn btn-success" ng-disabled="{{form}}.solicitanteCpf.$invalid ||{{form}}.nomeSolicitante.$invalid ||{{form}}.sexoSolicitante.$invalid ||{{form}}.dataNascimentoSolicitante.$invalid ||{{form}}.rgSolicitante.$invalid" data-dismiss="modal" ng-click="salvarSolicitante();">Salvar </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

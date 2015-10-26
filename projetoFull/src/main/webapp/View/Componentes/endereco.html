@@ -1,0 +1,40 @@
+<!-- Lista Endereço -->
+
+<div class="form-group col-sm-3">
+    <input type="submit" class="form-control btn btn-primary" value="Adicionar Endereço" data-toggle="modal" data-target="#modalEndereco" ng-click="novoEndereco()" />
+</div>
+<div class="col-sm-12">
+    <div class="table-responsive">
+        <table class="table no-border hover">
+            <thead class="no-border">
+                <tr>
+                    <th class="col-sm-2 form-group">CEP</th>
+                    <th class="col-sm-3 form-group">Logradouro</th>
+                    <th class="col-sm-1 form-group">Complemento</th>
+                    <th class="col-sm-1 form-group">Número</th>
+                    <th class="col-sm-2 form-group">Bairro</th>
+                </tr>
+            </thead>
+            <tbody class="no-border-y" ng-repeat="e in pessoa.enderecos">
+                <tr>
+                    <!-- adicionado em 20140914byMonica filtro|cep abaixo para view mascarado, caso necessário só deletar o filtro -->
+                    <!-- a row ja estava desalinhada com os demais campos do formulário, aumentei a th col-sm- em 1 unidade -->
+                    <td>{{e.cep| cep}}</td>
+                    <td>{{e.logradouro.nome| uppercase}}</td>
+                    <td>{{e.complemento| uppercase}}</td>                    
+                    <td>{{e.numero}}</td>
+                    <td>{{e.bairro.nome| uppercase}}</td>
+                    <td>
+                        <a ng-click="editarEndereco($index)"  class="btn btn-warning btn-sm" title="Editar">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a ng-click="removerEndereco($index)" class="btn btn-danger btn-sm" title="Remover">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Fim Lista Endereço -->

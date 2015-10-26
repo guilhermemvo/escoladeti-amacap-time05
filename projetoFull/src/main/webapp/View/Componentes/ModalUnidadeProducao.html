@@ -1,0 +1,50 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        $(document).keypress(function (e) {
+            var tecla = (e.keyCode ? e.keyCode : e.which);
+            if (tecla == 13) {
+                adicionarUnidadeProducao();
+            }
+            }
+            e.preventDefault(e);
+            return false;
+        })
+    })</script>
+<div class="modal fade" id="modalUnidadeProducao">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" ng-click="unidadeProducaoModal = false" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+                </button>
+                <h4 class="modal-title">Selecionar a Unidade de Produção</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table table-responsive table-hover">
+                    <thead>
+                        <tr>
+                            <th class="col-sm-4 form-group">Material</th>
+                            <th class="col-sm-4 form-group">Unidade de Produção</th>
+                        </tr>
+                    </thead>
+                    <tbody ng-repeat="pedidoMaterial in pedidoAtual.pedidoMaterial">
+                        <tr>
+                            <td>{{pedidoMaterial.material.nome}}</td>
+                            <td><select ng-model="pedidoMaterial.unidadeProducao" class="form-control">
+                                    <option ng-repeat="unidadeProducao in listaUnidadeProducao" 
+                                            value="{{unidadeProducao}}"
+                                            ng-selected="{{unidadeProducao.id == pedidoMaterial.unidadeProducao.id}}">
+                                        {{unidadeProducao.nome}}
+                                    </option>
+                                </select></td>
+                                <td>{{pedidoMaterial.unidadeProducao.id}}{{pedidoMaterial.unidadeProducao}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>  
+            <div class="modal-footer">
+                <button type="button" ng-click="unidadeProducaoModal = false" class="btn btn-danger" class="close" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="adicionarUnidadeProducao()">Adicionar Unidade de Produção</button>
+            </div>
+        </div>
+    </div>
+</div>

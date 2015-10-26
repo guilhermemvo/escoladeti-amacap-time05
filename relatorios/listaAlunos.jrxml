@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="listaAlunos" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="381945d1-911d-442c-a750-a1441961bd37">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="75"/>
+	<parameter name="diretorioProjeto" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     pessoa."id" AS id,
+     fisica."nome" AS nome,
+     fisica."sexo" AS sexo,
+     fisica."cpf" AS cpf,
+     fisica."rg" AS rg,
+     aluno."deficiencia" AS deficiencia,
+     aluno."serie" AS serie,
+     aluno."turma" AS turma
+FROM
+     "tbcad_pessoa_fisica" fisica INNER JOIN "tbcad_pessoa" pessoa ON fisica."id" = pessoa."id"
+     INNER JOIN "tbcad_aluno" aluno ON pessoa."id" = aluno."id"]]>
+	</queryString>
+	<field name="id" class="java.lang.Long"/>
+	<field name="nome" class="java.lang.String"/>
+	<field name="sexo" class="java.lang.String"/>
+	<field name="cpf" class="java.lang.String"/>
+	<field name="rg" class="java.lang.String"/>
+	<field name="deficiencia" class="java.lang.String"/>
+	<field name="serie" class="java.lang.String"/>
+	<field name="turma" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="170">
+			<image>
+				<reportElement x="11" y="10" width="113" height="147" uuid="c3b926b9-7dd8-4a5a-ad88-02769f57e4c1"/>
+				<imageExpression><![CDATA[$P{diretorioProjeto} + "\\projetoFull\\src\\main\\webapp\\resources\\imagens\\amacap.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="162" width="555" height="1" uuid="7e94018c-4dc8-4320-9065-220e7e12f26d"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="135" y="60" width="158" height="20" uuid="bec346f9-fe2b-4d9b-b65b-666616351021"/>
+				<text><![CDATA[Endereço: Av. Carneiro Leão, 93]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="80" width="158" height="20" uuid="36382d9d-28d4-4b01-b16b-64cd804796f2"/>
+				<text><![CDATA[Cep: 87014-010]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="100" width="158" height="20" uuid="0be5a61e-7446-47a8-a20a-048fe48ce3c3"/>
+				<text><![CDATA[Telefone: (44) 3218-7110]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="120" width="158" height="20" uuid="4550dbd1-ddf6-42fa-8dfd-2748c638292a"/>
+				<text><![CDATA[Maringá - PR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="10" width="359" height="31" uuid="cfa0ac21-9eb0-4b90-9902-eeb96ca104fe"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SansSerif" size="20" isBold="true" isItalic="true" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Relatório de Alunos]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="215" height="20" uuid="ff9e23cb-73a4-4430-8a2b-71974e9072a4"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="215" y="0" width="60" height="20" uuid="165e0538-9bca-45df-8624-a2ee10c63859"/>
+				<text><![CDATA[Sexo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="275" y="0" width="83" height="20" uuid="c0edc856-3b58-48e5-bfc9-69c7280cbb9a"/>
+				<text><![CDATA[CPF]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="358" y="0" width="79" height="20" uuid="6e25d203-e021-44c7-9a6a-7dca32d26dd1"/>
+				<text><![CDATA[RG]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="437" y="0" width="118" height="20" uuid="3989a98e-a85d-44f7-8d68-9f10c665a431"/>
+				<text><![CDATA[Deficiência]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="21" width="555" height="1" uuid="22543d42-30e8-4862-941f-91889a78e752"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="0" width="215" height="20" uuid="248ea1dc-f712-4a4c-9658-89320e254f7d"/>
+				<textFieldExpression><![CDATA[$F{nome}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="215" y="0" width="60" height="20" uuid="985e466c-c4ad-494f-ad17-90f5d23857e1"/>
+				<textFieldExpression><![CDATA[$F{sexo} == "M" ? "Masculino" : "Feminino"]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="275" y="0" width="83" height="20" uuid="97c1b24d-9baa-465b-9a1e-e651b98e37ac"/>
+				<textFieldExpression><![CDATA[$F{cpf}.substring(0,3) + '.' +
+$F{cpf}.substring(3,6) + '.' +
+$F{cpf}.substring(6,9) + '-' +
+$F{cpf}.substring(9,11)]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="358" y="0" width="79" height="20" uuid="dbac888d-47d2-481b-b437-a35e9815b6a6"/>
+				<textFieldExpression><![CDATA[$F{rg}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="436" y="0" width="119" height="20" uuid="2f35b70f-01e9-44ba-8bf1-910c57aa557b"/>
+				<textFieldExpression><![CDATA[$F{deficiencia}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="21" width="555" height="1" uuid="dd5ec230-7196-44b7-b2fc-0da258423589"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="475" y="0" width="80" height="20" uuid="d624899e-8b82-49c9-be4c-0d926ff28b8b"/>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

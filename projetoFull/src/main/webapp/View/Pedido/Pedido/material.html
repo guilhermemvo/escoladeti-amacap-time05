@@ -1,0 +1,263 @@
+<div  id="adicionarMaterial" ng-show="material" ng-hide="true">
+    <div class=" modal-md" >
+        <div class="modal-content">
+            <form name="cadMaterial" enctype="multipart/form-data">
+                <div class="modal-header">
+                    <button type="button" ng-click="fecharMaterial()" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+                    </button>
+                    <h4 class="modal-title">Cadastro de Material</h4>
+                </div>
+                <div class="modal-body">
+
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            <label>Tipo de Material: <span style="color:red"> *</span></label>
+                            <label class="radio-inline">
+                                <input type="radio" name="tipoMaterial" ng-model="tipoMaterial" id="tipoMaterial" value="livro" ng-click="trocarCampos('livro')"> Livro
+                            </label>
+                            <label class="radio-inline">
+                                <input  type="radio" name="tipoMaterial" ng-model="tipoMaterial"  id="tipoMaterial" value="outros" ng-click="trocarCampos('outros')"> Outros
+                            </label>
+                        </div>
+                    </div>
+                    <div ng-if="tipoMaterial == 'livro'">
+                        <div class="row">
+                            <div class="form-group col-sm-4">
+                                <label>Código: <span style="color:red"> *</span></label>
+                                <input type="text" class="form-control" ng-disabled="visualizacaoAtiva" name="codigo" ng-model="materialAtual.codigoPrateleira"  ng-maxlength="30"/>
+                                <p ng-show="{{form}}.codigo.$error.maxlength">O Código deve conter no máximo 30 caracteres! </p>
+                            </div>
+                            <div class="form-group col-sm-8">
+                                <label>Nome: <span style="color:red"> *</span></label>
+                                <input type="text"  val-nome ng-model="materialAtual.nome"  class="form-control" ng-disabled="visualizacaoAtiva" name="nome" ng-maxlength="30" ng-minlength="3" />
+                                <p ng-show="{{form}}.nome.$error.maxlength">O Nome deve conter no máximo 30 caracteres! </p>
+                                <p ng-show="{{form}}.nome.$error.minlength">O Nome necessita de no mínimo 3 caracteres!</p>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-6">
+                                <label>Autor: <span style="color:red"> *</span></label>
+                                <input type="text" class="form-control" ng-disabled="visualizacaoAtiva" name="autor" ng-maxlength="30" ng-minlength="3" val-nome ng-model="materialAtual.autor" />
+                                <p ng-show="{{form}}.autor.$error.maxlength">O Autor deve conter no máximo 30 caracteres!</p>
+                                <p ng-show="{{form}}.autor.$error.minlength">O Autor necessita de no mínimo 3 caracteres!</p>
+
+                            </div>
+                            <div class="form-group col-sm-3">
+                                <label>Edição: <span style="color:red"> *</span></label>
+                                <input type="text" class="form-control" ng-disabled="visualizacaoAtiva" name="edicao" ng-maxlength="30" ng-minlength="3" ng-model="materialAtual.edicao" />
+                                <p ng-show="{{form}}.edicao.$error.maxlength">A Edição deve conter no máximo 30 caracteres! </p>
+                                <p ng-show="{{form}}.edicao.$error.minlength">A Edição necessita de no mínimo 3 caracteres!</p>
+
+                            </div>
+                            <div class="form-group col-sm-2">
+                                <label>Série: <span style="color:red"> *</span></label>
+                                <input type="text" class="form-control" ng-disabled="visualizacaoAtiva" name="serie" ng-maxlength="30" ng-minlength="3" ng-model="materialAtual.serie" />
+                                <p ng-show="{{form}}.serie.$error.maxlength">A Série deve conter no máximo 30 caracteres!</p>
+                                <p ng-show="{{form}}.serie.$error.minlength">A Série necessita de no mínimo 3 caracteres!</p>
+                            </div>
+                            <div class="form-group col-sm-1">
+                                <label>Ano: <span style="color:red"> *</span></label>
+                                <input type="text" class="form-control" ng-disabled="visualizacaoAtiva" name="ano" ng-maxlength="30" ng-minlength="3" ng-model="materialAtual.ano" />
+
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="form-group col-sm-3">
+                                <label>PNLD: <span style="color:red"> *</span></label>
+                                <input type="text" class="form-control" ng-disabled="visualizacaoAtiva" name="pnld" ng-maxlength="30" ng-minlength="3" ng-model="materialAtual.pnld" />
+
+                            </div>
+                            <div class="form-group col-sm-9">
+                                <label>Disciplina: <span style="color:red"> *</span></label>
+                                <select name="disciplina" class="form-control"
+                                        ng-disabled="visualizacaoAtiva"
+                                        ng-model="materialAtual.disciplina"
+                                        ng-options="value.descricao for value in listaDisciplina track by value.id"
+                                        >
+                                </select>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <div ng-if="tipoMaterial == 'outros'">
+                        <div class="row">
+                            <div class="form-group col-sm-12">
+                                <label>Nome: <span style="color:red"> *</span></label>   
+                                <input type="text"  val-nome ng-model="materialAtual.nome"  class="form-control" ng-disabled="visualizacaoAtiva" name="nome" ng-maxlength="30" ng-minlength="3" />
+                                <p ng-show="{{form}}.nome.$error.maxlength">O Nome pode conter no máximo 30 caracteres! </p>
+                                <p ng-show="{{form}}.nome.$error.minlength">O Nome deve conter no mínimo 3 caracteres!</p>
+                            </div>
+                            <div class="form-group col-sm-12">
+                                <label>Observação: </label>   
+                                <input type="text"  val-nome ng-model="materialAtual.observacao"  class="form-control" ng-disabled="visualizacaoAtiva" name="nome" ng-maxlength="30" ng-minlength="3"/>
+                                <p ng-show="{{form}}.observacao.$error.maxlength">A Observação pode conter no máximo 30 caracteres! </p>
+                                <p ng-show="{{form}}.observacao.$error.minlength">A Observação deve conter no mínimo 3 caracteres!</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--
+                    <div ng-if="tipoMaterial == 'outros' || tipoMaterial == 'livro'">
+
+                        <div class="row" >
+                            <div class="col-sm-6">
+                                <table class="table table-responsive table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-sm-2 form-group">Origem</th>
+                                            <th class="col-sm-2 form-group">Observação</th>
+                                            <th class="col-sm-2 form-group">Tipo</th>
+                                            <th class="col-sm-2 form-group">Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="t in material.arquivos">
+                                        <tr>
+                                            <td>{{t.origem}}</td>
+                                            <td>{{t.observacao| uppercase }}</td>
+                                            <td>{{t.tipomaterial.descricao| uppercase }}</td>
+                                            <td>
+                                                <a ng-click="delArquivo($index)" class="btn btn-danger btn-sm">
+                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row" >
+                            <div class="form-group col-sm-6">
+                                <input type="submit" class="form-control btn btn-default" value="Adicionar Arquivo" data-toggle="modal" data-target="#modalArquivo" ng-click="novoArquivo()">
+                            </div>
+                        </div>
+                        <div class="modal fade" id="modalArquivo">
+                            <div class="modal-dialog modal-md">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                        </button>
+                                        <h4 class="modal-title">Adicionar Arquivo: <span style="color:red">*</span></h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="form-group col-md-12">
+                                            <div class="row">
+                                                <label>Arquivo: <span style="color:red">*</span></label>
+                                                <input type="file" class="form-control btn" name="origem" file-model="arquivo.origem" ng-file-select="onFileSelect($files)" multiple />
+                                            </div>    
+                                            <div class="row">    
+                                                <label>Observação:</label>
+                                                <input type="text" class="form-control" name="observacao" ng-model="arquivo.observacao" ng-maxlength="100" ng-required="">
+                                                <p ng-show="{{form}}.observacao.$error.maxlength">Observação deve conter no máximo 100 caracteres! </p>
+                                            </div>
+
+                                            <div class="row">
+                                                <label>Tipo Arquivo: <span style="color:red">*</span></label>
+                                                <select name="tipoarquivo" class="form-control"
+                                                        ng-disabled="visualizacaoAtiva"
+                                                        ng-model="arquivo.tipomaterial"
+                                                        ng-options="value.descricao for value in listatipos track by value.id"
+                                                        required=""
+                                                        ng-required=""
+                                                        />
+
+                                                </select>
+                                                <p ng-show="{{form}}.tipoarquivo.required">Selecione um campo! </p>
+                                            </div>
+                                        </div>
+                                    </div>    
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                        <button type="button" class="btn btn-success" data-dismiss="modal" ng-disabled="!validaArquivo()" ng-click="addArquivo()">Salvar</button>
+                                    </div>    
+
+                                </div>
+                            </div>
+                        </div>
+
+
+
+
+                        <div class="row" >
+                            <div class="col-sm-6">
+                                <table class="table table-responsive table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th class="col-sm-2 form-group">Tipo Material</th>
+                                            <th class="col-sm-2 form-group">Matéria Prima</th>
+                                            <th class="col-sm-2 form-group">Quantidade</th>
+                                            <th class="col-sm-2 form-group">Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody ng-repeat="t in material.materiaprima">
+                                        <tr>
+
+                                            <td>{{t.tipomaterial.descricao| uppercase }}</td>
+                                            <td>{{t.materiaprima.nome| uppercase }}</td>
+                                            <td>{{t.quantidade| currency : '' }}</td>
+                                            <td>
+                                                <a ng-click="delMateriaPrima($index)" class="btn btn-danger btn-sm">
+                                                    <span class="glyphicon glyphicon-trash"></span>
+                                                </a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row" >
+                            <div class="form-group col-sm-6">
+                                <input type="submit" class="form-control btn btn-default" value="Adicionar MateriaPrima" data-toggle="modal" data-target="#modalMateriaPrima" ng-click="novaMateriaPrima()">
+                            </div>
+                        </div>
+                        <div class="modal fade" id="modalMateriaPrima">
+                            <div class="modal-dialog modal-md">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+                                        </button>
+                                        <h4 class="modal-title">Adicionar Matéria Prima</h4>
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row">
+                                            <label>Tipo Material</label>
+                                            <select name="tipoarquivo" class="form-control"
+                                                    ng-disabled="visualizacaoAtiva"
+                                                    ng-model="materiaprima.tipomaterial"
+                                                    ng-options="value.descricao for value in listatipos track by value.id"
+                                                    required=""
+                                                    ng-required=""
+                                                    />
+                                            </select>
+                                        </div>
+                                        <div class="row">
+                                            <label>Matéria Prima</label>
+                                            <select name="tipoarquivo" class="form-control"
+                                                    ng-disabled="visualizacaoAtiva"
+                                                    ng-model="materiaprima.materiaprima"
+                                                    ng-options="value.nome for value in listamateriaprima track by value.id"
+                                                    >
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-md-12">
+                                            <div class="row">
+                                                <label>Quantidade</label>
+                                                <input type="text" class="form-control" min="0" name="quantidade" val-numero ng-model="materiaprima.quantidade" />
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                                            <button type="button" class="btn btn-success" data-dismiss="modal" ng-disabled="!validaMateriaPrima()" ng-click="addMateriaPrima()">Salvar</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="init(); fecharMaterial()">Cancelar</button>
+                    <button type="button" class="btn btn-success" ng-disabled="cadMaterial.$invalid" data-dismiss="modal" ng-click="addMaterial()">Salvar </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

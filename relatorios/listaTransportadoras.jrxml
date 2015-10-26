@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="listaTransportadoras" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="381945d1-911d-442c-a750-a1441961bd37">
+	<property name="ireport.zoom" value="1.4641000000000008"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="27"/>
+	<parameter name="diretorioProjeto" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT 	pessoa.id   as id,
+	juridica.fantasia as fantasia,
+	juridica.razao as razao,
+	juridica.cnpj as cnpj,
+	juridica.ie as ie
+FROM tbcad_pessoa pessoa
+inner join tbcad_pessoa_juridica juridica on juridica.id = pessoa.id
+inner join tbcad_transportadora transportadora on transportadora.id = pessoa.id]]>
+	</queryString>
+	<field name="id" class="java.lang.Long"/>
+	<field name="fantasia" class="java.lang.String"/>
+	<field name="razao" class="java.lang.String"/>
+	<field name="cnpj" class="java.lang.String"/>
+	<field name="ie" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="170">
+			<image>
+				<reportElement x="11" y="10" width="113" height="147" uuid="c3b926b9-7dd8-4a5a-ad88-02769f57e4c1"/>
+				<imageExpression><![CDATA[$P{diretorioProjeto} + "\\projetoFull\\src\\main\\webapp\\resources\\imagens\\amacap.png"]]></imageExpression>
+			</image>
+			<line>
+				<reportElement x="0" y="162" width="555" height="1" uuid="7e94018c-4dc8-4320-9065-220e7e12f26d"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="135" y="60" width="158" height="20" uuid="bec346f9-fe2b-4d9b-b65b-666616351021"/>
+				<text><![CDATA[Endereço: Av. Carneiro Leão, 93]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="80" width="158" height="20" uuid="36382d9d-28d4-4b01-b16b-64cd804796f2"/>
+				<text><![CDATA[Cep: 87014-010]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="100" width="158" height="20" uuid="0be5a61e-7446-47a8-a20a-048fe48ce3c3"/>
+				<text><![CDATA[Telefone: (44) 3218-7110]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="120" width="158" height="20" uuid="4550dbd1-ddf6-42fa-8dfd-2748c638292a"/>
+				<text><![CDATA[Maringá - PR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="135" y="10" width="359" height="31" uuid="cfa0ac21-9eb0-4b90-9902-eeb96ca104fe"/>
+				<textElement textAlignment="Center" markup="none">
+					<font fontName="SansSerif" size="20" isBold="true" isItalic="true" isUnderline="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[Relatório de Transportadoras]]></text>
+			</staticText>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="27" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="217" height="20" uuid="ff9e23cb-73a4-4430-8a2b-71974e9072a4"/>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="369" y="0" width="106" height="20" uuid="c0edc856-3b58-48e5-bfc9-69c7280cbb9a"/>
+				<text><![CDATA[CNPJ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="475" y="0" width="79" height="20" uuid="6e25d203-e021-44c7-9a6a-7dca32d26dd1"/>
+				<text><![CDATA[IE]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="21" width="555" height="1" uuid="22543d42-30e8-4862-941f-91889a78e752"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement x="217" y="0" width="152" height="20" uuid="2995bcf8-ad86-434b-a9d4-0f0c79e54d2c"/>
+				<text><![CDATA[Razão]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="33" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement x="369" y="0" width="106" height="20" uuid="97c1b24d-9baa-465b-9a1e-e651b98e37ac"/>
+				<textFieldExpression><![CDATA[$F{cnpj}.substring(0,2)  + '.' +
+$F{cnpj}.substring(2,5)  + '.' +
+$F{cnpj}.substring(5,8)  + '/' +
+$F{cnpj}.substring(8,12) + '-' +
+$F{cnpj}.substring(12,14)]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="21" width="555" height="1" uuid="dd5ec230-7196-44b7-b2fc-0da258423589"/>
+				<graphicElement>
+					<pen lineWidth="0.5"/>
+				</graphicElement>
+			</line>
+			<textField>
+				<reportElement x="475" y="0" width="80" height="20" uuid="0f45fa99-c776-4b8a-a7da-001488be4aff"/>
+				<textFieldExpression><![CDATA[$F{ie}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="1" width="217" height="20" uuid="7795d02a-327b-4b42-a822-9776c4829b4e"/>
+				<textFieldExpression><![CDATA[$F{fantasia}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="217" y="0" width="152" height="20" uuid="9fee7860-1ada-49f3-ab49-a501a42008bc"/>
+				<textFieldExpression><![CDATA[$F{razao}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="475" y="0" width="80" height="20" uuid="d624899e-8b82-49c9-be4c-0d926ff28b8b"/>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

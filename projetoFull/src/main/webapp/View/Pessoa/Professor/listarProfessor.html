@@ -1,0 +1,36 @@
+<div class="table-responsive">
+    <table class="table no-border table-hover">
+        <thead class="no-border">
+            <tr>
+                <th class="col-sm-1 form-group">Id</th>
+                <th class="col-sm-3 form-group">Nome</th>
+                <th class="col-sm-2 form-group">CPF</th>
+                <th class="col-sm-2 form-group">RG</th>
+                <th class="col-sm-2 form-group">Data Nascimento</th>
+                <th class="col-sm-2 form-group">Ações</th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="pessoa in page.list">
+            <tr>
+                <td>{{pessoa.id}}</td>
+                <td>{{pessoa.nome| uppercase}}</td>
+                <td>{{pessoa.cpf}}</td>
+                <td>{{pessoa.rg}}</td>
+                <td>{{pessoa.dataNascimento| date: 'dd/MM/yyyy'}}</td>
+                <td>
+                    <div class="pull-right">  
+                        <a href="#/Pessoa/Professor/{{pessoa.id}}/Visualizar" class="btn btn-primary btn-sm" title="Visualizar">
+                            <span class="glyphicon glyphicon-eye-open"></span>
+                        </a>
+                        <a href="#/Pessoa/Professor/{{pessoa.id}}/Editar" class="btn btn-warning btn-sm" title="Editar">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                        </a>
+                        <a ng-click="remover($index)" class="btn btn-danger btn-sm" title="Remover">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

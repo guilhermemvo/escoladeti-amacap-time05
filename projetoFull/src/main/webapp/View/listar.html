@@ -1,0 +1,42 @@
+<div class="cl-mcont">		
+    <div class="page-head">
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">{{nome}}</a></li>
+            <li class="active">{{nome}}</li>
+        </ol>
+    </div>		
+    <div class="main-content" ng-init="init()">
+        <div class="row">
+            <div class="col-sm-12">
+                <div class="block-flat">
+                    <div class="header">							
+                        <h3>{{nome}}</h3>
+                    </div>
+                    <br/>
+                    <div class="col-sm-12">
+                        <a class="btn btn-primary pull-right" ng-click="incluir()"><i class="fa fa-plus"></i> Novo</a>
+                        <a href="{{caminhorelatorio}}" style="display: {{displayBtnRelatorio}}" class="btn btn-primary pull-left" title="Relatório" target="_blank" >
+                            <i class="fa fa-print"></i> Imprimir </a>
+                    </div>
+                    
+                    <div class="content">
+                        <form role="form"> 
+                            <div class="row">
+                                <div class="form-group col-sm-12">
+                                    <input maxlength="100" type="text" class="form-control " placeholder="Digite o que você procura" ng-model="search" ng-keyup="procurarPorNome(search)">
+                                </div>
+                            </div>
+                            <div ng-include src="caminholistar"></div>
+                            <center>
+                                <div ng-paginacao></div>
+                            </center>
+                            <div ng-include="'View/Componentes/ModalExcluir.html'"></div>
+                        </form>
+
+                    </div>
+                </div>				
+            </div>
+        </div>
+    </div> 
+</div>

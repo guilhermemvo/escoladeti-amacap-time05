@@ -1,0 +1,111 @@
+<!-- Breadcrumb -->
+<div class="row">
+    <div class="col-sm-12">
+        <h3>Cadastro de Perfil de Acesso</h3>
+        <ol class="breadcrumb">
+            <li><a href="#">Home</a></li>
+            <li> <a href="#Configuracao/PerfilAcesso">Perfil de Acesso</a></li>
+            <li class="active">Cadastro de Unidade Produção</li>
+        </ol>
+    </div>
+</div>
+<!-- Fim breadcrumb -->
+<!-- Página: Editar e Novo Perfil de Acesso -->
+<div class="row" ng-controller="PerfilAcessoController" ng-init="initEditarPerfilAcesso()">
+    <div class="col-sm-12">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title">Novo Perfil de Acesso</h3>
+            </div>
+            <div class="panel-body">
+
+                <!-- Inicio Cadastro -->
+                <div class="row">
+                    <div class="form-group col-sm-6">
+                        <label>Descricao<span style="color:red"> *</span></label>
+                        <input maxlength="45" type="text" class="form-control" required="" ng-model="perfilAcessoAtual.descricao">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-group col-sm-12">
+                        <label>Usuários<span style="color:red"> *</span></label>
+                        <a class="btn btn-default" data-toggle="modal" data-target="#modalUsuario">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>    
+
+                        <label>Item de Acesso<span style="color:red"> *</span></label>
+                        <a class="btn btn-default" data-toggle="modal" data-target="#modalItemAcesso">
+                            <span class="glyphicon glyphicon-plus"></span>
+                        </a>    
+                    </div>                            
+                </div>
+                <div class="row">
+
+                    <div class="form-group col-sm-2">
+                        <a class="form-control btn btn-warning">Editar</a>
+                    </div>
+
+                    <div class="form-group col-sm-2">
+                        <a class="form-control btn btn-success" ng-click="salvar()" >Salvar</a>
+                    </div>
+                </div>	
+
+            </div> <!-- Fim panel-body -->
+        </div><!--Fim panel-primary-->
+    </div> <!-- Fim col-->
+</div> <!-- Fim row -->
+
+
+<!-- Modal Usuários-->
+<div ng-controller="PerfilAcessoController" ng-init="initEditarItemPerfilAcesso()" class="modal face" role="dialog" aria-labelledby="modalUsuarioLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <table class="table table-responsive table-hover">
+                <thead>
+                    <tr>
+                        <th class="col-sm-6 form-group">Usuário</th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="usuario in page.list">
+                    <tr>
+                        <td>{{usuario.login}}</td>
+                        <td>
+                            <a class="btn btn-default" ng-click="adicionarUsuario(usuario)">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </a> 
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-warning" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-success" data-dismiss="modal">Salvar</button>
+            </div>
+        </div>  <!-- Fim panel-body -->
+    </div> <!-- Fim panel -->
+</div> <!-- Fim row-->
+<!-- Fim Modal Usuário -->
+
+
+<!-- Modal Item Acesso-->
+<div ng-controller="ItemAcessoController" ng-init="init()" class="modal face" id="modalItemAcesso" role="dialog" aria-labelledby="modalItemAcessoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalItemAcessoLabel">Item Acesso</h3>
+            </div>
+
+            <div class="modal-body">
+                <div class="row">
+                    <div class="form-group col-sm-5">
+                        <label>Item Acesso</label>
+                        <input type="text" class="form-control" ng-model="ItemAcessoAtual.tituloTela" ng-required="true">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>                    
+<!-- Fim Modal Item Acesso -->

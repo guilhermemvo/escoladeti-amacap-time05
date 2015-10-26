@@ -1,0 +1,63 @@
+<div class="row" >
+    <div class="col-sm-6">
+        <table class="table table-responsive table-hover">
+            <thead>
+                <tr>
+                    <th class="col-sm-3 form-group">Participantes</th>
+                    <th class="col-sm-2 form-group">Pago</th>
+                    <th class="col-sm-1 form-group">Cancelar</th>
+                </tr>
+            </thead>
+            <tbody ng-repeat="participante in participantes | orderBy:'pessoa.nome'">
+                <tr>
+                    <td>{{participante.pessoa.nome | uppercase }}</td>
+                    <td>
+                        <select class="form-control" ng-model="participante.pago" name="pago">
+                            <option value="true">Sim</option>
+                            <option value="false">Não</option>
+                        </select>
+                    </td>
+                    <td>
+                        <a ng-click="remover($index)" class="btn btn-danger btn-sm">
+                            <span class="glyphicon glyphicon-trash"></span>
+                        </a>
+                    </td>                    
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div> 
+
+<div class="row" >
+    <div class="form-group col-sm-6">
+        <input type="submit" id="adicionarNovoParticipante" class="form-control btn btn-default" ng-disabled="validarQuantidadeVagas()" data-toggle="modal" data-target="#modalInscricao" >
+    </div>
+</div>
+<div class="modal fade" id="modalInscricao">
+    <div class="modal-dialog modal-md">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Fechar</span>
+                </button>
+                <h4 class="modal-title">Adicionar Pessoa</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group col-md-12">
+                    <div class="row">
+                        <label>Pessoas</label>
+                        <select id="pessoaSelect" name="pessoa" class="form-control" 
+                                ng-disabled="visualizacaoAtiva"
+                                ng-model="inscritoAtual.pessoa"
+                                ng-options="value.nome for value in listapessoas track by value.id">
+                        </select>
+                        
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="addParticipante()">Salvar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

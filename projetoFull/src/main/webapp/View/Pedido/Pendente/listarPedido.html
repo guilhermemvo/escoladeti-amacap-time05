@@ -1,0 +1,64 @@
+<div class="row">
+    <div class="form-group col-sm-1 ">
+        Pesquisa por data de:
+    </div>
+    <div class="form-group col-sm-3">
+        <input type="date" class="form-control "  ng-model="de" ng-change="procurarPorData(de, ate)">
+    </div>
+    <div class="form-group col-sm-1 ">
+        até:
+    </div>
+    <div class="form-group col-sm-3">
+        <input type="date" class="form-control "  ng-model="ate" ng-change="procurarPorData(de, ate)">
+    </div>
+</div>
+<table class="table table-responsive table-hover">
+    <thead>
+        <tr>
+            <th ng-click="predicate = 'id';
+                reverse = !reverse" class="col-sm-1 form-group">Pedido</th>
+            <th ng-click="predicate = 'solicitante.nome';
+                reverse = !reverse" class="col-sm-4 form-group">Solicitante</th>
+            <th ng-click="predicate = 'data_pedido';
+                reverse = !reverse" class="col-sm-1 form-group">Data</th>
+
+            <th class="col-sm-2 form-group">Status</th>
+            <th class="col-sm-2 form-group">Ações</th>
+        </tr>
+    </thead>
+
+
+    <tbody ng-repeat="pedido in page.list| orderBy:predicate:reverse | filter:search">
+        <tr>
+            <td>{{pedido.id}}</td>
+            <td>{{pedido.solicitante.nome}}</td>
+            <td>{{pedido.dataPedido| date: 'dd/MM/yyyy'}}</td>
+            <td>{{pedido.status}}</td>
+            <td>
+                <a ng-click="modalOficio($index)" class="{{pedido.status.oficio}}"><i class="fa fa-file-text-o fa-2x fa-fw" title="Ofício"></i></a>
+                <a ng-click="modalMaterial($index)" class="{{pedido.status.material}}"><i class="fa fa-book  fa-2x " title="Material"></i></a>
+                <a ng-click="modalNota($index)"><i class="fa fa-tags  fa-2x " title="Notas"></i></a>
+                <a ng-click="modalUnidadeProducao($index)"><i class="fa fa-child fa-2x " title="Unidade de Produção"></i></a>
+
+            </td>
+            <td>
+                <div class="pull-right">  
+                    <a href="#/Pedido/Pedido/{{pedido.id}}/Visualizar" class="btn btn-primary btn-sm" title="Visualizar">
+                        <span class="glyphicon glyphicon-eye-open"></span>
+                    </a>
+                    <a href="#/Pedido/Pedido/{{pedido.id}}/Editar" class="btn btn-warning btn-sm" title="Editar">
+                        <span class="glyphicon glyphicon-pencil"></span>
+                    </a>
+
+                    <a ng-click="remover($index)" class="btn btn-danger btn-sm" title="Cancelar Pedido">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </a>
+                </div>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<div ng-if="oficioModal"  ng-include src="'./View/Componentes/ModalOficio.html'"></div>
+<div ng-if="materialModal"  ng-include src="'./View/Componentes/ModalMaterial.html'"></div>
+<div ng-if="notasModal"  ng-include src="'./View/Componentes/ModalNotas.html'"></div>
+<div ng-if="unidadeProducaoModal"  ng-include src="'./View/Componentes/ModalUnidadeProducao.html'"></div>

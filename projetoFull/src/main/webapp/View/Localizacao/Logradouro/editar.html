@@ -1,0 +1,39 @@
+<div class="row">
+    <div class="form-group col-sm-12">
+        <label>Nome:<span style="color:red"> *</span></label>
+        <input type="text" class="form-control" required="" name="nome" val-nome required="" ng-disabled="visualizacaoAtiva" ng-model="logradouroAtual.nome" ng-minlength="3" ng-maxlength="30" maxlength="31">
+        <p ng-show="{{form}}.nome.$error.maxlength">O Nome deve conter no m�ximo 30 caracteres!</p>
+        <p ng-show="{{form}}.nome.$error.minlength">O Nome necessita de no m�nimo 3 caracteres!</p>
+        <p ng-show="{{form}}.nome.$error.required">Campo Obrigatório!</p>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Bairro:<span style="color:red"> *</span></label>
+        <select class="form-control" required=""
+                ng-model="logradouroAtual.bairro"
+                ng-options="value.nome for value in listaBairro track by value.id" name="bairro"
+                >
+        </select>
+        <p ng-show="{{form}}.bairro.$error.required">Campo Obrigatório!</p>
+    </div>
+    <div class="form-group col-sm-6">
+        <label>Cidade: <span style="color:red">*</span></label>
+        <select class="form-control" required=""
+                ng-model="logradouroAtual.cidade"
+                ng-options="value.nome for value in listaCidade track by value.id" name="cidade">
+        </select>
+        <p ng-show="{{form}}.cidade.$error.required">Campo Obrigatório!</p>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group col-sm-6">
+        <label>Tipo Logradouro: <span style="color:red">*</span></label>
+        <select class="form-control" required=""
+                ng-model="logradouroAtual.tipoLogradouro"
+                ng-options="value.descricao for value in listaTipoLogradouro track by value.id" name="tipoLogradouro"
+                >
+        </select>
+        <p ng-show="{{form}}.tipologradouro.$error.required">Campo Obrigatório!</p>
+    </div>
+</div>
